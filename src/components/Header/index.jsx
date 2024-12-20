@@ -28,7 +28,7 @@ function Header() {
                         <FaRightToBracket/>
                     </Link> */}
                     <a href="">
-                        <span>login</span>
+                        <span>Login</span>
                     </a>
                 </div>
             </nav>

@@ -1,9 +1,9 @@
 .header{
     width: 100%;
     height: 90px;
-    background-color: var(--quaternary);
+    background-color: #E0F7FF;
     color: var(--terceary);
-    border: 2px solid var(--quaternary);
+    border: 2px solid #E0F7FF;
     box-shadow: 0 0.3px 5px;
 }
 
