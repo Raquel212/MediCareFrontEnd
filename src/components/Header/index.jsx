@@ -1,5 +1,5 @@
 // import {FaRightToBracket} from 'react-icons/fa';
-// import {Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 import styles from './Header.module.css';
 import logo from "../../assets/Logo_Sem.png";
 
@@ -9,27 +9,21 @@ function Header() {
         <header className={styles.header}>
             <nav className={styles.nav}>
                 <div className={styles.logo}>
-                    {/* <Link to="/">
-                        <img src="logo.png" alt="Logo"/>
-                    </Link> */}
-                    <a href="">
+                    <Link to="/">
                         <img src={logo} alt="Logo" className={styles.logo}/>
-                    </a>
+                    </Link>
                 </div>
 
                 <div className={styles.quemSomos}>
-                    <a href="">
+                    <Link to="/quemSomos">
                         <span>Quem Somos</span>
-                    </a>
+                    </Link>
                 </div>
 
                 <div className={styles.login}>
-                    {/* <Link to="/login">
-                        <FaRightToBracket/>
-                    </Link> */}
-                    <a href="">
+                    <Link to="/login">
                         <span>Login</span>
-                    </a>
+                    </Link>
                 </div>
             </nav>
         </header>

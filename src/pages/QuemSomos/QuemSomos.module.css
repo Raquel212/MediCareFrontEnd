@@ -1,0 +1,85 @@
+.quemSomos {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #FFFFFF;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column; /* Para garantir que os cards fiquem abaixo */
+    align-items: center;
+}
+
+.quemSomosHero {
+    max-width: 1200px;
+    display: flex; /* Flexbox para colocar a imagem e o texto lado a lado */
+    justify-content: space-between; /* Distribui os itens */
+    align-items: center; /* Alinha ao centro */
+    margin-bottom: 50px; /* Espaço entre os elementos */
+}
+
+.quemSomosTexto {
+    flex: 1; /* Para que ocupe o restante do espaço disponível */
+    max-width: 50%; /* Limita a largura do texto */
+}
+
+.quemSomosTexto .tituloquemSomos {
+    font-size: 50px;
+    color: #004D99;
+    margin-bottom: 20px;
+}
+
+.quemSomosTexto .textoquemSomos {
+    font-size: 20px;
+    color: #004D99;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify;
+    margin-top: 30px;
+}
+
+.quemSomosImagem {
+    flex: 1; /* Para a imagem ocupar o espaço restante */
+    max-width: 45%; /* Limita o tamanho da imagem */
+}
+
+.imagemQuemSomos {
+    width: 100%;
+    height: auto;
+    margin-left: 150px;
+    border-radius: 10px; /* Adiciona borda arredondada à imagem */
+}
+
+.quemSomosCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 50px; /* Espaço para separar dos elementos acima */
+}
+
+.card {
+    background-color: #004D99;
+    color: white;
+    width: 300px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+.card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #E0F7FF;
+}
+
+.card p {
+    font-size: 16px;
+    color: #E0F7FF;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
