@@ -13,10 +13,12 @@
 
 .nav .quemSomos{
     margin-left: 75rem;
+    font-size: 20px;
 }
 
 .nav .login{
     margin-right: 3.125rem;
+    font-size: 20px;
 }
 
 .nav {

@@ -30,17 +30,17 @@
 
 .saibaMais {
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 25px;
     font-weight: bold;
     border: 0;
     border-radius: 5px;
     background-color: #00AEEF; /* Azul de destaque */
-    color: white;
+    color: #E0F7FF;
     cursor: pointer;
 }
 
 .saibaMais:hover {
-    background-color: white;
+    background-color: #E0F7FF;
     color: #00AEEF;
 
 }
