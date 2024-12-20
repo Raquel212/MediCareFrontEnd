@@ -1,0 +1,21 @@
+:root {
+  font-family: 'Times New Roman', Times, serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --primary: #0063F2;
+  --secondary: #B8B8B8;
+  --terceary: #020202;
+  --quaternary: #FFFFFF;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+

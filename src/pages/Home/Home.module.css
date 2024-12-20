@@ -1,0 +1,56 @@
+/* CSS da Home Boas Vindas */
+
+.containerHome {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #E0F7FF; /* Azul claro de fundo */
+    padding: 0 100px;
+}
+
+.apresentacao {
+    max-width: 500px;
+}
+
+.tituloHome {
+    font-size: 60px;
+    font-weight: bold;
+    color: #004D99; /* Azul escuro */
+    margin-bottom: 20px;
+}
+
+.textoHome {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.saibaMais {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 0;
+    border-radius: 5px;
+    background-color: #00AEEF; /* Azul de destaque */
+    color: white;
+    cursor: pointer;
+}
+
+.saibaMais:hover {
+    background-color: white;
+    color: #00AEEF;
+
+}
+
+.imagemHome {
+    width: 600px;
+    height: 600px;
+    background-image: url('/public/Home.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+
+}
