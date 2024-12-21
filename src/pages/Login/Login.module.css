@@ -165,3 +165,79 @@
     border-radius: 50%;
     padding: 8px;
 }
+
+
+
+
+.passwordField {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.togglePasswordButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    color: #004D99;
+    font-size: 1.2rem;
+}
+
+/* Estilo dos campos de entrada */
+.inputField {
+    width: 100%; /* Ajusta a largura para ocupar o espaço disponível */
+    max-width: 320px; /* Define o tamanho máximo */
+    height: 50px; /* Define a altura para coincidir com o botão */
+    padding: 10px; /* Adiciona espaçamento interno */
+    font-size: 16px; /* Ajusta o tamanho da fonte */
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.inputField:focus {
+    border-color: #007bff;
+}
+
+/* Botão de login */
+.loginButton {
+    width: 100%; /* Ajusta a largura para ocupar o espaço disponível */
+    max-width: 320px; /* Define o tamanho máximo */
+    height: 50px; /* Mesma altura dos campos de entrada */
+    background-color: #00AEEF;
+    color: #E0F7FF;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.loginButton:hover {
+    background-color: #E0F7FF;
+    color: #00AEEF;
+}
+
+/* Campo de senha com ícone */
+.passwordField {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%; /* Ajusta a largura para ocupar o espaço disponível */
+    max-width: 320px; /* Define o tamanho máximo */
+}
+
+.togglePasswordButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    color: #004D99;
+    font-size: 1.2rem;
+}
+

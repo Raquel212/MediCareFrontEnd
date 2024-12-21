@@ -1,4 +1,4 @@
-.header{
+.header {
     width: 100%;
     height: 90px;
     background-color: #E0F7FF;
@@ -7,35 +7,36 @@
     box-shadow: 0 0.3px 5px;
 }
 
-.logo{
+.logo {
     width: 180px;
-}
-
-.nav .quemSomos{
-    margin-left: 75rem;
-    font-size: 20px;
-}
-
-.nav .login{
-    margin-right: 3.125rem;
-    font-size: 20px;
 }
 
 .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 1rem; 
+}
+
+.nav .quemSomos {
+    margin-left: auto; 
+    font-size: 20px;
+}
+
+.nav .login {
+    margin-left: 1rem; 
+    font-size: 20px;
 }
 
 .nav .quemSomos a,
-.nav .login a{
-    text-decoration: none; 
+.nav .login a {
+    text-decoration: none;
     color: #004D99;
     font-weight: bold;
 }
 
 .nav .login a:hover, 
 .nav .quemSomos a:hover {
-    color: #00AEEF; 
+    color: #00AEEF;
 }
 
