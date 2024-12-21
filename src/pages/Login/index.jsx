@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { FaFacebook, FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa'; // Ícones do olho
@@ -22,7 +22,7 @@ function Login() {
                             <form className={styles.loginForm}>
                                 <input 
                                     type="text" 
-                                    placeholder="Nome do Usuário" 
+                                    placeholder="Email" 
                                     className={styles.inputField} 
                                 />
                                 <div className={styles.passwordField}>

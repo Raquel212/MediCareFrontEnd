@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
@@ -27,7 +27,7 @@ function Cadastro() {
                             <form className={styles.cadastroForm}>
                                 <input 
                                     type="text" 
-                                    placeholder="Nome Completo" 
+                                    placeholder="Nome Sobrenome" 
                                     className={styles.inputField} 
                                 />
                                 <input 
@@ -68,6 +68,9 @@ function Cadastro() {
                             <div className={styles.cadastroLinks}>
                                 <p>Já tem uma conta?<a href="/login" className={styles.link}> Faça login</a></p>
                             </div>
+                        </div>
+                        <div className={styles.imageCadastro}>
+                            <img src="/Login2.jpg" alt="Imagem de Login" className={styles.cadastroImage} />
                         </div>
                     </div>
                     

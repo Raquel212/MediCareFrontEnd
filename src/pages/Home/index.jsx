@@ -11,7 +11,9 @@ function Home(){
                 <div className={styles.apresentacao}>
                 <h1 className={styles.tituloHome}>MediCare</h1>
                 <p className={styles.textoHome}>
-                    Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.
+                    Mantenha o controle dos seus medicamentos de forma simples e prática. 
+                    Com MediCare, você nunca mais esquecerá horários importantes e terá tudo o que precisa para cuidar da 
+                    sua saúde com tranquilidade. Experimente agora!
                 </p>
                 <button className={styles.saibaMais}>Read more</button>
                 </div>
