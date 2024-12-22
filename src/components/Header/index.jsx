@@ -1,4 +1,3 @@
-// import {FaRightToBracket} from 'react-icons/fa';
 import {Link} from "react-router-dom";
 import styles from './Header.module.css';
 import logo from "../../assets/Logo_Sem.png";
