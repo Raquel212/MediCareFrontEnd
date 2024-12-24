@@ -1,0 +1,113 @@
+.containerEsqueceuSenha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 160px);
+    background: url('/public/Cadastro.png') no-repeat center center/cover;
+    padding: 20px;
+}
+
+.formContainerEsqueceuSenha {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+.logoEsqueceuSenha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.esqueceuSenhaLogo {
+    width: 250px;
+    height: auto;
+}
+
+.tituloEsqueceuSenha {
+    font-size: 24px;
+    color: #004D99;
+    margin-bottom: 10px;
+}
+
+.subtituloEsqueceuSenha {
+    font-size: 16px;
+    color: #6c757d;
+    margin-bottom: 30px;
+}
+
+.formEsqueceuSenha {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.labelEsqueceuSenha {
+    font-size: 20px;
+    color: #333333;
+    text-align: left;
+    margin-bottom: 3px;
+}
+
+.inputEsqueceuSenha {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.inputEsqueceuSenha:focus {
+    border-color: #004D99;
+}
+
+.botaoEsqueceuSenha {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #00AEEF;
+    color: #E0F7FF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botaoEsqueceuSenha:hover {
+    background-color: #E0F7FF;
+    color: #00AEEF;
+}
+
+.voltarLoginEsqueceuSenha {
+    display: block;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #004D99;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.voltarLoginEsqueceuSenha:hover {
+    color: #003366;
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .formContainerEsqueceuSenha {
+        padding: 20px;
+    }
+
+    .tituloEsqueceuSenha {
+        font-size: 20px;
+    }
+
+    .subtituloEsqueceuSenha {
+        font-size: 14px;
+    }
+}
