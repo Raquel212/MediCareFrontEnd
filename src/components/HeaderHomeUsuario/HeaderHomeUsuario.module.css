@@ -1,0 +1,103 @@
+.headerHomeUsuario {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #E0F7FF;
+    color: #004D99;
+    padding: 30px 20px;
+    position: relative;
+}
+
+.iconHomeUsuario {
+    font-size:30px;
+    cursor: pointer;
+    color: #004D99;
+    z-index: 1100;
+}
+
+.menuLateralHomeUsuario {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Menu oculto inicialmente */
+    width: 250px;
+    height: 100vh;
+    background-color: #E0F7FF;
+    color: #004D99;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    transition: left 0.3s ease-in-out;
+}
+
+.menuLateralHomeUsuario.aberto {
+    left: 0; /* Quando aberto, o menu fica visível */
+}
+
+.menuLateralHomeUsuario ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 50px;
+}
+
+.menuLateralHomeUsuario li {
+    
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+}
+
+.menuLateralHomeUsuario a {
+    text-decoration: none;
+    color: #004D99;
+    font-size: 22px;
+    margin-left: 10px;
+    transition: color 0.3s;
+}
+
+.menuLateralHomeUsuario a:hover {
+    color: #00AEEF;
+}
+
+.menuIconHomeUsuario {
+    font-size: 25px;
+    margin-right: 10px;
+    color: #004D99;
+}
+
+.perfilDropdownHomeUsuario {
+    position: absolute;
+    top: 50px;
+    right: 20px; 
+    background-color: #E0F7FF;
+    color: #004D99;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    z-index: 1000;
+    margin-top: 20px;
+}
+
+.perfilDropdownHomeUsuario ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.perfilDropdownHomeUsuario li {
+
+    margin: 10px 0;
+}
+
+.perfilDropdownHomeUsuario a {
+    text-decoration: none;
+    color: #004D99;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.perfilDropdownHomeUsuario a:hover {
+    color: #00AEEF;
+}

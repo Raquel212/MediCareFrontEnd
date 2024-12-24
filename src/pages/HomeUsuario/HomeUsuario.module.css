@@ -1,0 +1,297 @@
+/* Container principal */
+.containerHomeUsuario {
+    margin: 20px;
+    padding: 30px;
+    background-color: #E0F7FF;
+    border-radius: 12px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+/* Seção de boas-vindas */
+.welcomeSection {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 20px;
+    /* background-color: #004D99; */
+    border-radius: 12px;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+}
+
+.welcomeSection .tituloWelcome {
+    font-size: 42px;
+    color: #004D99;
+}
+
+.welcomeSection .subtituloWelcome {
+    font-size: 25px;
+    color: #000;
+    margin-top: 10px;
+}
+
+/* Seção de card Calendario*/
+.cardsSection {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 620px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1;
+}
+
+
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card .calendarioTitulo, .tituloMedicaCalendar {
+    font-size: 32px;
+    color: #004D99;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Calendário */
+.calendar {
+    max-width: 340px;
+    margin: 0 auto;
+    border-radius: 12px;
+    font-size: 20px;
+    padding: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Medicamentos do Dia */
+.dateInfo {
+    margin-top: 20px;
+    text-align: left;
+    padding: 10px;
+    background-color: #E0F7FF;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dateInfo ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dateInfo ul li {
+    margin: 8px 0;
+    font-size: 25px;
+    text-align: center;
+}
+
+.takeButton {
+    background-color: #00AEEF;
+    color: #E0F7FF;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+.takeButton:hover {
+    background-color: #E0F7FF;
+    color: #00AEEF;
+}
+
+.takeButton:active {
+    transform: translateY(2px);
+}
+
+/* Medicamentos em Estoque */
+
+.cardEs{
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    width: 450px;
+    height: 400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cardEs ul {
+    padding: 0;
+    margin: 20px 40px 0px;
+    font-size: 25px;
+    text-align: justify;
+}
+
+.cardEs ul li {
+    margin: 10px 0;
+    color: #000;
+}
+
+.cardEs:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+
+.estoqueTitulo{
+    font-size: 30px;
+    color: #004D99;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Dica do Dia */
+.cardDica{
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    width: 350px;
+    height: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cardDica .textoDica {
+    font-size: 20px;
+    color: #000;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.cardIcon {
+    font-size: 46px;
+    color: #004D99;
+    margin-bottom: 30px;
+}
+
+.cardDica:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .welcomeSection .tituloWelcome {
+        font-size: 35px;
+    }
+
+    .welcomeSection .subtituloWelcome {
+        font-size: 16px;
+    }
+
+    .cardsSection {
+        gap: 20px;
+    }
+
+    .card {
+        max-width: 100%;
+    }
+
+    .calendar {
+        max-width: 100%;
+        font-size: 18px;
+    }
+
+    .cardEs {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .cardDica {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .containerHomeUsuario {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .welcomeSection .tituloWelcome {
+        font-size: 28px;
+    }
+
+    .welcomeSection .subtituloWelcome {
+        font-size: 14px;
+    }
+
+    .card {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .calendar {
+        max-width: 100%;
+        font-size: 16px;
+    }
+
+    .cardEs, .cardDica {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .cardEs{
+        height: 490px;
+    }
+
+    .dateInfo ul li {
+        font-size: 20px;
+    }
+
+    .takeButton {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcomeSection .tituloWelcome {
+        font-size: 24px;
+    }
+
+    .welcomeSection .subtituloWelcome {
+        font-size: 12px;
+    }
+
+    .card {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .calendar {
+        font-size: 14px;
+    }
+
+    .cardEs, .cardDica {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .dateInfo ul li {
+        font-size: 18px;
+    }
+
+    .takeButton {
+        font-size: 10px;
+        padding: 5px 10px;
+    }
+}
