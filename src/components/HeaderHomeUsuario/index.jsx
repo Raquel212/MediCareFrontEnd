@@ -1,6 +1,8 @@
 import { useState } from "react";
 import styles from './HeaderHomeUsuario.module.css';
 import { FaBars, FaTimes, FaUserCircle, FaPills, FaCalendarAlt, FaHistory, FaFileAlt, FaCog } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import logo from '../../assets/Logo_Sem.png';
 
 function HeaderHomeUsuario() {
     const [menuAberto, setMenuAberto] = useState(false);
@@ -22,7 +24,11 @@ function HeaderHomeUsuario() {
                 <div onClick={toggleMenu} className={styles.iconHomeUsuario}>
                     {menuAberto ? <FaTimes /> : <FaBars />}
                 </div>
-                <h1 className={styles.tituloHomeUsuario}>MediCare</h1>
+                <div className={styles.logoHearderHomeUsuario}>
+                    <Link to="/home">
+                        <img src={logo} alt="Logo" className={styles.logoHearderHomeUsuario}/>
+                    </Link>
+                </div>
                 <div onClick={togglePerfil} className={styles.iconHomeUsuario}>
                     <FaUserCircle />
                 </div>
