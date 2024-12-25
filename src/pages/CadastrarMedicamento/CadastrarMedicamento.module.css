@@ -1,0 +1,93 @@
+.cadastrarMedicamento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff; 
+    min-height: 100vh;
+}
+
+.tituloCadastrarMedicamento {
+    font-size: 2rem;
+    color: #004D99; /* Cor para títulos */
+    margin-bottom: 20px;
+}
+
+.formMedicamento {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 500px;
+    background-color: #E0F7FF; /* Fundo dos formulários */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.formMedicamento label {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    color: #004D99;
+    font-weight: bold;
+}
+
+.formMedicamento input {
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #004D99; /* Cor para bordas */
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.formMedicamento input[type="file"] {
+    padding: 5px;
+}
+
+.botaoCadastrar {
+    background-color: #00AEEF; /* Botão de destaque */
+    color: #E0F7FF;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botaoCadastrar:hover {
+    background-color: #E0F7FF; /* Cor ao passar o mouse */
+    color: #00AEEF;
+}
+
+.listaMedicamentos {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.listaMedicamentos h2 {
+    font-size: 1.5rem;
+    color: #004D99;
+    margin-bottom: 15px;
+}
+
+.medicamentoItem {
+    background-color: #E0F7FF;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.medicamentoItem p {
+    margin: 5px 0;
+    color: #004D99;
+}
+
+.fotoMedicamento {
+    margin-top: 10px;
+    max-width: 100%;
+    border-radius: 4px;
+}

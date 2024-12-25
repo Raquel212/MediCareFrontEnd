@@ -38,9 +38,9 @@ function HeaderHomeUsuario() {
             </header>
             <nav className={`${styles.menuLateralHomeUsuario} ${menuAberto ? styles.aberto : ''}`}>
                 <ul>
-                    <li><FaPills className={styles.menuIconHomeUsuario} /><a href="/cadastrar-medicamento">Cadastrar Medicamentos</a></li>
-                    <li><FaCalendarAlt className={styles.menuIconHomeUsuario} /><a href="/agendar-medicamento">Agendar Medicamento</a></li>
-                    <li><FaCog className={styles.menuIconHomeUsuario} /><a href="/gerenciar-medicamento">Gerenciar Medicamento</a></li>
+                    <li><FaPills className={styles.menuIconHomeUsuario} /><a href="/cadastrarmedicamento">Cadastrar Medicamentos</a></li>
+                    <li><FaCalendarAlt className={styles.menuIconHomeUsuario} /><a href="/agendarmedicamento">Agendar Medicamento</a></li>
+                    <li><FaCog className={styles.menuIconHomeUsuario} /><a href="/gerenciarmedicamento">Gerenciar Medicamento</a></li>
                     <li><FaHistory className={styles.menuIconHomeUsuario} /><a href="/historico">Histórico</a></li>
                     <li><FaCalendarAlt className={styles.menuIconHomeUsuario} /><a href="/calendario">Calendário de Medicamento</a></li>
                     <li><FaFileAlt className={styles.menuIconHomeUsuario} /><a href="/relatorio">Relatório</a></li>

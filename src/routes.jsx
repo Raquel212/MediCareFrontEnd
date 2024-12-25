@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
 import EsqueceuSenha from "./pages/EsqueceuSenha";
 import HomeUsuario from "./pages/HomeUsuario";
+import CadastrarMedicamento from "./pages/CadastrarMedicamento";
 
 function AppRoutes() {
   return (
@@ -16,6 +17,7 @@ function AppRoutes() {
             <Route path="/Cadastro" element={<Cadastro />} />
             <Route path="/home" element={<HomeUsuario/>} />
             <Route path="/esqueceusenha" element={<EsqueceuSenha/>} />
+            <Route path="/cadastrarmedicamento" element={<CadastrarMedicamento/>} />
         </Routes> 
     </BrowserRouter>
   );

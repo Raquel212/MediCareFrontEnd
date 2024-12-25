@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
 import styles from './Cadastro.module.css';
+import api from "./../../services/api";
 
 function Cadastro() {
     const [passwordVisible, setPasswordVisible] = useState(false);
@@ -16,6 +17,20 @@ function Cadastro() {
         setConfirmPasswordVisible(!confirmPasswordVisible);
     };
 
+    useEffect(() => {
+        api.post('authentication',{
+            nome: "string",
+            sobrenome: "string",
+            email: "user1@example.com",
+            senha: "string",
+            senhaConfirmacao: "string"
+        }).then((response) => {
+            console.log(response.data); 
+        }).catch((error) => {
+            console.log(error);
+        });
+    }, [passwordVisible]);
+
     return (
         <>
             <Header />
@@ -27,7 +42,12 @@ function Cadastro() {
                             <form className={styles.cadastroForm}>
                                 <input 
                                     type="text" 
-                                    placeholder="Nome Sobrenome" 
+                                    placeholder="Nome" 
+                                    className={styles.inputField} 
+                                />
+                                <input 
+                                    type="text" 
+                                    placeholder="Sobrenome" 
                                     className={styles.inputField} 
                                 />
                                 <input 
