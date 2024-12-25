@@ -6,6 +6,7 @@ import Cadastro from "./pages/Cadastro";
 import EsqueceuSenha from "./pages/EsqueceuSenha";
 import HomeUsuario from "./pages/HomeUsuario";
 import CadastrarMedicamento from "./pages/CadastrarMedicamento";
+import GerenciarMedicamentos from "./pages/GerenciarMedicamentos";
 
 function AppRoutes() {
   return (
@@ -18,6 +19,7 @@ function AppRoutes() {
             <Route path="/home" element={<HomeUsuario/>} />
             <Route path="/esqueceusenha" element={<EsqueceuSenha/>} />
             <Route path="/cadastrarmedicamento" element={<CadastrarMedicamento/>} />
+            <Route path="/gerenciarmedicamento" element={<GerenciarMedicamentos/>} />
         </Routes> 
     </BrowserRouter>
   );
