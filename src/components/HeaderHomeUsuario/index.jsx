@@ -35,9 +35,9 @@ function HeaderHomeUsuario() {
                 {perfilAberto && (
                     <div className={styles.perfilDropdownHomeUsuario}>
                         <ul>
-                            <li><a href="/notificacao">Notificações</a></li>
-                            <li><a href="/editar-perfil">Editar Perfil</a></li>
-                            <li><a href="/login">Sair</a></li>
+                            <li><Link to="/notificacao">Notificações</Link></li>
+                            <li><Link to="/editarperfil">Editar Perfil</Link></li>
+                            <li><Link to="/login">Sair</Link></li>
                         </ul>
                     </div>
                 )}

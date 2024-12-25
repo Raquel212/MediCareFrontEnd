@@ -4,7 +4,7 @@
     align-items: center;
     background-color: #E0F7FF;
     color: #004D99;
-    padding: 6px 20px;
+    padding: 0px 15px;
     position: relative;
 }
 
@@ -13,10 +13,14 @@
 }
 
 .iconHomeUsuario {
-    font-size:30px;
+    font-size:35px;
     cursor: pointer;
     color: #004D99;
     z-index: 1100;
+}
+
+.iconHomeUsuario:hover {
+    color: #00AEEF;
 }
 
 .menuLateralHomeUsuario {
