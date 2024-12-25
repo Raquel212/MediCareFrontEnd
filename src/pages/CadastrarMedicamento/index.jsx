@@ -1,10 +1,10 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Footer from '../../components/Footer';
 import HeaderHomeUsuario from '../../components/HeaderHomeUsuario';
 import styles from './CadastrarMedicamento.module.css';
 
 function CadastrarMedicamento() {
-    const [medicamentos, setMedicamentos] = useState([]); // Estado para armazenar os medicamentos
     const [form, setForm] = useState({
         nome: '',
         quantidadeTotal: '',
@@ -12,6 +12,7 @@ function CadastrarMedicamento() {
         horarios: '',
         foto: null,
     });
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value, files } = e.target;
@@ -24,8 +25,22 @@ function CadastrarMedicamento() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setMedicamentos([...medicamentos, form]); // Adiciona o medicamento ao estado
-        setForm({ nome: '', quantidadeTotal: '', quantidadePorDia: '', horarios: '', foto: null }); // Limpa o formulário
+
+        // Obter medicamentos existentes do localStorage
+        const medicamentosExistentes = JSON.parse(localStorage.getItem('medicamentos')) || [];
+
+        // Adicionar o novo medicamento
+        const novoMedicamento = { ...form, foto: form.foto ? URL.createObjectURL(form.foto) : null };
+        const medicamentosAtualizados = [...medicamentosExistentes, novoMedicamento];
+
+        // Salvar no localStorage
+        localStorage.setItem('medicamentos', JSON.stringify(medicamentosAtualizados));
+
+        // Redefinir formulário
+        setForm({ nome: '', quantidadeTotal: '', quantidadePorDia: '', horarios: '', foto: null });
+
+        // Redirecionar para a tela de gerenciamento
+        navigate('/gerenciarmedicamento');
     };
 
     return (
@@ -86,26 +101,6 @@ function CadastrarMedicamento() {
                     </label>
                     <button type="submit" className={styles.botaoCadastrar}>Cadastrar</button>
                 </form>
-                <div className={styles.listaMedicamentos}>
-                    <h2>Medicamentos Cadastrados</h2>
-                    <ul>
-                        {medicamentos.map((med, index) => (
-                            <li key={index} className={styles.medicamentoItem}>
-                                <p><strong>Nome:</strong> {med.nome}</p>
-                                <p><strong>Quantidade Total:</strong> {med.quantidadeTotal}</p>
-                                <p><strong>Quantidade Por Dia:</strong> {med.quantidadePorDia}</p>
-                                <p><strong>Horários:</strong> {med.horarios}</p>
-                                {med.foto && (
-                                    <img
-                                        src={URL.createObjectURL(med.foto)}
-                                        alt={`Foto de ${med.nome}`}
-                                        className={styles.fotoMedicamento}
-                                    />
-                                )}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
             </div>
             <Footer />
         </>
