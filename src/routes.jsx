@@ -9,6 +9,7 @@ import CadastrarMedicamento from "./pages/CadastrarMedicamento";
 import GerenciarMedicamentos from "./pages/GerenciarMedicamentos";
 import AgendarMedicamento from "./pages/AgendarMedicamento";
 import Historico from "./pages/Historico";
+import CalendarioMedicamento from "./pages/CalendarioMedicamento";
 
 function AppRoutes() {
   return (
@@ -24,6 +25,7 @@ function AppRoutes() {
             <Route path="/gerenciarmedicamento" element={<GerenciarMedicamentos/>} />
             <Route path="/agendarmedicamento" element={<AgendarMedicamento />} />
             <Route path="/historico" element={<Historico />} />
+            <Route path="/calendario" element={<CalendarioMedicamento/>} />
         </Routes> 
     </BrowserRouter>
   );

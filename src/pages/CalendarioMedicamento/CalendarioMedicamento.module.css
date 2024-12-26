@@ -1,0 +1,99 @@
+.containerCalendarioMedicamento {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 515px; 
+}
+
+.tituloCalendarioMedicamento {
+    text-align: center;
+    font-size: 2rem;
+    color: #004D99;
+    margin-bottom: 20px;
+}
+
+.calendarContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.calendar {
+    border: 1px solid #000;
+    border-radius: 10px;
+    background-color: #ffffff;
+    font-size: 20px;
+    width: 500px;
+    height: 400px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.medicamentosContainer {
+    padding: 20px;
+    background-color: #E0F7FF;
+    border-radius: 8px;
+    color: #004D99;
+    font-size: 20px;
+}
+
+.medicamentoList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.medicamentoItem {
+    padding: 10px;
+    background-color: #ffffff;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.medicamentoItem strong {
+    color: #000;
+}
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+    /* Ajusta o tamanho do título em telas pequenas */
+    .tituloCalendarioMedicamento {
+        font-size: 1.5rem;
+    }
+
+    /* Ajusta o calendário para ocupar a largura total */
+    .calendar {
+        width: 100%;
+        height: auto;
+        font-size: 18px;
+    }
+
+    /* Ajusta o tamanho do contêiner de medicamentos */
+    .medicamentosContainer {
+        font-size: 18px;
+    }
+}
+
+/* Responsividade para dispositivos muito pequenos */
+@media (max-width: 480px) {
+    /* Ajusta o título para telas muito pequenas */
+    .tituloCalendarioMedicamento {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    /* Ajusta o calendário para uma altura menor */
+    .calendar {
+        width: 100%;
+        height: 300px;
+        font-size: 16px;
+    }
+
+    /* Ajuste de fonte e espaçamento nos itens de medicamentos */
+    .medicamentosContainer {
+        font-size: 16px;
+        padding: 15px;
+    }
+
+    .medicamentoItem {
+        padding: 8px;
+    }
+}
+
