@@ -1,15 +1,40 @@
+import { useState } from 'react';
 import Footer from '../../components/Footer';
 import HeaderHomeUsuario from '../../components/HeaderHomeUsuario';
 import styles from './AgendarMedicamento.module.css';
 
 function AgendarMedicamento() {
+    // Estado para controlar a visibilidade da notificação
+    const [notificacao, setNotificacao] = useState('');
+
+    // Função que é chamada quando o formulário é enviado
+    const handleSubmit = (event) => {
+        event.preventDefault();  // Impede o comportamento padrão de envio do formulário
+        
+        // Exibe a notificação de sucesso
+        setNotificacao('Agendamento registrado com sucesso!');
+
+        // Esconde a notificação após 3 segundos
+        setTimeout(() => {
+            setNotificacao('');
+        }, 3000);
+    };
+
     return (
         <>
             <HeaderHomeUsuario />
             <div className={styles.containerAgendarMedicamento}>
                 <h1 className={styles.tituloAgendarMedicamento}>Agendar Medicamento</h1>
+                
+                {/* Exibe a notificação caso haja uma mensagem */}
+                {notificacao && (
+                    <div className={styles.notificacao}>
+                        {notificacao}
+                    </div>
+                )}
+                
                 <div className={styles.formContainerAgendarMedicamento}>
-                    <form className={styles.formAgendarMedicamento}>
+                    <form className={styles.formAgendarMedicamento} onSubmit={handleSubmit}>
                         <label htmlFor="medicamento" className={styles.labelAgendarMedicamento}>Nome do Medicamento:</label>
                         <input type="text" id="medicamento" name="medicamento" required className={styles.inputAgendarMedicamento}/>
 
