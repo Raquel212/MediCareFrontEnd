@@ -1,0 +1,131 @@
+.gerenciarMedicamento {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tituloGerenciarMedicamento {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #004D99;
+}
+
+.listaMedicamentos {
+    list-style-type: none;
+    padding: 0;
+}
+
+.medicamentoItem {
+    background-color: #E0F7FF;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.medicamentoInfo {
+    margin-bottom: 15px;
+}
+
+.medicamentoFoto {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-top: 10px;
+}
+
+.acoes {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.botaoEditar, .botaoExcluir {
+    background-color: #00AEEF;
+    color: #d8e1ec;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.botaoExcluir {
+    background-color: rgb(235, 92, 92);
+    color: #000;
+}
+
+.botaoEditar:hover {
+    background-color: #d8e1ec;
+    color: #00AEEF;
+}
+
+.botaoExcluir:hover{
+    opacity: 0.9;
+}
+
+/* Modal */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #E0F7FF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 400px;
+}
+
+.modal h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.modal label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.modal input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.botaoSalvar, .botaoCancelar {
+    background-color: #00AEEF;
+    color: #d8e1ec;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.botaoCancelar {
+    background-color: rgb(235, 92, 92);
+    color: #000;
+}
+
+.botaoSalvar:hover{
+    background-color: #d8e1ec;
+    color: #00AEEF;
+}
+
+.botaoCancelar:hover {
+    opacity: 0.8;
+}
