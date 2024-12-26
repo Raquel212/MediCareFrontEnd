@@ -48,7 +48,7 @@
 
 .botaoCadastrar {
     background-color: #00AEEF; /* Botão de destaque */
-    color: #E0F7FF;
+    color: #d8e1ec;
     padding: 10px;
     border: none;
     border-radius: 4px;
@@ -58,8 +58,8 @@
 }
 
 .botaoCadastrar:hover {
-    background-color: #004D99; /* Cor ao passar o mouse */
-    color: #fff;
+    background-color: #d8e1ec; /* Cor ao passar o mouse */
+    color: #00AEEF;
 }
 
 .listaMedicamentos {
