@@ -10,9 +10,35 @@ function GerenciarMedicamento() {
     const [editIndex, setEditIndex] = useState(null);
 
     useEffect(() => {
+        // Dados de exemplo de medicamentos
+        const medicamentosExemplo = [
+            {
+                nome: 'Paracetamol',
+                quantidadeTotal: 30,
+                quantidadePorDia: 3,
+                horarios: '08:00, 14:00, 20:00',
+                foto: '#'
+            },
+            {
+                nome: 'Ibuprofeno',
+                quantidadeTotal: 20,
+                quantidadePorDia: 2,
+                horarios: '09:00, 18:00',
+                foto: '#'
+            },
+            {
+                nome: 'Amoxicilina',
+                quantidadeTotal: 15,
+                quantidadePorDia: 2,
+                horarios: '10:00, 22:00',
+                foto: '#'
+            }
+        ];
+        
+        setMedicamentos(medicamentosExemplo);
         // Carregar medicamentos do localStorage
         const medicamentosSalvos = JSON.parse(localStorage.getItem('medicamentos')) || [];
-        setMedicamentos(medicamentosSalvos);
+        setMedicamentos(medicamentosSalvos.length > 0 ? medicamentosSalvos : medicamentosExemplo);
     }, []);
 
     const handleDelete = (index) => {

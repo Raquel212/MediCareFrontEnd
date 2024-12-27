@@ -56,7 +56,7 @@
 .submitButtonAgendarMedicamento {
     padding: 12px;
     background-color: #00AEEF;
-    color: #d8e1ec;
+    color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -67,14 +67,14 @@
 }
 
 .submitButtonAgendarMedicamento:hover {
-    background-color: #d8e1ec;
+    background-color: white;
     color: #00AEEF;
 }
 
 
 .notificacao {
     background-color: #00AEEF;
-    color: #d8e1ec;
+    color: white;
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 5px;

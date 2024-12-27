@@ -10,6 +10,10 @@ import GerenciarMedicamentos from "./pages/GerenciarMedicamentos";
 import AgendarMedicamento from "./pages/AgendarMedicamento";
 import Historico from "./pages/Historico";
 import CalendarioMedicamento from "./pages/CalendarioMedicamento";
+import Relatorio from "./pages/Relatorio";
+import DetalhesMedicamento from "./pages/DetalhesMedicamentos";
+import Notificacao from "./pages/Notificacao";
+import EditarPerfil from "./pages/EditarPerfil";
 
 function AppRoutes() {
   return (
@@ -26,6 +30,10 @@ function AppRoutes() {
             <Route path="/agendarmedicamento" element={<AgendarMedicamento />} />
             <Route path="/historico" element={<Historico />} />
             <Route path="/calendario" element={<CalendarioMedicamento/>} />
+            <Route path="/relatorio" element={<Relatorio/>} />
+            <Route path="verDetalhes" element={<DetalhesMedicamento/>} />
+            <Route path="/notificacao" element={<Notificacao />} />
+            <Route path="/editarperfil" element={<EditarPerfil/>} />
         </Routes> 
     </BrowserRouter>
   );
