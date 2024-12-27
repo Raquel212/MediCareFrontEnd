@@ -1,0 +1,157 @@
+/* Container principal */
+.containerEditarPerfil {
+    width: 100%;
+    max-width: 600px;
+    min-height: 515px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #E0F7FF;
+    border-radius: 8px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Título da página */
+.tituloEditarPerfil {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #004D99;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Formulário */
+.formularioEditarPerfil {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Reduzido para melhorar o alinhamento */
+}
+
+.labelEditarPerfil {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #004D99;
+    margin-bottom: 5px;
+    font-size: 1.125rem; /* Ajustado para melhorar a legibilidade */
+}
+
+/* Alinhamento dos inputs */
+.inputEditarPerfil {
+    width: 100%;
+    height: 50px;
+    padding: 0 15px;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.inputEditarPerfil:focus {
+    border-color: #004D99;
+}
+
+/* Alinhamento dos botões */
+.botoesEditarPerfil {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* Botões */
+.botaoSalvarEditarPerfil,
+.botaoExcluirEditarPerfil {
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.botaoSalvarEditarPerfil {
+    background-color: #00AEEF;
+    color: white;
+}
+
+.botaoSalvarEditarPerfil:hover {
+    background-color: white;
+    color: #00AEEF;
+}
+
+.botaoExcluirEditarPerfil {
+    background-color: rgb(235, 92, 92);
+    color: #000000b0;
+}
+
+.botaoExcluirEditarPerfil:hover {
+    opacity: 0.5;
+}
+
+/* Confirmação de exclusão */
+.confirmacaoExcluir {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.confirmacaoExcluir p {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.botaoConfirmarEditarPerfil,
+.botaoCancelarEditarPerfil {
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.botaoConfirmarEditarPerfil {
+    background-color: #00AEEF;
+    color: white;
+}
+
+.botaoConfirmarEditarPerfil:hover {
+    background-color: white;
+    color: #00AEEF;
+}
+
+.botaoCancelarEditarPerfil {
+    background-color: rgb(235, 92, 92);
+    color: #000000b0;
+}
+
+.botaoCancelarEditarPerfil:hover {
+    opacity: 0.5;
+}
+
+/* Notificação de sucesso */
+.notificacao {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #00AEEF;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
