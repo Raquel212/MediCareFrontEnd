@@ -12,6 +12,7 @@ function CadastrarMedicamento() {
         horarios: '',
         foto: null,
     });
+    const [showNotification, setShowNotification] = useState(false); // Estado para controle da notificação
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -36,11 +37,19 @@ function CadastrarMedicamento() {
         // Salvar no localStorage
         localStorage.setItem('medicamentos', JSON.stringify(medicamentosAtualizados));
 
+        // Exibir a notificação de sucesso
+        setShowNotification(true);
+
         // Redefinir formulário
         setForm({ nome: '', quantidadeTotal: '', quantidadePorDia: '', horarios: '', foto: null });
 
-        // Redirecionar para a tela de gerenciamento
-        navigate('/gerenciarmedicamento');
+        // Esconder a notificação após 3 segundos
+        setTimeout(() => setShowNotification(false), 3000); // Tempo reduzido para 3 segundos
+
+        // Redirecionar para a tela de gerenciamento após a notificação desaparecer
+        setTimeout(() => {
+            navigate('/gerenciarmedicamento');
+        }, 2000); // Garantir que a navegação ocorra após a notificação
     };
 
     return (
@@ -48,6 +57,14 @@ function CadastrarMedicamento() {
             <HeaderHomeUsuario />
             <div className={styles.cadastrarMedicamento}>
                 <h1 className={styles.tituloCadastrarMedicamento}>Cadastrar Medicamento</h1>
+
+                {/* Notificação de sucesso */}
+                {showNotification && (
+                    <div className={styles.notificationCadastroMedicamento}>
+                        Medicamento cadastrado com sucesso!
+                    </div>
+                )}
+
                 <form className={styles.formMedicamento} onSubmit={handleSubmit}>
                     <label>
                         Nome do Remédio:

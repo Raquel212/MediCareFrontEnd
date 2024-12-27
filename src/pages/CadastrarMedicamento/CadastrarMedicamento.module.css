@@ -4,11 +4,11 @@
     align-items: center;
     padding: 20px;
     background-color: #fff; 
-    min-height: 100vh;
+    min-height: 515px;
 }
 
 .tituloCadastrarMedicamento {
-    font-size: 2rem;
+    font-size: 40px;
     color: #004D99; /* Cor para títulos */
     margin-bottom: 20px;
     text-align: center;
@@ -96,6 +96,22 @@
     border-radius: 4px;
     object-fit: cover;
 }
+
+.notificationCadastroMedicamento {
+    background-color: #00AEEF; 
+    color: white;
+    padding: 10px;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    z-index: 1000;
+    font-size: 16px;
+    text-align: center;
+    width: 300px;
+}
+
 
 /* Responsividade */
 @media (max-width: 600px) {
