@@ -1,0 +1,56 @@
+.containerNotificacao {
+    padding: 20px;
+    min-height: 515px;
+}
+
+.tituloNotificacao {
+    text-align: center;
+    font-size: 45px;
+    color: #004D99;
+}
+
+.listaNotificacoes {
+    margin-top: 20px;
+}
+
+.notificacao {
+    background-color: #E0F7FF;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.notificacao:hover {
+    background-color: #00AEEF;
+}
+
+.lidaNotificacao {
+    background-color: #d8e1ec; /* Para notificações lidas */
+}
+
+.iconNotificacao {
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+.textoNotificacao {
+    flex-grow: 1;
+}
+
+.textoNotificacao .tituloNotificacao2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.mensagemNotificacao {
+    font-size: 1rem;
+    color: #363636;
+}
+
+.iconeAlertaNotificacao {
+    font-size: 1.5rem;
+}
