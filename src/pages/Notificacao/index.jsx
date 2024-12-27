@@ -7,9 +7,9 @@ import styles from './Notificacao.module.css';
 function Notificacao() {
     // Exemplo de dados de notificação
     const [notificacoes, setNotificacoes] = useState([
-        { id: 1, titulo: 'Novo agendamento de consulta', mensagem: 'Você tem uma nova consulta agendada para amanhã.', lida: false },
-        { id: 2, titulo: 'Recomendação de exame', mensagem: 'Seu exame foi aprovado e precisa ser agendado.', lida: true },
-        { id: 3, titulo: 'Atualização de plano de saúde', mensagem: 'Seu plano de saúde foi atualizado com novas coberturas.', lida: false }
+        { id: 1, titulo: 'Falta 10 minutos para tomar seu medicamentos.', mensagem: 'Tomar o medicamento no horário certo é essencial para sua eficácia.', lida: false },
+        { id: 2, titulo: 'Lembre-se de tomar Paracetamol com um copo cheio de água.', mensagem: 'Você está no caminho certo para o bem-estar. Continue assim!', lida: true },
+        { id: 3, titulo: 'Você tem menos de 5 comprimidos de Amoxicilina restantes.', mensagem: 'Reabasteça Amoxicilina antes de 25/12/2024.', lida: false }
     ]);
 
     // Função para marcar a notificação como lida
