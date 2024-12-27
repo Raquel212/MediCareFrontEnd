@@ -1,0 +1,106 @@
+/* DetalhesMedicamento.module.css */
+
+/* Container principal */
+.containerDetalhes {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #E0F7FF;
+    border-radius: 8px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Título */
+.tituloDetalhes {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #004D99;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Seções do medicamento */
+.informacoesBasicas,
+.instrucoesUso,
+.efeitosColaterais,
+.historicoUso,
+.graficoAdesao {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.informacoesBasicas h2,
+.instrucoesUso h3,
+.efeitosColaterais h3,
+.historicoUso h3,
+.graficoAdesao h3 {
+    font-size: 1.5rem;
+    color: #004D99;
+    margin-bottom: 10px;
+}
+
+.informacoesBasicas p,
+.instrucoesUso p,
+.efeitosColaterais p,
+.historicoUso p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #000;
+}
+
+/* Botões */
+.botaoContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.botaoVoltar {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: #00AEEF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+
+}
+
+.botaoVoltar:hover {
+    background-color: #d8e1ec;
+    color: #00AEEF;
+}
+
+/* Gráfico de adesão */
+.graficoAdesao p {
+    font-size: 1rem;
+    color: #888;
+    margin-top: 10px;
+}
+
+.botaoImprimir {
+    display: block;
+    width: 200px;
+    /* margin: 30px auto; */
+    padding: 12px;
+    background-color: #00AEEF;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.botaoImprimir:hover {
+    background-color: #d8e1ec;
+    color: #00AEEF;
+}
