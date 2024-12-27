@@ -14,6 +14,7 @@ import Relatorio from "./pages/Relatorio";
 import DetalhesMedicamento from "./pages/DetalhesMedicamentos";
 import Notificacao from "./pages/Notificacao";
 import EditarPerfil from "./pages/EditarPerfil";
+import MedicamentosConsulta from "./pages/MedicamentosConsulta";
 
 function AppRoutes() {
   return (
@@ -34,6 +35,7 @@ function AppRoutes() {
             <Route path="verDetalhes" element={<DetalhesMedicamento/>} />
             <Route path="/notificacao" element={<Notificacao />} />
             <Route path="/editarperfil" element={<EditarPerfil/>} />
+            <Route path="/dicas" element={<MedicamentosConsulta/>} />
         </Routes> 
     </BrowserRouter>
   );
