@@ -38,8 +38,8 @@ function AgendarMedicamento() {
                         <label htmlFor="medicamento" className={styles.labelAgendarMedicamento}>Nome do Medicamento:</label>
                         <input type="text" id="medicamento" name="medicamento" required className={styles.inputAgendarMedicamento}/>
 
-                        <label htmlFor="dosagem" className={styles.labelAgendarMedicamento}>Dosagem:</label>
-                        <input type="text" id="dosagem" name="dosagem" required className={styles.inputAgendarMedicamento}/>
+                        <label htmlFor="quantidadePorDia" className={styles.labelAgendarMedicamento}>Quantidade Por Dia:</label>
+                        <input type="text" id="quantidadePorDia" name="quantidadePorDia" required className={styles.inputAgendarMedicamento}/>
 
                         <label htmlFor="horario" className={styles.labelAgendarMedicamento}>Horário de Administração:</label>
                         <input type="time" id="horario" name="horario" required className={styles.inputAgendarMedicamento}/>
