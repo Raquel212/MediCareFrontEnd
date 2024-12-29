@@ -8,7 +8,7 @@ function CadastrarMedicamento() {
     const [form, setForm] = useState({
         nome: '',
         quantidadeTotal: '',
-        quantidadePorDia: '',
+        dosagem: '',
         horarios: '',
         foto: null,
     });
@@ -41,7 +41,7 @@ function CadastrarMedicamento() {
         setShowNotification(true);
 
         // Redefinir formulário
-        setForm({ nome: '', quantidadeTotal: '', quantidadePorDia: '', horarios: '', foto: null });
+        setForm({ nome: '', quantidadeTotal: '', dosagem: '', horarios: '', foto: null });
 
         // Esconder a notificação após 3 segundos
         setTimeout(() => setShowNotification(false), 3000); // Tempo reduzido para 3 segundos
@@ -87,11 +87,11 @@ function CadastrarMedicamento() {
                         />
                     </label>
                     <label>
-                        Quantidade Por Dia:
+                        Dosagem:
                         <input
                             type="number"
-                            name="quantidadePorDia"
-                            value={form.quantidadePorDia}
+                            name="dosagem"
+                            value={form.dosagem}
                             onChange={handleChange}
                             required
                         />
