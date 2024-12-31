@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Footer from '../../components/Footer';
 import HeaderHomeUsuario from '../../components/HeaderHomeUsuario';
 import styles from './GerenciarMedicamentos.module.css';
+import api from '../../services/api';
 
 function GerenciarMedicamento() {
     const [medicamentos, setMedicamentos] = useState([]);
@@ -11,49 +12,57 @@ function GerenciarMedicamento() {
 
     useEffect(() => {
         // Dados de exemplo de medicamentos
-        const medicamentosExemplo = [
-            {
-                nome: 'Paracetamol',
-                quantidadeTotal: 30,
-                quantidadePorDia: 3,
-                horarios: '08:00, 14:00, 20:00',
-                foto: '#'
-            },
-            {
-                nome: 'Ibuprofeno',
-                quantidadeTotal: 20,
-                quantidadePorDia: 2,
-                horarios: '09:00, 18:00',
-                foto: '#'
-            },
-            {
-                nome: 'Amoxicilina',
-                quantidadeTotal: 15,
-                quantidadePorDia: 2,
-                horarios: '10:00, 22:00',
-                foto: '#'
-            }
-        ];
+        api
+      .get("/medicamento?pagina=1&quantidadePorPagina=1000")
+      .then((response) => setMedicamentos(response.data))
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
         
-        setMedicamentos(medicamentosExemplo);
-        // Carregar medicamentos do localStorage
-        const medicamentosSalvos = JSON.parse(localStorage.getItem('medicamentos')) || [];
-        setMedicamentos(medicamentosSalvos.length > 0 ? medicamentosSalvos : medicamentosExemplo);
     }, []);
 
-    const handleDelete = (index) => {
+
+    
+    const handleDelete = (index, medicamento) => {
+        console.log(medicamento);
+        api
+        .delete(`/medicamento/${medicamento.id}`)
+        .then((response) => console.log(response.data))
+        .catch((err) => {
+            console.error("ops! ocorreu um erro" + err);
+        });
         const medicamentosAtualizados = medicamentos.filter((_, i) => i !== index);
         setMedicamentos(medicamentosAtualizados);
-        localStorage.setItem('medicamentos', JSON.stringify(medicamentosAtualizados));
     };
 
-    const handleEdit = (index) => {
-        setCurrentMedicamento(medicamentos[index]);
-        setEditIndex(index);
-        setIsEditing(true);
+    const handleEdit = (index, medicamento) => {
+        console.log(medicamento);
+        api
+        .get(`/medicamento/${medicamento.id}`)
+        .then((response) => {
+            setCurrentMedicamento(response.data)
+            setEditIndex(index);
+            setIsEditing(true);
+        })
+        .catch((err) => {
+            console.error("ops! ocorreu um erro" + err);
+        });
     };
 
     const saveEdit = () => {
+        console.log(currentMedicamento);
+        api
+        .put(`/medicamento/${currentMedicamento.id}`,{
+            nome: currentMedicamento.nome, 
+            quantidade: currentMedicamento.quantidade, 
+            dosagem: currentMedicamento.dosagem, 
+            horario: currentMedicamento.horario})
+        .then((response) => {
+            console.log(response.data);
+        })
+        .catch((err) => {
+            console.error("ops! ocorreu um erro" + err);
+        });
         const medicamentosAtualizados = medicamentos.map((med, i) =>
             i === editIndex ? currentMedicamento : med
         );
@@ -81,9 +90,9 @@ function GerenciarMedicamento() {
                             <li key={index} className={styles.medicamentoItem}>
                                 <div className={styles.medicamentoInfo}>
                                     <p><strong>Nome:</strong> {medicamento.nome}</p>
-                                    <p><strong>Quantidade Total:</strong> {medicamento.quantidadeTotal}</p>
-                                    <p><strong>Quantidade Por Dia:</strong> {medicamento.quantidadePorDia}</p>
-                                    <p><strong>Horários:</strong> {medicamento.horarios}</p>
+                                    <p><strong>Quantidade Total:</strong> {medicamento.quantidade}</p>
+                                    <p><strong>Dosagem:</strong> {medicamento.dosagem}</p>
+                                    <p><strong>Horários:</strong> {medicamento.horario}</p>
                                     {medicamento.foto && (
                                         <img
                                             src={medicamento.foto}
@@ -93,10 +102,10 @@ function GerenciarMedicamento() {
                                     )}
                                 </div>
                                 <div className={styles.acoes}>
-                                    <button onClick={() => handleEdit(index)} className={styles.botaoEditar}>
+                                    <button onClick={() => handleEdit(index, medicamento)} className={styles.botaoEditar}>
                                         Editar
                                     </button>
-                                    <button onClick={() => handleDelete(index)} className={styles.botaoExcluir}>
+                                    <button onClick={() => handleDelete(index, medicamento)} className={styles.botaoExcluir}>
                                         Excluir
                                     </button>
                                 </div>
@@ -124,24 +133,24 @@ function GerenciarMedicamento() {
                             Quantidade Total:
                             <input
                                 type="number"
-                                value={currentMedicamento.quantidadeTotal}
-                                onChange={(e) => setCurrentMedicamento({ ...currentMedicamento, quantidadeTotal: e.target.value })}
+                                value={currentMedicamento.quantidade}
+                                onChange={(e) => setCurrentMedicamento({ ...currentMedicamento, quantidade: e.target.value })}
                             />
                         </label>
                         <label>
-                            Quantidade Por Dia:
+                            Dosagem:
                             <input
                                 type="number"
-                                value={currentMedicamento.quantidadePorDia}
-                                onChange={(e) => setCurrentMedicamento({ ...currentMedicamento, quantidadePorDia: e.target.value })}
+                                value={currentMedicamento.dosagem}
+                                onChange={(e) => setCurrentMedicamento({ ...currentMedicamento, dosagem: e.target.value })}
                             />
                         </label>
                         <label>
                             Horários:
                             <input
                                 type="text"
-                                value={currentMedicamento.horarios}
-                                onChange={(e) => setCurrentMedicamento({ ...currentMedicamento, horarios: e.target.value })}
+                                value={currentMedicamento.horario}
+                                onChange={(e) => setCurrentMedicamento({ ...currentMedicamento, horario: e.target.value })}
                             />
                         </label>
                         <button onClick={saveEdit} className={styles.botaoSalvar}>Salvar</button>
