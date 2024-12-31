@@ -92,14 +92,7 @@ function GerenciarMedicamento() {
                                     <p><strong>Nome:</strong> {medicamento.nome}</p>
                                     <p><strong>Quantidade Total:</strong> {medicamento.quantidade}</p>
                                     <p><strong>Dosagem:</strong> {medicamento.dosagem}</p>
-                                    <p><strong>Horários:</strong> {medicamento.horario}</p>
-                                    {medicamento.foto && (
-                                        <img
-                                            src={medicamento.foto}
-                                            alt={medicamento.nome}
-                                            className={styles.medicamentoFoto}
-                                        />
-                                    )}
+                                    <p><strong>Intervalo:</strong> {medicamento.horario}</p>
                                 </div>
                                 <div className={styles.acoes}>
                                     <button onClick={() => handleEdit(index, medicamento)} className={styles.botaoEditar}>

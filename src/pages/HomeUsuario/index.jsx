@@ -7,7 +7,6 @@ import 'react-calendar/dist/Calendar.css';
 import { useState } from 'react';
 
 function HomeUsuario() {
-    const userName = "San";
 
     // Estado para armazenar o dia selecionado e os medicamentos do dia
     const [selectedDate, setSelectedDate] = useState(new Date());
@@ -58,7 +57,7 @@ function HomeUsuario() {
             <main className={styles.containerHomeUsuario}>
                 <section className={styles.welcomeSection}>
                     <div>
-                        <h1 className={styles.tituloWelcome}>Bem-vindo, {userName}!</h1>
+                        <h1 className={styles.tituloWelcome}>Bem-vindo</h1>
                         <p className={styles.subtituloWelcome}> Vamos cuidar da sua saúde juntos!</p>
                     </div>
                 </section>

@@ -92,23 +92,14 @@ function CadastrarMedicamento() {
                         />
                     </label>
                     <label>
-                        Horários (separados por vírgula):
+                        Intervalo:
                         <input
                             type="text"
                             name="horarios"
                             value={form.horarios}
                             onChange={handleChange}
-                            placeholder="Ex: 08:00, 12:00, 18:00"
+                            placeholder="Ex: De 8h em 8h"
                             required
-                        />
-                    </label>
-                    <label>
-                        Foto do Remédio:
-                        <input
-                            type="file"
-                            name="foto"
-                            onChange={handleChange}
-                            accept="image/*"
                         />
                     </label>
                     <button type="submit" className={styles.botaoCadastrar}>Cadastrar</button>
