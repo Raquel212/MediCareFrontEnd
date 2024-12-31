@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Footer from '../../components/Footer';
 import HeaderHomeUsuario from '../../components/HeaderHomeUsuario';
 import styles from './CadastrarMedicamento.module.css';
+import api from '../../services/api';
 
 function CadastrarMedicamento() {
     const [form, setForm] = useState({
@@ -27,29 +28,23 @@ function CadastrarMedicamento() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Obter medicamentos existentes do localStorage
-        const medicamentosExistentes = JSON.parse(localStorage.getItem('medicamentos')) || [];
+        api.post('/medicamento', { 
+            nome: form.nome, 
+            quantidade: form.quantidadeTotal,
+            dosagem: form.dosagem,
+            horario: form.horarios,})
+            .then((response) => { 
+                console.log(response.data);
+                setShowNotification(true); // Exibe notificação
+                setTimeout(() => setShowNotification(false), 3000); // Tempo reduzido para 3 segundos
+                setTimeout(() => {
+                    navigate('/gerenciarmedicamento');
+                }, 2000); // Garantir que a navegação ocorra após a notificação
+            }).catch((error) => {
+                console.error(error);
+            });
 
-        // Adicionar o novo medicamento
-        const novoMedicamento = { ...form, foto: form.foto ? URL.createObjectURL(form.foto) : null };
-        const medicamentosAtualizados = [...medicamentosExistentes, novoMedicamento];
 
-        // Salvar no localStorage
-        localStorage.setItem('medicamentos', JSON.stringify(medicamentosAtualizados));
-
-        // Exibir a notificação de sucesso
-        setShowNotification(true);
-
-        // Redefinir formulário
-        setForm({ nome: '', quantidadeTotal: '', dosagem: '', horarios: '', foto: null });
-
-        // Esconder a notificação após 3 segundos
-        setTimeout(() => setShowNotification(false), 3000); // Tempo reduzido para 3 segundos
-
-        // Redirecionar para a tela de gerenciamento após a notificação desaparecer
-        setTimeout(() => {
-            navigate('/gerenciarmedicamento');
-        }, 2000); // Garantir que a navegação ocorra após a notificação
     };
 
     return (
