@@ -3,11 +3,14 @@
         import Footer from '../../components/Footer';
         import { FaFacebook, FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa'; // Ícones do olho
         import styles from './Login.module.css';
-        
+        import api from '../../services/api';
+        import { useNavigate } from 'react-router-dom';
+
         function Login() {
         const [email, setEmail] = useState('');
         const [senha, setPassword] = useState('');
         const [passwordVisible, setPasswordVisible] = useState(false);
+        const navigate = useNavigate();
         
         const togglePasswordVisibility = () => {
             setPasswordVisible(!passwordVisible);
@@ -21,30 +24,14 @@
             console.error('Preencha os campos de email e senha.');
             return;
             }
-        
-            try {
-            const response = await fetch('http://localhost:5178/Authentication/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, senha }),
+
+            api.post('/Authentication/login', { email, senha })
+            .then((response) => { 
+                localStorage.setItem('authToken', response.data.token);
+                navigate('/home');
+            }).catch((error) => {
+                console.error(error);
             });
-            console.log(JSON.stringify({ email, senha }));
-            if (!response.ok) {
-                console.error('Erro no login:', response.statusText);
-                return;
-            }
-        
-            const data = await response.json();
-        
-            if (data.token) {
-                localStorage.setItem('authToken', data.token);
-                window.location.href = '/home';
-            } else {
-                console.error('Credenciais inválidas');
-            }
-            } catch (error) {
-            console.error('Erro:', error);
-            }
         };
         
         
