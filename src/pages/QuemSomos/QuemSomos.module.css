@@ -87,3 +87,55 @@
     transform: scale(1.05);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
+
+/* Responsividade: */
+
+@media (max-width: 768px) {
+    .quemSomosHero {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .quemSomosTexto {
+        max-width: 100%; 
+        text-align: center; 
+    }
+
+    .quemSomosImagem {
+        max-width: 80%; 
+        margin: 20px 0;
+    }
+
+    .imagemQuemSomos {
+        margin-left: 0; 
+    }
+
+    .quemSomosCards {
+        flex-direction: column; 
+        gap: 20px;
+    }
+
+    .card {
+        width: 100%; 
+        max-width: 320px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .quemSomosTexto .tituloquemSomos {
+        font-size: 28px; 
+    }
+
+    .quemSomosTexto .textoquemSomos {
+        font-size: 16px; 
+    }
+
+    .quemSomosImagem {
+        max-width: 90%; 
+    }
+
+    .card {
+        width: 100%; 
+        max-width: 300px;
+    }
+}
