@@ -4,7 +4,6 @@ import HeaderHomeUsuario from '../../components/HeaderHomeUsuario';
 import styles from './EditarPerfil.module.css';
 
 function EditarPerfil() {
-    // Dados fixos para o usuário inicial
     const [nome, setNome] = useState('Raquel');
     const [sobrenome, setSobrenome] = useState('Martins');
     const [email, setEmail] = useState('raquel@gmail.com');

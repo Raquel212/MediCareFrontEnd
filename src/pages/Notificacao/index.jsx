@@ -5,14 +5,12 @@ import HeaderHomeUsuario from '../../components/HeaderHomeUsuario';
 import styles from './Notificacao.module.css';
 
 function Notificacao() {
-    // Exemplo de dados de notificação
     const [notificacoes, setNotificacoes] = useState([
         { id: 1, titulo: 'Falta 10 minutos para tomar seu medicamentos.', mensagem: 'Tomar o medicamento no horário certo é essencial para sua eficácia.', lida: false },
         { id: 2, titulo: 'Lembre-se de tomar Paracetamol com um copo cheio de água.', mensagem: 'Você está no caminho certo para o bem-estar. Continue assim!', lida: true },
         { id: 3, titulo: 'Você tem menos de 5 comprimidos de Amoxicilina restantes.', mensagem: 'Reabasteça Amoxicilina antes de 25/12/2024.', lida: false }
     ]);
 
-    // Função para marcar a notificação como lida
     const marcarComoLida = (id) => {
         setNotificacoes(notificacoes.map(notificacao =>
             notificacao.id === id ? { ...notificacao, lida: true } : notificacao
