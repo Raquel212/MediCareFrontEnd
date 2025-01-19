@@ -14,7 +14,6 @@ function AgendarMedicamento() {
     const [frequencia, setFrequencia] = useState("");
 
     useEffect(() => {
-        // Dados de exemplo de medicamentos
         api
       .get("/medicamento?pagina=1&quantidadePorPagina=1000")
       .then((response) => setMedicamentos(response.data))

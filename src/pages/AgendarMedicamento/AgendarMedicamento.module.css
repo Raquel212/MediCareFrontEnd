@@ -92,3 +92,70 @@
         opacity: 1;
     }
 }
+
+/* Responsividade: */
+@media (max-width: 768px) {
+    .containerAgendarMedicamento {
+        padding: 20px;
+        max-width: 400px;
+    }
+
+    .formContainerAgendarMedicamento {
+        padding: 30px;
+    }
+
+    .tituloAgendarMedicamento {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .labelAgendarMedicamento {
+        font-size: 14px;
+    }
+
+    .inputAgendarMedicamento, .selectAgendarMedicamento {
+        font-size: 13px;
+    }
+
+    .submitButtonAgendarMedicamento {
+        font-size: 14px;
+        padding: 10px;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .containerAgendarMedicamento {
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    .formContainerAgendarMedicamento {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .tituloAgendarMedicamento {
+        font-size: 18px;
+    }
+
+    .labelAgendarMedicamento {
+        font-size: 12px;
+    }
+
+    .inputAgendarMedicamento, .selectAgendarMedicamento {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .submitButtonAgendarMedicamento {
+        font-size: 12px;
+        padding: 8px;
+        width: 100%;
+        margin: 0;
+    }
+
+    .notificacao {
+        font-size: 14px;
+    }
+}
