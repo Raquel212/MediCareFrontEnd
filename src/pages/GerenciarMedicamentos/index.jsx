@@ -11,7 +11,6 @@ function GerenciarMedicamento() {
     const [editIndex, setEditIndex] = useState(null);
 
     useEffect(() => {
-        // Dados de exemplo de medicamentos
         api
       .get("/medicamento?pagina=1&quantidadePorPagina=1000")
       .then((response) => setMedicamentos(response.data))
