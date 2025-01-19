@@ -9,7 +9,7 @@
 
 .tituloCadastrarMedicamento {
     font-size: 40px;
-    color: #004D99; /* Cor para títulos */
+    color: #004D99; 
     margin-bottom: 20px;
     text-align: center;
 }
@@ -20,7 +20,7 @@
     gap: 15px;
     width: 100%;
     max-width: 500px;
-    background-color: #E0F7FF; /* Fundo dos formulários */
+    background-color: #E0F7FF; 
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -37,7 +37,7 @@
 .formMedicamento input {
     margin-top: 5px;
     padding: 10px;
-    border: 1px solid #004D99; /* Cor para bordas */
+    border: 1px solid #004D99;
     border-radius: 4px;
     font-size: 1rem;
 }
@@ -47,7 +47,7 @@
 }
 
 .botaoCadastrar {
-    background-color: #00AEEF; /* Botão de destaque */
+    background-color: #00AEEF; 
     color: #d8e1ec;
     padding: 10px;
     border: none;
@@ -58,7 +58,7 @@
 }
 
 .botaoCadastrar:hover {
-    background-color: #d8e1ec; /* Cor ao passar o mouse */
+    background-color: #d8e1ec; 
     color: #00AEEF;
 }
 
@@ -112,23 +112,61 @@
     width: 300px;
 }
 
-
 /* Responsividade */
-@media (max-width: 600px) {
-    .formMedicamento, .listaMedicamentos {
+@media (max-width: 768px) {
+    .tituloCadastrarMedicamento {
+        font-size: 30px; 
+        margin-bottom: 15px;
+    }
+
+    .formMedicamento {
+        width: 100%;
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .formMedicamento label {
+        font-size: 0.9rem; 
+    }
+
+    .formMedicamento input {
+        font-size: 0.9rem; 
+    }
+
+    .botaoCadastrar {
+        font-size: 0.9rem; 
+        padding: 8px;
+    }
+
+    .notificationCadastroMedicamento {
+        width: 90%; 
+    }
+}
+
+@media (max-width: 480px) {
+    .tituloCadastrarMedicamento {
+        font-size: 25px; 
+    }
+
+    .formMedicamento {
+        width: 100%;
         padding: 10px;
     }
 
     .formMedicamento label {
-        font-size: 0.9rem;
+        font-size: 0.8rem; 
+    }
+
+    .formMedicamento input {
+        font-size: 0.8rem; 
     }
 
     .botaoCadastrar {
-        font-size: 0.9rem;
-        padding: 8px;
+        font-size: 0.8rem;
+        padding: 6px;
     }
 
-    .medicamentoItem {
-        padding: 10px;
+    .notificationCadastroMedicamento {
+        width: 95%; 
     }
 }

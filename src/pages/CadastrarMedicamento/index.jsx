@@ -13,7 +13,7 @@ function CadastrarMedicamento() {
         horarios: '',
         foto: null,
     });
-    const [showNotification, setShowNotification] = useState(false); // Estado para controle da notificação
+    const [showNotification, setShowNotification] = useState(false); 
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -35,11 +35,11 @@ function CadastrarMedicamento() {
             horario: form.horarios,})
             .then((response) => { 
                 console.log(response.data);
-                setShowNotification(true); // Exibe notificação
-                setTimeout(() => setShowNotification(false), 3000); // Tempo reduzido para 3 segundos
+                setShowNotification(true); 
+                setTimeout(() => setShowNotification(false), 3000); 
                 setTimeout(() => {
                     navigate('/gerenciarmedicamento');
-                }, 2000); // Garantir que a navegação ocorra após a notificação
+                }, 2000); 
             }).catch((error) => {
                 console.error(error);
             });
