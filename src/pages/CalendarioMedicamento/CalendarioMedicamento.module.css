@@ -51,42 +51,37 @@
 .medicamentoItem strong {
     color: #000;
 }
-/* Responsividade para telas pequenas */
+
+/* Responsividade  */
 @media (max-width: 768px) {
-    /* Ajusta o tamanho do título em telas pequenas */
     .tituloCalendarioMedicamento {
         font-size: 1.5rem;
     }
 
-    /* Ajusta o calendário para ocupar a largura total */
     .calendar {
         width: 100%;
         height: auto;
         font-size: 18px;
     }
 
-    /* Ajusta o tamanho do contêiner de medicamentos */
     .medicamentosContainer {
         font-size: 18px;
     }
 }
 
-/* Responsividade para dispositivos muito pequenos */
 @media (max-width: 480px) {
-    /* Ajusta o título para telas muito pequenas */
+
     .tituloCalendarioMedicamento {
         font-size: 1.2rem;
         margin-bottom: 15px;
     }
 
-    /* Ajusta o calendário para uma altura menor */
     .calendar {
         width: 100%;
         height: 300px;
         font-size: 16px;
     }
 
-    /* Ajuste de fonte e espaçamento nos itens de medicamentos */
     .medicamentosContainer {
         font-size: 16px;
         padding: 15px;
