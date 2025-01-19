@@ -5,11 +5,10 @@ import { Link } from 'react-router-dom';
 import { Line } from 'react-chartjs-2'; 
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 
-// Registrando os elementos necessários do Chart.js
+
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 function DetalhesMedicamento() {
-    // Dados do medicamento definidos diretamente no código
     const medicamento = {
         nome: 'Paracetamol',
         dosagem: '500mg',
@@ -20,14 +19,14 @@ function DetalhesMedicamento() {
         historicoUso: 'Usado por 2 semanas sem efeitos adversos. Melhorei nas dores.',
     };
 
-    // Dados para o gráfico de adesão
+
     const adesaoGraficoData = [
         { data: 'Semana 1', adesao: 80 },
         { data: 'Semana 2', adesao: 90 },
         { data: 'Semana 3', adesao: 85 },
     ];
 
-    // Configuração do gráfico de adesão
+
     const chartData = {
         labels: adesaoGraficoData.map(item => item.data),
         datasets: [
@@ -42,7 +41,7 @@ function DetalhesMedicamento() {
         ],
     };
 
-    // Função para imprimir o relatório
+
     const imprimirRelatorio = () => {
         window.print();
     };

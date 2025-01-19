@@ -1,5 +1,3 @@
-/* DetalhesMedicamento.module.css */
-
 /* Container principal */
 .containerDetalhes {
     width: 90%;
@@ -90,7 +88,6 @@
 .botaoImprimir {
     display: block;
     width: 200px;
-    /* margin: 30px auto; */
     padding: 12px;
     background-color: #00AEEF;
     color: white;
@@ -103,4 +100,45 @@
 .botaoImprimir:hover {
     background-color: #d8e1ec;
     color: #00AEEF;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .containerDetalhes {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .tituloDetalhes {
+        font-size: 2rem;
+    }
+
+    .informacoesBasicas,
+    .instrucoesUso,
+    .efeitosColaterais,
+    .historicoUso,
+    .graficoAdesao {
+        padding: 10px;
+    }
+
+    .botaoContainer {
+        flex-direction: column; 
+        gap: 10px;
+    }
+
+    .botaoVoltar,
+    .botaoImprimir {
+        width: 100%; 
+    }
+
+    .graficoAdesao {
+        height: 450px;
+    }
+}
+
+@media (max-width: 480px){
+    .graficoAdesao {
+        height: 250px;
+    }
 }
