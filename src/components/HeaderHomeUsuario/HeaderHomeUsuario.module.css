@@ -109,3 +109,65 @@
 .perfilDropdownHomeUsuario a:hover {
     color: #00AEEF;
 }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .menuLateralHomeUsuario {
+        width: 200px;
+    }
+
+    .menuLateralHomeUsuario a {
+        font-size: 18px;
+    }
+
+    .perfilDropdownHomeUsuario a {
+        font-size: 18px;
+    }
+
+    .iconHomeUsuario {
+        font-size: 30px;
+    }
+
+    .logoHearderHomeUsuario {
+        width: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menuLateralHomeUsuario {
+        width: 180px; 
+    }
+
+    .menuLateralHomeUsuario a {
+        font-size: 16px; 
+    }
+
+    .perfilDropdownHomeUsuario a {
+        font-size: 16px; 
+    }
+
+    .iconHomeUsuario {
+        font-size: 25px; 
+    }
+
+    .logoHearderHomeUsuario {
+        width: 150px; 
+    }
+
+
+    .headerHomeUsuario {
+        padding: 5px 10px;
+    }
+
+    .menuLateralHomeUsuario ul {
+        margin-top: 30px;
+    }
+
+    .menuLateralHomeUsuario li {
+        margin: 10px 0;
+    }
+
+    .perfilDropdownHomeUsuario {
+        right: 10px; 
+    }
+}

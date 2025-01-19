@@ -40,3 +40,48 @@
     color: #00AEEF;
 }
 
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .nav {
+        padding: 0.5rem;
+    }
+
+    .nav .quemSomos,
+    .nav .login {
+        font-size: 18px;
+    }
+
+    .logo {
+        width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        padding: 0.5rem;
+    }
+
+    .nav .quemSomos,
+    .nav .login {
+        margin: 10px 0;
+        font-size: 18px;
+    }
+
+    .logo {
+        width: 120px;
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav .quemSomos,
+    .nav .login {
+        font-size: 16px;
+    }
+}
