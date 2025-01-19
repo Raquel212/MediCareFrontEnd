@@ -8,7 +8,6 @@ import { useState } from 'react';
 
 function HomeUsuario() {
 
-    // Estado para armazenar o dia selecionado e os medicamentos do dia
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [medications, setMedications] = useState({
         "2024-12-24": [
@@ -19,23 +18,18 @@ function HomeUsuario() {
             { name: "Amoxicilina", quantity: 1 },
             { name: "Paracetamol", quantity: 1 },
         ],
-        // Adicionar mais datas conforme necessário
     });
 
-    // Função para formatar a data selecionada
     const formatDate = (date) => {
         return date.toISOString().split('T')[0];
     };
 
-    // Função para lidar com a mudança de data no calendário
     const handleDateChange = (date) => {
         setSelectedDate(date);
     };
 
-    // Obter os medicamentos para o dia selecionado
     const currentMedications = medications[formatDate(selectedDate)] || [];
 
-    // Função para reduzir a quantidade de um medicamento quando o usuário toma
     const handleMedicationTaken = (medName) => {
         const updatedMedications = { ...medications };
         const dateKey = formatDate(selectedDate);
