@@ -240,6 +240,12 @@
     font-size: 1.2rem;
 }
 
+.errorMessage {
+    color: red;
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: center;
+}
 
 /* Responsividade */
 @media (max-width: 768px) {
