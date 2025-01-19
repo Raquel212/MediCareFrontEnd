@@ -241,3 +241,128 @@
 }
 
 
+/* Responsividade */
+@media (max-width: 768px) {
+    .loginContainer {
+        justify-content: center;
+        padding: 20px;
+        display: flex; 
+        flex-direction: row; 
+        align-items: center; 
+    }
+
+    .loginCard {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+        margin-left: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between; 
+        align-items: center;
+    }
+
+    .formContainer {
+        display: flex; 
+        align-items: stretch;
+        width: 70%;
+    }
+
+    .formSection {
+        width: 100%;
+        padding: 0;
+    }
+
+    .loginTitle {
+        font-size: 30px;
+    }
+
+    .loginLinks {
+        font-size: 16px;
+    }
+
+    .socialIcons {
+        gap: 10px;
+    }
+
+    .socialButton {
+        width: 100%;
+        max-width: 150px;
+    }
+
+    .passwordField {
+        width: 100%;
+    }
+
+    .inputField {
+        width: 100%; 
+        padding: 12px;
+        margin-bottom: 15px;
+        font-size: 16px;
+        /* border: 1px solid #ccc; */
+        border-radius: 8px;
+    }
+
+    .loginImage {
+        width: 350px;
+        height: 350px;
+        margin: 90px;
+        border-radius: 10px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .loginTitle {
+        font-size: 24px;
+        text-align: center; 
+    }
+
+    .loginContainer {
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+        padding: 20px;
+    }
+
+    .formContainer {
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .inputField {
+        width: 450px;
+        padding: 12px;
+        margin-bottom: 15px;
+        font-size: 16px;
+        border-radius: 8px;
+    }
+
+    .togglePasswordButton {
+        margin-right: 10px;
+    }
+
+    .loginLinks {
+        font-size: 16px;
+        text-align: center; 
+    }
+
+    .socialIcons {
+        gap: 10px;
+        justify-content: center; 
+    }
+
+    .socialButton {
+        width: 100%;
+        max-width: 150px;
+    }
+
+    .imageSection {
+        display: none;
+    }
+}
+
+
