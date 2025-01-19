@@ -47,3 +47,69 @@
 .tabelaHistorico tr:hover {
     background-color: #d8e1ec;
 }
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .tituloHistorico {
+        font-size: 1.5rem; 
+        margin-bottom: 15px;
+    }
+
+    .tabelaHistorico {
+        font-size: 0.9rem; 
+        background-color: white;
+    }
+
+    .tabelaHistorico th, .tabelaHistorico td {
+        padding: 8px; 
+    }
+
+    .containerHistorico {
+        padding: 10px; 
+    }
+
+    .tabelaHistorico th, .tabelaHistorico td {
+        white-space: nowrap; 
+    }
+}
+
+@media (max-width: 480px) {
+    .tituloHistorico {
+        font-size: 1.25rem; 
+        margin-bottom: 10px; 
+    }
+
+    .tabelaHistorico {
+        font-size: 0.8rem; 
+    }
+
+    .tabelaHistorico th, .tabelaHistorico td {
+        padding: 6px; 
+    }
+
+    .containerHistorico {
+        padding: 8px; 
+    }
+
+    .tabelaHistorico {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .tabelaHistorico th, .tabelaHistorico td {
+        white-space: nowrap; 
+    }
+}
+
+@media (max-width: 1024px) {
+    .tituloHistorico {
+        font-size: 1.75rem; 
+        margin-bottom: 18px;
+    }
+
+    .tabelaHistorico {
+        font-size: 1rem; 
+    }
+}
