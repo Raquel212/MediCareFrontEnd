@@ -32,7 +32,7 @@ function Cadastro() {
             console.log(response.data)
             setNotificacao('Usuário Cadastrado com sucesso!');
 
-            // Esconde a notificação após 3 segundos
+
             setTimeout(() => {
                 setNotificacao('');
             }, 3000);})

@@ -5,7 +5,6 @@
     align-items: center;
     height: 100vh;
     background: url('/public/Cadastro.png') no-repeat center center/cover;
-    /* background-color: #FFFFFF; */
 }
 
 
@@ -157,3 +156,79 @@
     }
 }
 
+/* Responsividade */
+@media (max-width: 768px) {
+    .cadastroCard {
+        width: 80%; 
+        height: auto; 
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: center; 
+    }
+
+    .formContainer {
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: center; 
+        width: 100%; 
+    }
+
+    .imageCadastro {
+        display: none; 
+    }
+
+    .inputField {
+        width: 100%; 
+        max-width: 320px; 
+    }
+
+    .togglePasswordButton {
+        margin-right: 10px; 
+    }
+
+    .passwordField {
+        width: 100%; 
+        max-width: 320px; 
+    }
+
+    .cadastroButton {
+        width: 100%;  
+        max-width: 320px; 
+    }
+
+    .cadastroTitle {
+        font-size: 30px; 
+    }
+
+    .cadastroForm {
+        max-width: 100%; 
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cadastroTitle {
+        font-size: 24px; 
+    }
+
+    .inputField {
+        font-size: 14px; 
+    }
+
+    .cadastroButton {
+        font-size: 14px;
+        padding: 10px; 
+    }
+
+    .cadastroLinks {
+        font-size: 18px; 
+    }
+
+    .cadastroImage {
+        width: 100%; 
+        height: auto;
+    }
+}
