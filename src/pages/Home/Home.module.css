@@ -1,5 +1,3 @@
-/* CSS da Home Boas Vindas */
-
 .containerHome {
     width: 100%;
     min-height: 100vh;
@@ -54,3 +52,76 @@
     border-radius: 10px;
 }
 
+/* Responsividade */
+@media (max-width: 1024px) {
+    .containerHome {
+        padding: 20px; 
+    }
+
+    .tituloHome {
+        font-size: 50px; 
+        text-align: center; 
+    }
+
+    .textoHome {
+        font-size: 16px; 
+        text-align: justify; 
+    }
+
+    .saibaMais {
+        font-size: 20px; 
+    }
+
+    .imagemHome {
+        width: 100%; 
+        height: 400px; 
+        margin-top: 20px; 
+    }
+}
+
+@media (max-width: 768px) {
+    .tituloHome {
+        font-size: 40px; 
+    }
+
+    .textoHome {
+        font-size: 15px; 
+        line-height: 1.6; 
+    }
+
+    .saibaMais {
+        padding: 8px 18px; 
+        font-size: 18px; 
+    }
+
+    .imagemHome {
+        width: 100%; 
+        height: 250px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .containerHome {
+        padding: 10px; 
+    }
+
+    .tituloHome {
+        font-size: 30px; 
+        text-align: center; 
+    }
+
+    .textoHome {
+        font-size: 14px; 
+        text-align: justify; 
+        margin-bottom: 10px; 
+    }
+
+    .saibaMais {
+        padding: 6px 15px; 
+        font-size: 16px; 
+    }
+
+    .imagemHome {
+        display: none; 
+    }
+}
