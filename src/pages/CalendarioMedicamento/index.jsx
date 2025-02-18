@@ -13,11 +13,11 @@ function CalendarioMedicamento() {
 
     // Exemplo de dados, substitua com dados dinâmicos reais
     const medicamentosPorData = {
-        '2025-01-28': [
+        '2025-03-16': [
             { nome: 'Paracetamol', horario: '08:00', quantidade: '500mg' },
             { nome: 'Ibuprofeno', horario: '14:00', quantidade: '200mg' }
         ],
-        '2025-01-29': [
+        '2025-03-14': [
             { nome: 'Amoxicilina', horario: '10:00', quantidade: '1 comprimido' }
         ]
     };
