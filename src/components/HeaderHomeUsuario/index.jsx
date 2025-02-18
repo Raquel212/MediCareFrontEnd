@@ -8,12 +8,10 @@ function HeaderHomeUsuario() {
     const [menuAberto, setMenuAberto] = useState(false);
     const [perfilAberto, setPerfilAberto] = useState(false);
 
-    // Alternar o menu lateral
     const toggleMenu = () => {
         setMenuAberto(!menuAberto);
     };
 
-    // Alternar dropdown de perfil
     const togglePerfil = () => {
         setPerfilAberto(!perfilAberto);
     };
@@ -26,7 +24,7 @@ function HeaderHomeUsuario() {
                 </div>
                 <div className={styles.logoHearderHomeUsuario}>
                     <Link to="/home">
-                        <img src={logo} alt="Logo" className={styles.logoHearderHomeUsuario}/>
+                        <img src={logo} alt="Logo" className={styles.logoHearderHomeUsuario} />
                     </Link>
                 </div>
                 <div onClick={togglePerfil} className={styles.iconHomeUsuario}>
