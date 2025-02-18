@@ -1,4 +1,3 @@
-/* Container principal */
 .containerEditarPerfil {
     width: 100%;
     max-width: 600px;
@@ -12,7 +11,7 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Título da página */
+
 .tituloEditarPerfil {
     text-align: center;
     font-size: 2.5rem;
@@ -21,7 +20,7 @@
     margin-bottom: 20px;
 }
 
-/* Formulário */
+
 .formularioEditarPerfil {
     display: flex;
     flex-direction: column;
@@ -36,7 +35,7 @@
     font-size: 1.125rem; 
 }
 
-/* Alinhamento dos inputs */
+
 .inputEditarPerfil {
     width: 100%;
     height: 50px;
@@ -52,7 +51,7 @@
     border-color: #004D99;
 }
 
-/* Alinhamento dos botões */
+
 .botoesEditarPerfil {
     display: flex;
     flex-direction: column;
@@ -60,7 +59,7 @@
     margin-top: 30px;
 }
 
-/* Botões */
+
 .botaoSalvarEditarPerfil,
 .botaoExcluirEditarPerfil {
     padding: 12px;
@@ -91,7 +90,7 @@
     opacity: 0.5;
 }
 
-/* Confirmação de exclusão */
+
 .confirmacaoExcluir {
     display: flex;
     flex-direction: column;
@@ -141,7 +140,7 @@
     opacity: 0.5;
 }
 
-/* Notificação de sucesso */
+
 .notificacao {
     position: absolute;
     top: 20px;
