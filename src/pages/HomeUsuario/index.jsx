@@ -10,11 +10,11 @@ function HomeUsuario() {
 
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [medications, setMedications] = useState({
-        "2024-12-24": [
+        "2025-03-12": [
             { name: "Paracetamol", quantity: 8 },
             { name: "Ibuprofeno", quantity: 1 },
         ],
-        "2024-12-25": [
+        "2025-03-13": [
             { name: "Amoxicilina", quantity: 1 },
             { name: "Paracetamol", quantity: 1 },
         ],
