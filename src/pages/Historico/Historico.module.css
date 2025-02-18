@@ -1,23 +1,23 @@
-/* Container que engloba todo o conteúdo da tela */
 .containerHistorico {
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
-    min-height: 515px; 
+    min-height: 790px; 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
-/* Título da página */
+
 .tituloHistorico {
     text-align: center;
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #004D99;
     margin-bottom: 20px;
+    margin-top: 30px;
 }
 
-/* Estilo da tabela */
+
 .tabelaHistorico {
     width: 100%;
     border-collapse: collapse;
@@ -25,25 +25,25 @@
     background-color: #E0F7FF;
 }
 
-/* Estilo das células da tabela */
+
 .tabelaHistorico th, .tabelaHistorico td {
     padding: 12px;
     text-align: left;
     border: 1px solid #d8e1ec;
 }
 
-/* Cabeçalho da tabela */
+
 .tabelaHistorico th {
     background-color: #00AEEF;
     color: #000;
 }
 
-/* Linhas alternadas na tabela */
+
 .tabelaHistorico tr:nth-child(even) {
     background-color: #b1dff0;
 }
 
-/* Efeito de hover nas linhas da tabela */
+
 .tabelaHistorico tr:hover {
     background-color: #d8e1ec;
 }

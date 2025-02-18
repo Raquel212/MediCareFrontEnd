@@ -1,12 +1,14 @@
 .containerNotificacao {
     padding: 20px;
-    min-height: 515px;
+    min-height: 790px;
 }
 
 .tituloNotificacao {
     text-align: center;
-    font-size: 45px;
+    font-size: 2.5rem;
     color: #004D99;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .listaNotificacoes {

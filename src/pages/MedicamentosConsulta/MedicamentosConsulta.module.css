@@ -1,15 +1,16 @@
 .containerMedicamentosConsulta {
     padding: 20px;
     max-width: 800px;
-    min-height: 515px; 
+    min-height: 790px; 
     margin: 0 auto;
 }
 
 .tituloMedicamentosConsulta {
-    font-size: 40px;
+    font-size: 2.5rem;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 20px;
+    margin-top: 50px;
+    margin-bottom: 30px;
     color: #004D99;
 }
 
