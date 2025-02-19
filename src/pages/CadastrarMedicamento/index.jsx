@@ -59,7 +59,7 @@ function CadastrarMedicamento() {
 
                 <form className={styles.formMedicamento} onSubmit={handleSubmit}>
                     <label>
-                        Nome do Remédio:
+                        Nome do Medicamento:
                         <input
                             type="text"
                             name="nome"
@@ -81,7 +81,7 @@ function CadastrarMedicamento() {
                         />
                     </label>
                     <label>
-                        Dosagem:
+                        Dosagem por Unidade:
                         <input
                             type="text"
                             name="dosagem"
@@ -102,7 +102,7 @@ function CadastrarMedicamento() {
                             required
                         />
                     </label>
-                    <button type="submit" className={styles.botaoCadastrar}>Cadastrar</button>
+                    <button type="submit" className={styles.botaoCadastrar}>Registrar</button>
                 </form>
             </div>
             <Footer />
