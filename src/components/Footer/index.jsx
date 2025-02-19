@@ -32,7 +32,7 @@ function Footer(){
                 </div>
             </div>
             <div className={styles.footerBottom}>
-                <p>&copy; 2024 MediCare. <br />Todos os direitos reservados.</p>
+                <p>&copy; 2025 MediCare. <br />Todos os direitos reservados.</p>
             </div>
         </footer>
     )
