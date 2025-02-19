@@ -3,7 +3,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
 import styles from './Cadastro.module.css';
-import api from "./../../services/api";
+import api from "../../services/api";
 
 function Cadastro() {
     const [passwordVisible, setPasswordVisible] = useState(false);
@@ -13,8 +13,8 @@ function Cadastro() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [senhaConfirmacao, setSenhaConfirmacao] = useState('');
-    const [notificacao, setNotificacao] = useState('');
-
+    const [error, setError] = useState(null);
+    const [successMessage, setSuccessMessage] = useState('');
 
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
@@ -24,22 +24,35 @@ function Cadastro() {
         setConfirmPasswordVisible(!confirmPasswordVisible);
     };
 
-    const handleSubmit = (event) => {
+    const handleCadastro = async (event) => {
         event.preventDefault();
-        api
-        .post(`/authentication`, {nome: nome, sobrenome: sobrenome, email: email, senha: senha, senhaConfirmacao: senhaConfirmacao})
-        .then((response) => {
-            console.log(response.data)
-            setNotificacao('Usuário Cadastrado com sucesso!');
 
+        if (!nome || !sobrenome || !email || !senha || !senhaConfirmacao) {
+            setError('Todos os campos são obrigatórios.');
+            return;
+        }
 
-            setTimeout(() => {
-                setNotificacao('');
-            }, 3000);})
-        .catch((err) => {
-            console.error("ops! ocorreu um erro" + err);
-        });
-    }
+        if (senha !== senhaConfirmacao) {
+            setError('As senhas não coincidem.');
+            return;
+        }
+
+        try {
+            const response = await api.post('/Cadastro', { nome, sobrenome, email, senha });
+            console.log(response.data);
+            setSuccessMessage('Cadastro realizado com sucesso! Você pode fazer login agora.');
+            setError(null);
+        } catch (error) {
+            console.error(error);
+            if (error.response && error.response.status === 400) {
+                setError('Erro ao cadastrar. Verifique os dados fornecidos.');
+            } else if (error.response && error.response.status === 404) {
+                setError('Email já cadastrado.');
+            } else {
+                setError('Ocorreu um erro ao tentar fazer o cadastro. Tente novamente.');
+            }
+        }
+    };
 
     return (
         <>
@@ -48,78 +61,79 @@ function Cadastro() {
                 <div className={styles.cadastroCard}>
                     <div className={styles.formContainer}>
                         <div className={styles.formSection}>
-                            {/* Exibe a notificação caso haja uma mensagem */}
-                                {notificacao && (
-                                    <div className={styles.notificacao}>
-                                        {notificacao}
-                                    </div>
-                                )}
                             <h2 className={styles.cadastroTitle}>Cadastro</h2>
-                            <form className={styles.cadastroForm}>
-                                <input 
-                                    type="text" 
-                                    placeholder="Nome" 
+                            <form className={styles.cadastroForm} onSubmit={handleCadastro}>
+                                {error && <div className={styles.errorMessage}>{error}</div>}
+                                {successMessage && <div className={styles.successMessage}>{successMessage}</div>}
+
+                                <input
+                                    type="text"
+                                    placeholder="Nome"
                                     value={nome}
+                                    onChange={(e) => setNome(e.target.value)}
                                     className={styles.inputField}
-                                    onChange={(e) => setNome(e.target.value)} 
                                 />
-                                <input 
-                                    type="text" 
-                                    placeholder="Sobrenome" 
+                                <input
+                                    type="text"
+                                    placeholder="Sobrenome"
                                     value={sobrenome}
-                                    className={styles.inputField} 
                                     onChange={(e) => setSobrenome(e.target.value)}
+                                    className={styles.inputField}
                                 />
-                                <input 
-                                    type="email" 
-                                    placeholder="Email" 
+                                <input
+                                    type="email"
+                                    placeholder="Email"
                                     value={email}
-                                    className={styles.inputField} 
                                     onChange={(e) => setEmail(e.target.value)}
+                                    className={styles.inputField}
                                 />
                                 <div className={styles.passwordField}>
-                                    <input 
-                                        type={passwordVisible ? "text" : "password"} 
-                                        placeholder="Senha" 
+                                    <input
+                                        type={passwordVisible ? 'text' : 'password'}
+                                        placeholder="Senha"
                                         value={senha}
-                                        className={styles.inputField} 
                                         onChange={(e) => setSenha(e.target.value)}
+                                        className={styles.inputField}
                                     />
-                                    <button 
-                                        type="button" 
-                                        className={styles.togglePasswordButton} 
+                                    <button
+                                        type="button"
+                                        className={styles.togglePasswordButton}
                                         onClick={togglePasswordVisibility}
                                     >
                                         {passwordVisible ? <FaEyeSlash /> : <FaEye />}
                                     </button>
                                 </div>
                                 <div className={styles.passwordField}>
-                                    <input 
-                                        type={confirmPasswordVisible ? "text" : "password"} 
-                                        placeholder="Confirmar Senha" 
+                                    <input
+                                        type={confirmPasswordVisible ? 'text' : 'password'}
+                                        placeholder="Confirmar Senha"
                                         value={senhaConfirmacao}
-                                        className={styles.inputField} 
                                         onChange={(e) => setSenhaConfirmacao(e.target.value)}
+                                        className={styles.inputField}
                                     />
-                                    <button 
-                                        type="button" 
-                                        className={styles.togglePasswordButton} 
+                                    <button
+                                        type="button"
+                                        className={styles.togglePasswordButton}
                                         onClick={toggleConfirmPasswordVisibility}
                                     >
                                         {confirmPasswordVisible ? <FaEyeSlash /> : <FaEye />}
                                     </button>
                                 </div>
-                                <button onClick={handleSubmit} type="submit" className={styles.cadastroButton}>Cadastrar</button>
+
+                                <button type="submit" className={styles.cadastroButton}>
+                                    Cadastrar
+                                </button>
+
                             </form>
+
                             <div className={styles.cadastroLinks}>
                                 <p>Já tem uma conta?<a href="/login" className={styles.link}> Faça login</a></p>
                             </div>
                         </div>
-                        <div className={styles.imageCadastro}>
-                            <img src="/Login2.jpg" alt="Imagem de Login" className={styles.cadastroImage} />
-                        </div>
                     </div>
-                    
+                    <div className={styles.imageCadastro}>
+                        <img src="/Login2.jpg" alt="Imagem de Login" className={styles.cadastroImage} />
+                    </div>
                 </div>
             </div>
             <Footer />

@@ -10,7 +10,7 @@ function Login() {
     const [email, setEmail] = useState('');
     const [senha, setPassword] = useState('');
     const [passwordVisible, setPasswordVisible] = useState(false);
-    const [error, setError] = useState(null);  // Estado para mensagens de erro
+    const [error, setError] = useState(null); 
     const navigate = useNavigate();
     
     const togglePasswordVisibility = () => {
@@ -31,8 +31,8 @@ function Login() {
             navigate('/home');
         } catch (error) {
             console.error(error);
-            if (error.response && error.response.status === 401) {
-                setError('Email ou senha inválidos.');
+            if (error.response && error.response.status === 400) {
+                setError(error.response.data.errors);
             } else if (error.response && error.response.status === 404) {
                 setError('Usuário não encontrado.');
             } else {

@@ -134,6 +134,13 @@
     border-radius: 10px;
 }
 
+.errorMessage {
+    color: red;
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
 
 .notificacao {
     background-color: #00AEEF;

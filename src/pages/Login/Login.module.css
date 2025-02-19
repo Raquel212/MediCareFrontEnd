@@ -6,7 +6,6 @@
     background: url('/public/Login4.png') no-repeat center center/cover;
 }
 
-/* Cartão de login */
 .loginCard {
     display: flex;
     justify-content: center;
@@ -22,20 +21,17 @@
 
 }
 
-/* Container para o formulário e a imagem */
 .formContainer {
     display: flex;
     align-items: center;
     width: 100%;
 }
 
-/* Seção do formulário de login */
 .formSection {
     width: 50%;
     padding-right: 20px;
 }
 
-/* Estilo da imagem */
 .imageSection {
     width: 50%;
     padding-left: 20px;
@@ -47,7 +43,6 @@
     border-radius: 10px;
 }
 
-/* Título do login */
 .loginTitle {
     color: #1e0176;
     font-size: 40px;
@@ -57,14 +52,12 @@
     text-align: center;
 }
 
-/* Formulário de login */
 .loginForm {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-/* Estilo dos campos de entrada */
 .inputField {
     padding: 12px;
     border: 2px solid #ddd;
@@ -77,7 +70,6 @@
     border-color: #007bff;
 }
 
-/* Botão de login */
 .loginButton {
     background-color: #00AEEF;
     color: #E0F7FF;
@@ -94,7 +86,6 @@
     color: #00AEEF;
 }
 
-/* Links de cadastro e esqueceu senha */
 .loginLinks {
     margin-top: 15px;
     display: flex;
