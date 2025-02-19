@@ -38,6 +38,7 @@
 .nav .login a:hover, 
 .nav .quemSomos a:hover {
     color: #00AEEF;
+    text-decoration: underline;
 }
 
 
