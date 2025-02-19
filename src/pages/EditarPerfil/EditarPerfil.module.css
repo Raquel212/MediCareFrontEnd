@@ -1,13 +1,21 @@
+.containerGeral{
+    min-height: 100vh;
+    background: linear-gradient(135deg, #F8FBFF, #5AB9EA);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
 .containerEditarPerfil {
-    width: 100%;
     max-width: 600px;
-    min-height: 515px;
     margin: 0 auto;
     padding: 20px;
     background-color: #E0F7FF;
     border-radius: 8px;
-    margin-top: 20px;
     margin-bottom: 20px;
+    gap: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 

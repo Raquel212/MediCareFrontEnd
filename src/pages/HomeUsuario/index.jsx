@@ -45,6 +45,8 @@ function HomeUsuario() {
         }
     };
 
+    const formattedDate = selectedDate.toLocaleDateString('pt-BR');
+
     return (
         <>
             <HeaderHomeUsuario />
@@ -58,14 +60,14 @@ function HomeUsuario() {
 
                 <section className={styles.cardsSection}>
                     <div className={styles.card}>
-                        <h3 className={styles.calendarioTitulo}>Medicamentos para Tomar</h3>
+                        <h3 className={styles.calendarioTitulo}>Medicamentos Agendados</h3>
                         <Calendar
                             onChange={handleDateChange}
                             value={selectedDate}
                             className={styles.calendar}
                         />
                         <div className={styles.dateInfo}>
-                            <h3 className={styles.tituloMedicaCalendar}>Medicamentos para {formatDate(selectedDate)}</h3>
+                            <h3 className={styles.tituloMedicaCalendar}>Medicamentos para {formattedDate}</h3> {/* Alteração aqui */}
                             {currentMedications.length === 0 ? (
                                 <p>Não há medicamentos agendados para este dia.</p>
                             ) : (
@@ -101,7 +103,7 @@ function HomeUsuario() {
 
                     <div className={styles.cardDica}>
                         <FaLightbulb className={styles.cardIcon} />
-                        <p className={styles.textoDica}>Dica do Dia: Uma boa noite de sono pode melhorar a eficácia dos seus medicamentos.</p>
+                        <p className={styles.textoDica}><strong>Dica do Dia:</strong> Uma boa noite de sono pode melhorar a eficácia dos seus medicamentos.</p>
                     </div>
                 </section>
             </main>

@@ -20,12 +20,10 @@ function EditarPerfil() {
             return;
         }
 
-
         if (!validarEmail(email)) {
             setNotificacao('Por favor, insira um email válido.');
             return;
         }
-
 
         setNotificacao('Alterações salvas com sucesso!');
         setTimeout(() => setNotificacao(''), 3000); 
@@ -43,73 +41,73 @@ function EditarPerfil() {
     return (
         <>
             <HeaderHomeUsuario />
-            <div className={styles.containerEditarPerfil}>
-                <h1 className={styles.tituloEditarPerfil}>Editar Perfil</h1>
+            <div className={styles.containerGeral}>
+                <div className={styles.containerEditarPerfil}>
+                    <h1 className={styles.tituloEditarPerfil}>Editar Perfil</h1>
 
-                {/* Exibição da notificação */}
-                {notificacao && (
-                    <div className={styles.notificacaoEditarPerfil}>
-                        {notificacao}
+                    {notificacao && (
+                        <div className={styles.notificacaoEditarPerfil}>
+                            {notificacao}
+                        </div>
+                    )}
+
+                    <div className={styles.formularioEditarPerfil}>
+                        <label className={styles.labelEditarPerfil}>
+                            Nome:
+                            <input
+                                className={styles.inputEditarPerfil}
+                                type="text"
+                                value={nome}
+                                onChange={(e) => setNome(e.target.value)}
+                            />
+                        </label>
+                        <label className={styles.labelEditarPerfil}>
+                            Sobrenome:
+                            <input
+                                className={styles.inputEditarPerfil}
+                                type="text"
+                                value={sobrenome}
+                                onChange={(e) => setSobrenome(e.target.value)}
+                            />
+                        </label>
+                        <label className={styles.labelEditarPerfil}>
+                            Email:
+                            <input
+                                className={styles.inputEditarPerfil}
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </label>
                     </div>
-                )}
 
-                <div className={styles.formularioEditarPerfil}>
-                    <label className={styles.labelEditarPerfil}>
-                        Nome:
-                        <input
-                            className={styles.inputEditarPerfil}
-                            type="text"
-                            value={nome}
-                            onChange={(e) => setNome(e.target.value)}
-                        />
-                    </label>
-                    <label className={styles.labelEditarPerfil}>
-                        Sobrenome:
-                        <input
-                            className={styles.inputEditarPerfil}
-                            type="text"
-                            value={sobrenome}
-                            onChange={(e) => setSobrenome(e.target.value)}
-                        />
-                    </label>
-                    <label className={styles.labelEditarPerfil}>
-                        Email:
-                        <input
-                            className={styles.inputEditarPerfil}
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                    </label>
-                </div>
-
-                <div className={styles.botoesEditarPerfil}>
-                    <button className={styles.botaoSalvarEditarPerfil} onClick={salvarAlteracoes}>
-                        Salvar Alterações
-                    </button>
-                    <button className={styles.botaoExcluirEditarPerfil} onClick={handleExcluirConta}>
-                        Excluir Conta
-                    </button>
-                </div>
-
-                {/* Confirmação para exclusão */}
-                {mostrarConfirmacao && (
-                    <div className={styles.confirmacaoExcluir}>
-                        <p>Tem certeza de que deseja excluir sua conta?</p>
-                        <button
-                            onClick={confirmarExclusao}
-                            className={styles.botaoConfirmarEditarPerfil}
-                        >
-                            Sim
+                    <div className={styles.botoesEditarPerfil}>
+                        <button className={styles.botaoSalvarEditarPerfil} onClick={salvarAlteracoes}>
+                            Salvar Alterações
                         </button>
-                        <button
-                            onClick={() => setMostrarConfirmacao(false)}
-                            className={styles.botaoCancelarEditarPerfil}
-                        >
-                            Não
+                        <button className={styles.botaoExcluirEditarPerfil} onClick={handleExcluirConta}>
+                            Excluir Conta
                         </button>
                     </div>
-                )}
+
+                    {mostrarConfirmacao && (
+                        <div className={styles.confirmacaoExcluir}>
+                            <p>Tem certeza de que deseja excluir sua conta?</p>
+                            <button
+                                onClick={confirmarExclusao}
+                                className={styles.botaoConfirmarEditarPerfil}
+                            >
+                                Sim
+                            </button>
+                            <button
+                                onClick={() => setMostrarConfirmacao(false)}
+                                className={styles.botaoCancelarEditarPerfil}
+                            >
+                                Não
+                            </button>
+                        </div>
+                    )}
+                </div>
             </div>
             <Footer />
         </>

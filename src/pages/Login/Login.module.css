@@ -52,7 +52,8 @@
     color: #1e0176;
     font-size: 40px;
     font-weight: 600;
-    margin-bottom: 50px;
+    margin-top: 20px;
+    margin-bottom: 10px;
     text-align: center;
 }
 
@@ -107,6 +108,7 @@
     color: #007bff;
     text-decoration: none;
     text-align: center;
+    margin: 10px;
 }
 .links {
     color: #007bff;

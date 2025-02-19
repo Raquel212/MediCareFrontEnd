@@ -1,6 +1,8 @@
 .containerNotificacao {
     padding: 20px;
     min-height: 790px;
+    background: linear-gradient(135deg, #F8FBFF, #5AB9EA);
+
 }
 
 .tituloNotificacao {
@@ -20,7 +22,7 @@
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 10px;
-    cursor: pointer;
+    cursor: default;
     display: flex;
     align-items: center;
     transition: background-color 0.3s;

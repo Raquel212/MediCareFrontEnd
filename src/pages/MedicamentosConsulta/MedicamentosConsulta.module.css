@@ -1,8 +1,8 @@
 .containerMedicamentosConsulta {
     padding: 20px;
-    max-width: 800px;
     min-height: 790px; 
-    margin: 0 auto;
+    background: linear-gradient(135deg, #F8FBFF, #5AB9EA);
+
 }
 
 .tituloMedicamentosConsulta {
@@ -18,6 +18,8 @@
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .inputBusca {
@@ -49,6 +51,9 @@
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 30px;
 }
 
 .mensagemErro {

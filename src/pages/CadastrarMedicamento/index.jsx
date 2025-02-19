@@ -43,8 +43,6 @@ function CadastrarMedicamento() {
             }).catch((error) => {
                 console.error(error);
             });
-
-
     };
 
     return (
@@ -53,7 +51,6 @@ function CadastrarMedicamento() {
             <div className={styles.cadastrarMedicamento}>
                 <h1 className={styles.tituloCadastrarMedicamento}>Cadastrar Medicamento</h1>
 
-                {/* Notificação de sucesso */}
                 {showNotification && (
                     <div className={styles.notificationCadastroMedicamento}>
                         Medicamento cadastrado com sucesso!
@@ -68,6 +65,7 @@ function CadastrarMedicamento() {
                             name="nome"
                             value={form.nome}
                             onChange={handleChange}
+                            placeholder="Ex: Paracetamol, Ibuprofeno"
                             required
                         />
                     </label>
@@ -78,16 +76,18 @@ function CadastrarMedicamento() {
                             name="quantidadeTotal"
                             value={form.quantidadeTotal}
                             onChange={handleChange}
+                            placeholder="Ex: 30 comprimidos"
                             required
                         />
                     </label>
                     <label>
                         Dosagem:
                         <input
-                            type="number"
+                            type="text"
                             name="dosagem"
                             value={form.dosagem}
                             onChange={handleChange}
+                            placeholder="Ex: 500mg, 1 comprimido, 2 colheres"
                             required
                         />
                     </label>

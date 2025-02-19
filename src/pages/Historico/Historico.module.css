@@ -1,53 +1,77 @@
 .containerHistorico {
     padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
     min-height: 790px; 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    background: linear-gradient(135deg, #F8FBFF, #5AB9EA);
 }
 
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
 
 .tituloHistorico {
-    text-align: center;
+    text-align: center; 
     font-size: 2.5rem;
     color: #004D99;
-    margin-bottom: 20px;
-    margin-top: 30px;
+    margin-left: 500px;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
+.filtro {
+    display: flex;
+    align-items: center;
+}
+
+.filtro label {
+    margin-right: 10px;
+    font-size: 1.3rem;
+    color: #004D99;
+}
+
+.filtro select {
+    padding: 5px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    border: 1px solid #004D99;
+    background-color: #E0F7FF;
+    color: black;
+    cursor: pointer;
+}
 
 .tabelaHistorico {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
     background-color: #E0F7FF;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
 
 .tabelaHistorico th, .tabelaHistorico td {
     padding: 12px;
-    text-align: left;
+    text-align: center;
     border: 1px solid #d8e1ec;
 }
-
 
 .tabelaHistorico th {
     background-color: #00AEEF;
     color: #000;
 }
 
-
 .tabelaHistorico tr:nth-child(even) {
     background-color: #b1dff0;
 }
 
-
 .tabelaHistorico tr:hover {
     background-color: #d8e1ec;
 }
-
 
 /* Responsividade */
 @media (max-width: 768px) {
