@@ -12,6 +12,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
 .tituloHistorico {
@@ -21,11 +22,13 @@
     margin-left: 500px;
     margin-top: 25px;
     margin-bottom: 25px;
+
 }
 
 .filtro {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .filtro label {
@@ -74,25 +77,40 @@
 }
 
 /* Responsividade */
+@media (max-width: 1024px) {
+    .tituloHistorico {
+        font-size: 1.75rem;
+        margin-bottom: 18px;
+    }
+    .filtro {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
 @media (max-width: 768px) {
     .tituloHistorico {
         font-size: 1.5rem; 
         margin-bottom: 15px;
+        margin: 0 auto;
     }
-
+    .filtro {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .filtro label, .filtro select {
+        font-size: 1rem;
+    }
     .tabelaHistorico {
         font-size: 0.9rem; 
         background-color: white;
     }
-
     .tabelaHistorico th, .tabelaHistorico td {
         padding: 8px; 
     }
-
     .containerHistorico {
         padding: 10px; 
     }
-
     .tabelaHistorico th, .tabelaHistorico td {
         white-space: nowrap; 
     }
@@ -103,25 +121,25 @@
         font-size: 1.25rem; 
         margin-bottom: 10px; 
     }
-
+    .filtro {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
     .tabelaHistorico {
         font-size: 0.8rem; 
     }
-
     .tabelaHistorico th, .tabelaHistorico td {
         padding: 6px; 
     }
-
     .containerHistorico {
         padding: 8px; 
     }
-
     .tabelaHistorico {
         display: block;
         width: 100%;
         overflow-x: auto;
     }
-
     .tabelaHistorico th, .tabelaHistorico td {
         white-space: nowrap; 
     }
@@ -129,11 +147,8 @@
 
 @media (max-width: 1024px) {
     .tituloHistorico {
-        font-size: 1.75rem; 
-        margin-bottom: 18px;
-    }
-
-    .tabelaHistorico {
-        font-size: 1rem; 
+        font-size: 2rem; 
+        margin-bottom: 15px;
+        margin: 0 auto;
     }
 }
