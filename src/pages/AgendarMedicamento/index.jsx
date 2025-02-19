@@ -5,7 +5,6 @@ import styles from './AgendarMedicamento.module.css';
 import api from '../../services/api';
 
 function AgendarMedicamento() {
-    // Estado para controlar a visibilidade da notificação
     const [notificacao, setNotificacao] = useState('');
     const [medicamentos, setMedicamentos] = useState([]);
 

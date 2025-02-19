@@ -5,22 +5,22 @@
     padding: 30px;
     border-radius: 8px;
     width: 100%;
-    max-width: 500px;
-    margin: auto;
-    margin-top: 50px;
+    background: linear-gradient(135deg, #F8FBFF, #5AB9EA);
     min-height: 790px;
+    
 }
 
 .formContainerAgendarMedicamento {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 20px;
     width: 100%;
     background-color: #E0F7FF;
     padding: 50px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    
+    max-width: 500px;
 }
 
 .tituloAgendarMedicamento{
@@ -61,7 +61,7 @@
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
-    margin-left: 70px;
+    margin-left: 100px;
 
 }
 
@@ -96,7 +96,7 @@
 @media (max-width: 768px) {
     .containerAgendarMedicamento {
         padding: 20px;
-        max-width: 400px;
+        max-width: 1200px;
     }
 
     .formContainerAgendarMedicamento {
