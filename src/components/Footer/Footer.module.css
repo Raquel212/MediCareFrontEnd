@@ -59,6 +59,10 @@
     transition: color 0.3s;
 }
 
+.socialIcons{
+    margin-top: 15px;
+}
+
 .socialIcons a:hover {
     color: #00AEEF; 
 }
