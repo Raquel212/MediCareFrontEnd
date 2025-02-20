@@ -2,10 +2,10 @@ import Footer from '../../components/Footer';
 import HeaderHomeUsuario from '../../components/HeaderHomeUsuario';
 import styles from './DetalhesMedicamentos.module.css';
 import { Link } from 'react-router-dom';
-import { Line } from 'react-chartjs-2'; 
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
+import { Bar } from 'react-chartjs-2'; 
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 function DetalhesMedicamento() {
     const medicamento = {
@@ -13,27 +13,28 @@ function DetalhesMedicamento() {
         dosagem: '500mg',
         horario: '8h00',
         frequencia: '3x ao dia',
-        instrucoesUso: 'Tomar após as refeições com um copo de água.',
-        efeitosColaterais: 'Dor de cabeça, náuseas, tontura.',
-        historicoUso: 'Usado por 2 semanas sem efeitos adversos. Melhorei nas dores.',
+        dataCompra: '10/02/2025',
+        quantidadeEstoque: 20,
+        quantidadeTomada: 10,
+        programacaoUso: '3 vezes ao dia às 8h, 14h e 20h',
+        previsaoAcabar: '15/03/2025',
+        informacaoAdicional: 'Antibiótico',
     };
 
-    const adesaoGraficoData = [
-        { data: 'Semana 1', adesao: 80 },
-        { data: 'Semana 2', adesao: 90 },
-        { data: 'Semana 3', adesao: 85 },
+    const usoMedicamentos = [
+        { nome: 'Paracetamol', quantidade: 10 },
+        { nome: 'Ibuprofeno', quantidade: 5 },
+        { nome: 'Omeprazol', quantidade: 7 }
     ];
 
     const chartData = {
-        labels: adesaoGraficoData.map(item => item.data),
+        labels: usoMedicamentos.map(item => item.nome),
         datasets: [
             {
-                label: 'Adesão ao Tratamento',
-                data: adesaoGraficoData.map(item => item.adesao),
-                borderColor: '#00AEEF',
-                backgroundColor: '#E0F7FF',
-                borderWidth: 2,
-                fill: true,
+                label: 'Uso de Medicamentos',
+                data: usoMedicamentos.map(item => item.quantidade),
+                backgroundColor: '#00AEEF',
+                borderWidth: 1,
             },
         ],
     };
@@ -46,42 +47,25 @@ function DetalhesMedicamento() {
         <>
             <HeaderHomeUsuario />
             <div className={styles.containerDetalhes}>
-                <div className={styles.containerFundoAlterado}> {/* Novo container com fundo alterável */}
-                    <h1 className={styles.tituloDetalhes}>Relatório Detalhado do Medicamento</h1>
+                <div className={styles.containerFundoAlterado}>
+                    <h1 className={styles.tituloDetalhes}>Relatório Detalhado</h1>
 
-                    
                     <div className={styles.informacoesBasicas}>
                         <h2>{medicamento.nome}</h2>
-                        <p><strong>Dosagem:</strong> {medicamento.dosagem}</p>
-                        <p><strong>Horário:</strong> {medicamento.horario}</p>
-                        <p><strong>Frequência:</strong> {medicamento.frequencia}</p>
+                        <p><strong>Dose por Unidade:</strong> {medicamento.dosagem}</p>
+                        <p><strong>Data:</strong> {medicamento.dataCompra}</p>
+                        <p><strong>Estoque Disponível:</strong> {medicamento.quantidadeEstoque}</p>
+                        <p><strong>Comprimidos Utilizados:</strong> {medicamento.quantidadeTomada}</p>
+                        <p><strong>Frequêcia de Uso:</strong> {medicamento.programacaoUso}</p>
+                        <p><strong>Previsão de Término do Estoque:</strong> {medicamento.previsaoAcabar}</p>
+                        <p><strong>Informação Adicional:</strong> {medicamento.informacaoAdicional}</p>
                     </div>
 
-                    
-                    <div className={styles.instrucoesUso}>
-                        <h3>Instruções de Uso</h3>
-                        <p>{medicamento.instrucoesUso}</p>
+                    <div className={styles.graficoUso}>
+                        <h3>Uso de Medicamentos</h3>
+                        <Bar data={chartData} />
                     </div>
 
-                    
-                    <div className={styles.efeitosColaterais}>
-                        <h3>Efeitos Colaterais</h3>
-                        <p>{medicamento.efeitosColaterais}</p>
-                    </div>
-
-                    
-                    <div className={styles.historicoUso}>
-                        <h3>Histórico de Uso</h3>
-                        <p>{medicamento.historicoUso}</p>
-                    </div>
-
-                    
-                    <div className={styles.graficoAdesao}>
-                        <h3>Gráfico de Adesão</h3>
-                        <Line data={chartData} />
-                    </div>
-
-                    
                     <div className={styles.botaoContainer}>
                         <button className={styles.botaoImprimir} onClick={imprimirRelatorio}>Imprimir Relatório</button>
                         <Link to="/relatorio" className={styles.botaoVoltar}>Voltar</Link>

@@ -25,7 +25,7 @@
 .instrucoesUso,
 .efeitosColaterais,
 .historicoUso,
-.graficoAdesao {
+.graficoUso {
     background-color: #ffffff;
     border-radius: 8px;
     padding: 15px;
@@ -37,7 +37,7 @@
 .instrucoesUso h3,
 .efeitosColaterais h3,
 .historicoUso h3,
-.graficoAdesao h3 {
+.graficoUso h3 {
     font-size: 1.5rem;
     color: #004D99;
     margin-bottom: 10px;
@@ -75,7 +75,7 @@
     color: #00AEEF;
 }
 
-.graficoAdesao p {
+.graficoUso p {
     font-size: 1rem;
     color: #888;
     margin-top: 10px;
@@ -113,7 +113,7 @@
     .instrucoesUso,
     .efeitosColaterais,
     .historicoUso,
-    .graficoAdesao {
+    .graficoUso {
         padding: 10px;
     }
 
@@ -127,13 +127,13 @@
         width: 100%; 
     }
 
-    .graficoAdesao {
+    .graficoUso {
         height: 450px;
     }
 }
 
 @media (max-width: 480px){
-    .graficoAdesao {
+    .graficoUso {
         height: 250px;
     }
 }
@@ -164,13 +164,13 @@
         display: none;
     }
 
-    .graficoAdesao {
+    .graficoUso {
         width: 100%;
         height: 400px;  
     }
 
     
-    .graficoAdesao canvas {
+    .graficoUso canvas {
         width: 100% !important; 
         height: auto !important; 
     }
