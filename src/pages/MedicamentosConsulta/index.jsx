@@ -4,7 +4,6 @@ import Footer from '../../components/Footer';
 import HeaderHomeUsuario from '../../components/HeaderHomeUsuario';
 
 function MedicamentosConsulta() {
-    // Dados de medicamentos exemplo
     const medicamentos = [
         {
             nome: 'Paracetamol',
@@ -42,7 +41,7 @@ function MedicamentosConsulta() {
     const [busca, setBusca] = useState('');
     const [resultado, setResultado] = useState(null);
 
-    // Função para pesquisar medicamentos
+    
     const pesquisarMedicamento = () => {
         const medicamentoEncontrado = medicamentos.find(med => med.nome.toLowerCase() === busca.toLowerCase());
         setResultado(medicamentoEncontrado || 'Medicamento não encontrado.');

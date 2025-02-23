@@ -16,7 +16,7 @@ function HomeUsuario() {
         ],
         "2025-03-13": [
             { name: "Amoxicilina", quantity: 1 },
-            { name: "Paracetamol", quantity: 1 },
+            { name: "Aspirina", quantity: 1 },
         ],
     });
 
