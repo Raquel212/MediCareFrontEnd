@@ -19,6 +19,7 @@ function DetalhesMedicamento() {
         programacaoUso: '3 vezes ao dia às 8h, 14h e 20h',
         previsaoAcabar: '15/03/2025',
         informacaoAdicional: 'Antibiótico',
+        // contatoEmergencia: 'Dr. João - (79) 99999-9999',
     };
 
     const usoMedicamentos = [
@@ -48,17 +49,24 @@ function DetalhesMedicamento() {
             <HeaderHomeUsuario />
             <div className={styles.containerDetalhes}>
                 <div className={styles.containerFundoAlterado}>
-                    <h1 className={styles.tituloDetalhes}>Relatório Detalhado</h1>
+                    <h1 className={styles.tituloDetalhes}>Relatório de Uso de Medicamentos</h1>
 
                     <div className={styles.informacoesBasicas}>
                         <h2>{medicamento.nome}</h2>
-                        <p><strong>Dose por Unidade:</strong> {medicamento.dosagem}</p>
-                        <p><strong>Data:</strong> {medicamento.dataCompra}</p>
-                        <p><strong>Estoque Disponível:</strong> {medicamento.quantidadeEstoque}</p>
-                        <p><strong>Comprimidos Utilizados:</strong> {medicamento.quantidadeTomada}</p>
-                        <p><strong>Frequêcia de Uso:</strong> {medicamento.programacaoUso}</p>
-                        <p><strong>Previsão de Término do Estoque:</strong> {medicamento.previsaoAcabar}</p>
-                        <p><strong>Informação Adicional:</strong> {medicamento.informacaoAdicional}</p>
+                        <table className={styles.tabelaInformacoes}>
+                            <tbody>
+                                <tr><td><strong>Dose por Unidade:</strong></td><td>{medicamento.dosagem}</td></tr>
+                                <tr><td><strong>Data de Registro:</strong></td><td>{medicamento.dataCompra}</td></tr>
+                                <tr><td><strong>Estoque Disponível:</strong></td><td>{medicamento.quantidadeEstoque}</td></tr>
+                                <tr><td><strong>Comprimidos Utilizados:</strong></td><td>{medicamento.quantidadeTomada}</td></tr>
+                                <tr><td><strong>Frequência de Uso:</strong></td><td>{medicamento.programacaoUso}</td></tr>
+                                <tr><td><strong>Previsão de Término do Estoque:</strong></td><td>{medicamento.previsaoAcabar}</td></tr>
+                                <tr><td><strong>Informação Adicional:</strong></td><td>{medicamento.informacaoAdicional}</td></tr>
+                                {/* {medicamento.contatoEmergencia && (
+                                    <tr><td><strong>Contato de Emergência:</strong></td><td>{medicamento.contatoEmergencia}</td></tr>
+                                )} */}
+                            </tbody>
+                        </table>
                     </div>
 
                     <div className={styles.graficoUso}>
