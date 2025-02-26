@@ -4,19 +4,16 @@
     padding: 30px;
     background-color: #E0F7FF;
     border-radius: 12px;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
-/* Seção de boas-vindas */
+/* Seção de boas-vindas */
 .welcomeSection {
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
     text-align: center;
     padding: 20px;
-    /* background-color: #004D99; */
     border-radius: 12px;
-    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
 }
 
 .welcomeSection .tituloWelcome {
@@ -30,7 +27,7 @@
     margin-top: 10px;
 }
 
-/* Seção de card Calendario*/
+/* Seção de card Calendario */
 .cardsSection {
     display: flex;
     justify-content: space-between;
@@ -51,8 +48,6 @@
     flex: 1;
 }
 
-
-
 .card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
@@ -65,7 +60,7 @@
     text-align: center;
 }
 
-/* Calendário */
+/* Calendário */
 .calendar {
     max-width: 340px;
     margin: 0 auto;
@@ -96,12 +91,13 @@
     text-align: center;
 }
 
-.dateInfo p{
+.dateInfo p {
     text-align: center;
     font-size: 20px;
     margin-bottom: 20px;
 }
 
+/* Botão "Tomar" */
 .takeButton {
     background-color: #00AEEF;
     color: #E0F7FF;
@@ -123,9 +119,14 @@
     transform: translateY(2px);
 }
 
-/* Medicamentos em Estoque */
+.takeButton:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    color: #666;
+}
 
-.cardEs{
+/* Medicamentos em Estoque */
+.cardEs {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 12px;
@@ -152,8 +153,7 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-
-.estoqueTitulo{
+.estoqueTitulo {
     font-size: 30px;
     color: #004D99;
     margin-bottom: 15px;
@@ -161,7 +161,7 @@
 }
 
 /* Dica do Dia */
-.cardDica{
+.cardDica {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 12px;
@@ -189,7 +189,6 @@
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
-
 
 /* Responsividade */
 @media (max-width: 1024px) {
@@ -255,7 +254,7 @@
         margin: 0 auto;
     }
 
-    .cardEs{
+    .cardEs {
         height: 490px;
     }
 

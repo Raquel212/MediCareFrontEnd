@@ -7,42 +7,51 @@ import 'react-calendar/dist/Calendar.css';
 import { useState } from 'react';
 
 function HomeUsuario() {
-
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [medications, setMedications] = useState({
         "2025-03-12": [
-            { name: "Paracetamol", quantity: 8 },
-            { name: "Ibuprofeno", quantity: 1 },
+            { name: "Paracetamol", quantity: 8, taken: false, scheduledTime: "08:00" },
+            { name: "Ibuprofeno", quantity: 1, taken: false, scheduledTime: "12:00" },
         ],
         "2025-03-13": [
-            { name: "Amoxicilina", quantity: 1 },
-            { name: "Aspirina", quantity: 1 },
+            { name: "Amoxicilina", quantity: 1, taken: false, scheduledTime: "09:00" },
+            { name: "Aspirina", quantity: 1, taken: false, scheduledTime: "18:00" },
         ],
     });
 
-    const formatDate = (date) => {
-        return date.toISOString().split('T')[0];
-    };
+    const formatDate = (date) => date.toISOString().split('T')[0];
 
-    const handleDateChange = (date) => {
-        setSelectedDate(date);
-    };
+    const handleDateChange = (date) => setSelectedDate(date);
 
     const currentMedications = medications[formatDate(selectedDate)] || [];
 
     const handleMedicationTaken = (medName) => {
-        const updatedMedications = { ...medications };
-        const dateKey = formatDate(selectedDate);
+        setMedications((prevMedications) => {
+            const dateKey = formatDate(selectedDate);
+            const updatedMedications = { ...prevMedications };
 
-        if (updatedMedications[dateKey]) {
-            const medicationIndex = updatedMedications[dateKey].findIndex(
-                (med) => med.name === medName
-            );
-            if (medicationIndex !== -1 && updatedMedications[dateKey][medicationIndex].quantity > 0) {
-                updatedMedications[dateKey][medicationIndex].quantity -= 1;
-                setMedications(updatedMedications);
+            if (updatedMedications[dateKey]) {
+                updatedMedications[dateKey] = updatedMedications[dateKey].map((med) => {
+                    if (med.name === medName && med.quantity > 0 && !med.taken) {
+                        return {
+                            ...med,
+                            taken: true,
+                            quantity: med.quantity - 1,
+                        };
+                    }
+                    return med;
+                });
             }
-        }
+
+            return updatedMedications;
+        });
+    };
+
+    const isTimeToTakeMedication = (scheduledTime) => {
+        const now = new Date();
+        const [hour, minute] = scheduledTime.split(':').map(Number);
+        const scheduledDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour, minute);
+        return now >= scheduledDate;
     };
 
     const formattedDate = selectedDate.toLocaleDateString('pt-BR');
@@ -54,7 +63,7 @@ function HomeUsuario() {
                 <section className={styles.welcomeSection}>
                     <div>
                         <h1 className={styles.tituloWelcome}>Bem-vindo</h1>
-                        <p className={styles.subtituloWelcome}> Vamos cuidar da sua saúde juntos!</p>
+                        <p className={styles.subtituloWelcome}>Vamos cuidar da sua saúde juntos!</p>
                     </div>
                 </section>
 
@@ -67,19 +76,20 @@ function HomeUsuario() {
                             className={styles.calendar}
                         />
                         <div className={styles.dateInfo}>
-                            <h3 className={styles.tituloMedicaCalendar}>Medicamentos para {formattedDate}</h3> {/* Alteração aqui */}
+                            <h3 className={styles.tituloMedicaCalendar}>Medicamentos para {formattedDate}</h3>
                             {currentMedications.length === 0 ? (
                                 <p>Não há medicamentos agendados para este dia.</p>
                             ) : (
                                 <ul>
                                     {currentMedications.map((med, index) => (
-                                        <li key={index}>
-                                            {med.name} - {med.quantity} comprimido(s)
+                                        <li key={index} style={{ color: 'black' }}>
+                                            {med.name} - {med.quantity} comprimido(s) - {med.scheduledTime}
                                             <button
                                                 onClick={() => handleMedicationTaken(med.name)}
                                                 className={styles.takeButton}
+                                                disabled={!isTimeToTakeMedication(med.scheduledTime) || med.taken}
                                             >
-                                                Tomar
+                                                {med.taken ? 'Tomado' : 'Tomar'}
                                             </button>
                                         </li>
                                     ))}
@@ -103,7 +113,9 @@ function HomeUsuario() {
 
                     <div className={styles.cardDica}>
                         <FaLightbulb className={styles.cardIcon} />
-                        <p className={styles.textoDica}><strong>Dica do Dia:</strong> Uma boa noite de sono pode melhorar a eficácia dos seus medicamentos.</p>
+                        <p className={styles.textoDica}>
+                            <strong>Dica do Dia:</strong> Uma boa noite de sono pode melhorar a eficácia dos seus medicamentos.
+                        </p>
                     </div>
                 </section>
             </main>
