@@ -1,17 +1,22 @@
-.containerCalendarioMedicamento {
-    padding: 20px;
-    background: linear-gradient(135deg, #F8FBFF, #5AB9EA);
+/* Estilos gerais para o container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     min-height: 790px; 
+    background: linear-gradient(135deg, #F8FBFF, #5AB9EA);
 }
 
-.tituloCalendarioMedicamento {
-    text-align: center;
+/* Título da página */
+.title {
     font-size: 2.5rem;
     color: #004D99;
-    margin-top: 30px;
     margin-bottom: 20px;
+    margin-top: 50px;
+    font-weight: 600;
 }
 
+/* Container do calendário */
 .calendarContainer {
     display: flex;
     justify-content: center;
@@ -28,58 +33,71 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
-.medicamentosContainer {
-    padding: 20px;
+/* Estilos para a lista de medicamentos */
+.medicationsList {
+    width: 100%;
+    max-width: 600px;
     background-color: #E0F7FF;
+    padding: 20px;
     border-radius: 8px;
-    color: #004D99;
-    font-size: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
-.medicamentosContainer h2{
-    text-align: center; 
-}
-
-.medicamentosContainer p{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    color: #000;
+.medicationTitle {
+    font-size: 2rem;
+    color: #004D99;;
+    margin-bottom: 15px;
     text-align: center;
 }
 
-.medicamentoList {
+/* Estilos da lista de medicamentos */
+.medicationItems {
     list-style-type: none;
     padding: 0;
 }
 
-.medicamentoItem {
+.medicationItem {
+    background-color: #fff;
     padding: 10px;
-    background-color: #ffffff;
-    margin: 10px 0;
-    border-radius: 5px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
 }
 
-.medicamentoItem strong {
-    color: #000;
+.medicationItem div {
+    margin-bottom: 10px;
 }
 
-.tomarMedicamentoButton {
-    background-color: #5AB9EA;
-    color: #ffffff;
+/* Estilo do botão "Tomar" */
+.takeButton {
+    background-color: #00AEEF;
+    color: #E0F7FF;
     border: none;
-    padding: 8px 12px;
+    padding: 10px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
-    margin-top: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
 }
 
-.tomarMedicamentoButton:hover {
-    background-color: #004D99;
+.takeButton:disabled {
+    background-color: #E0E0E0;
+    cursor: not-allowed;
 }
+
+.takeButton:hover:enabled {
+    background-color: #E0F7FF;
+    color: #00AEEF;
+}
+
+/* Estilo quando não houver medicamentos agendados */
+.noMedications {
+    font-size: 1.5rem;
+    color:red;
+    text-align: center;
+}
+
 
 @media (max-width: 768px) {
     .tituloCalendarioMedicamento {

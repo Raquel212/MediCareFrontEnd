@@ -1,82 +1,104 @@
 import { useState } from 'react';
 import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+import styles from './CalendarioMedicamento.module.css';
 import Footer from '../../components/Footer';
 import HeaderHomeUsuario from '../../components/HeaderHomeUsuario';
-import styles from './CalendarioMedicamento.module.css';
 
-function CalendarioMedicamento() {
-    const [date, setDate] = useState(new Date());
-    const [medicamentosPorData, setMedicamentosPorData] = useState({
-        '2025-03-25': [
-            { nome: 'Paracetamol', horario: '08:00', quantidade: '500mg', tomado: false },
-            { nome: 'Ibuprofeno', horario: '14:00', quantidade: '200mg', tomado: false }
+function CalendarioMedicamentos() {
+    const [selectedDate, setSelectedDate] = useState(new Date());
+    const [medications, setMedications] = useState({
+        "2025-03-12": [
+            { name: "Paracetamol", quantity: 8, taken: false, scheduledTime: "08:00" },
+            { name: "Ibuprofeno", quantity: 1, taken: false, scheduledTime: "12:00" },
         ],
-        '2025-03-14': [
-            { nome: 'Amoxicilina', horario: '10:00', quantidade: '1 comprimido', tomado: false }
-        ]
+        "2025-03-13": [
+            { name: "Amoxicilina", quantity: 1, taken: false, scheduledTime: "09:00" },
+            { name: "Aspirina", quantity: 1, taken: false, scheduledTime: "18:00" },
+        ],
     });
 
-    const handleDateChange = (newDate) => {
-        setDate(newDate);
+    const formatDate = (date) => date.toISOString().split('T')[0];
+
+    const handleDateChange = (date) => setSelectedDate(date);
+
+    const currentMedications = medications[formatDate(selectedDate)] || [];
+
+    const handleMedicationTaken = (medName) => {
+        setMedications((prevMedications) => {
+            const dateKey = formatDate(selectedDate);
+            const updatedMedications = { ...prevMedications };
+
+            if (updatedMedications[dateKey]) {
+                updatedMedications[dateKey] = updatedMedications[dateKey].map((med) => {
+                    if (med.name === medName && med.quantity > 0 && !med.taken) {
+                        return {
+                            ...med,
+                            taken: true,
+                            quantity: med.quantity - 1,
+                        };
+                    }
+                    return med;
+                });
+            }
+
+            return updatedMedications;
+        });
     };
 
-    const formatDate = (date) => {
-        const day = date.getDate();
-        const month = date.getMonth() + 1;
-        const year = date.getFullYear();
-        return `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;
+    const isTimeToTakeMedication = (scheduledTime) => {
+        const now = new Date();
+        const [hour, minute] = scheduledTime.split(':').map(Number);
+        const scheduledDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hour, minute);
+        return now >= scheduledDate;
     };
-
-    const handleTomarMedicamento = (dateString, index) => {
-        const updatedMedicamentos = { ...medicamentosPorData };
-        updatedMedicamentos[dateString][index].tomado = true;
-        setMedicamentosPorData(updatedMedicamentos);
-        alert(`${updatedMedicamentos[dateString][index].nome} marcado como tomado!`);
-    };
-
-    const dateString = formatDate(date);
-    const medicamentosNoDia = medicamentosPorData[dateString] || [];
 
     return (
         <>
-            <HeaderHomeUsuario />
-            <div className={styles.containerCalendarioMedicamento}>
-                <h1 className={styles.tituloCalendarioMedicamento}>Calendário de Medicamentos</h1>
-
-                <div className={styles.calendarContainer}>
-                    <Calendar
-                        onChange={handleDateChange}
-                        value={date}
-                        className={styles.calendar}
-                    />
-                </div>
-
-                <div className={styles.medicamentosContainer}>
-                    <h2>Medicamentos de {date.toLocaleDateString()}</h2>
-                    {medicamentosNoDia.length > 0 ? (
-                        <ul className={styles.medicamentoList}>
-                            {medicamentosNoDia.map((medicamento, index) => (
-                                <li key={index} className={styles.medicamentoItem}>
-                                    <strong>{medicamento.nome}</strong><br />
-                                    Horário: {medicamento.horario}<br />
-                                    Quantidade: {medicamento.quantidade}<br />
-                                    Status: {medicamento.tomado ? 'Tomado ✔' : 'Pendente ❌'}<br />
-                                    {!medicamento.tomado && (
-                                        <button onClick={() => handleTomarMedicamento(dateString, index)} className={styles.tomarMedicamentoButton}>
-                                            Confirmar Tomada
-                                        </button>
-                                    )}
-                                </li>
-                            ))}
-                        </ul>
-                    ) : (
-                        <p>Nenhum medicamento cadastrado para este dia.</p>
-                    )}
-                </div>
+        <HeaderHomeUsuario />
+        <div className={styles.container}>
+            <h1 className={styles.title}>Calendário de Medicamentos</h1>
+            <div className={styles.calendarContainer}>
+                <Calendar
+                    onChange={handleDateChange}
+                    value={selectedDate}
+                    minDate={new Date()}
+                    showNeighboringMonth={false}
+                    className={styles.calendar}
+                />
             </div>
-            <Footer />
-        </>
+
+            <div className={styles.medicationsList}>
+                <h2 className={styles.medicationTitle}>Medicamentos para {selectedDate.toLocaleDateString('pt-BR')}</h2>
+
+                {currentMedications.length > 0 ? (
+                    <ul className={styles.medicationItems}>
+                        {currentMedications.map((med, index) => (
+                            <li key={index} className={styles.medicationItem}>
+                                <div>
+                                    <strong>{med.name}</strong> - {med.quantity} restantes
+                                    <br />
+                                    Agendado para: {med.scheduledTime}
+                                </div>
+
+                                <button
+                                    className={styles.takeButton}
+                                    onClick={() => handleMedicationTaken(med.name)}
+                                    disabled={med.taken || med.quantity === 0 || !isTimeToTakeMedication(med.scheduledTime)}
+                                >
+                                    {med.taken ? "Medicamento Tomado" : med.quantity > 0 ? "Tomar" : "Sem Estoque"}
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    <p className={styles.noMedications}>Nenhum medicamento agendado para hoje.</p>
+                )}
+            </div>
+        </div>
+        <Footer />
+    </>
     );
 }
 
-export default CalendarioMedicamento;
+export default CalendarioMedicamentos;
