@@ -102,6 +102,18 @@ function CadastrarMedicamento() {
                             required
                         />
                     </label>
+
+                    <label>
+                        Tempo de Tratamento:
+                        <input
+                            type="text"
+                            name="horarios"
+                            value={form.horarios}
+                            onChange={handleChange}
+                            placeholder="Ex: 7 dias"
+                            required
+                        />
+                    </label>
                     <button type="submit" className={styles.botaoCadastrar}>Registrar</button>
                 </form>
             </div>

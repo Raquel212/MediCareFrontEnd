@@ -92,6 +92,7 @@ function GerenciarMedicamento() {
                                     <p><strong>Quantidade Total:</strong> {medicamento.quantidade}</p>
                                     <p><strong>Dosagem:</strong> {medicamento.dosagem}</p>
                                     <p><strong>Intervalo:</strong> {medicamento.horario}</p>
+                                    <p><strong>Previsão de Termino do Tratamento: </strong></p>
                                 </div>
                                 <div className={styles.acoes}>
                                     <button onClick={() => handleEdit(index, medicamento)} className={styles.botaoEditar}>
@@ -139,6 +140,14 @@ function GerenciarMedicamento() {
                         </label>
                         <label>
                             Horários:
+                            <input
+                                type="text"
+                                value={currentMedicamento.horario}
+                                onChange={(e) => setCurrentMedicamento({ ...currentMedicamento, horario: e.target.value })}
+                            />
+                        </label>
+                        <label>
+                            Previsão de Termino do Tratamento:
                             <input
                                 type="text"
                                 value={currentMedicamento.horario}
