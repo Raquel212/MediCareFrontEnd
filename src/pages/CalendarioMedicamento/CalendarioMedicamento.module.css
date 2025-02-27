@@ -30,6 +30,7 @@
     font-size: 20px;
     width: 500px;
     height: 400px;
+    padding: 20px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -96,10 +97,6 @@
     font-size: 1.5rem;
     color:red;
     text-align: center;
-}
-
-.react-calendar button {
-    border-radius: 10px;
 }
 
 
