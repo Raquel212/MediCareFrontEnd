@@ -7,14 +7,14 @@ function Historico() {
   const [filtro, setFiltro] = useState("Todos");
 
   const dadosMedicamentos = [
-    { nome: "Paracetamol", data: "20/12/2024", quantidade: "500mg", status: "Concluído" },
+    { nome: "Ibuprofeno", data: "17/12/2024", quantidade: "1 comprimido", status: "Concluído" },
     { nome: "Amoxicilina", data: "18/12/2024", quantidade: "1 comprimido", status: "Pendente" },
-    { nome: "Ibuprofeno", data: "17/12/2024", quantidade: "400mg", status: "Concluído" },
+    { nome: "Paracetamol", data: "20/12/2024", quantidade: "1 comprimido", status: "Concluído" },
     { nome: "Cetirizina", data: "02/01/2025", quantidade: "10mg", status: "Pendente" },
-    { nome: "Atenolol", data: "05/01/2025", quantidade: "50mg", status: "Em Progresso" },
+    { nome: "Aspirina", data: "05/01/2025", quantidade: "1 comprimido", status: "Em Progresso" },
     { nome: "Clonazepam", data: "10/01/2025", quantidade: "2mg", status: "Concluído" },
-    { nome: "Escitalopram", data: "15/01/2025", quantidade: "10mg", status: "Pendente" },
-    { nome: "Levotiroxina", data: "20/01/2025", quantidade: "75mcg", status: "Em Progresso" }
+    { nome: "Escitalopram", data: "15/01/2025", quantidade: "1 comprimido", status: "Em Progresso" },
+    { nome: "Levotiroxina", data: "20/01/2025", quantidade: "1 comprimido", status: "Em Progresso" }
   ];
 
   const dadosFiltrados = filtro === "Todos" ? dadosMedicamentos : dadosMedicamentos.filter(dado => dado.status === filtro);
