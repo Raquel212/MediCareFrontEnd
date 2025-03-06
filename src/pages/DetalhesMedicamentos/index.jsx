@@ -10,22 +10,22 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 function DetalhesMedicamento() {
     const medicamento = {
         nome: 'Paracetamol',
-        dosagem: '500mg',
+        dosagem: '1 comprimido',
         horario: '8h00',
-        frequencia: '3x ao dia',
-        dataCompra: '10/02/2025',
-        quantidadeEstoque: 20,
-        quantidadeTomada: 10,
-        programacaoUso: '3 vezes ao dia às 8h, 14h e 20h',
-        previsaoAcabar: '15/03/2025',
+        frequencia: '1x ao dia',
+        dataCompra: '20/12/2024',
+        quantidadeEstoque: 0,
+        quantidadeTomada: 8,
+        programacaoUso: 'Diária',
+        previsaoAcabar: '28/12/2024',
         informacaoAdicional: 'Antibiótico',
         // contatoEmergencia: 'Dr. João - (79) 99999-9999',
     };
 
     const usoMedicamentos = [
-        { nome: 'Paracetamol', quantidade: 10 },
+        { nome: 'Paracetamol', quantidade: 8 },
         { nome: 'Ibuprofeno', quantidade: 5 },
-        { nome: 'Omeprazol', quantidade: 7 }
+        { nome: 'Clonazepam', quantidade: 7 }
     ];
 
     const chartData = {
@@ -60,7 +60,7 @@ function DetalhesMedicamento() {
                                 <tr><td><strong>Estoque Disponível:</strong></td><td>{medicamento.quantidadeEstoque}</td></tr>
                                 <tr><td><strong>Comprimidos Utilizados:</strong></td><td>{medicamento.quantidadeTomada}</td></tr>
                                 <tr><td><strong>Frequência de Uso:</strong></td><td>{medicamento.programacaoUso}</td></tr>
-                                <tr><td><strong>Previsão de Término do Estoque:</strong></td><td>{medicamento.previsaoAcabar}</td></tr>
+                                <tr><td><strong>Previsão de Término do Tratamento:</strong></td><td>{medicamento.previsaoAcabar}</td></tr>
                                 <tr><td><strong>Informação Adicional:</strong></td><td>{medicamento.informacaoAdicional}</td></tr>
                                 {/* {medicamento.contatoEmergencia && (
                                     <tr><td><strong>Contato de Emergência:</strong></td><td>{medicamento.contatoEmergencia}</td></tr>
