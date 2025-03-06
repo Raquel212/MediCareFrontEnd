@@ -9,12 +9,12 @@ function CalendarioMedicamentos() {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [medications, setMedications] = useState({
         "2025-03-12": [
-            { name: "Paracetamol", quantity: 8, taken: false, scheduledTime: "08:00" },
-            { name: "Ibuprofeno", quantity: 1, taken: false, scheduledTime: "12:00" },
+            { name: "Escitalopram", quantity: 1, taken: false, scheduledTime: "12:00", frequency: "Diária"},
+            { name: "Levotiroxina", quantity: 8, taken: false, scheduledTime: "21:00", frequency: "Uma vez antes de dormir"},
         ],
         "2025-03-13": [
-            { name: "Amoxicilina", quantity: 1, taken: false, scheduledTime: "09:00" },
-            { name: "Aspirina", quantity: 1, taken: false, scheduledTime: "18:00" },
+            { name: "Amoxicilina", quantity: 1, taken: false, scheduledTime: "09:00", frequency: "Diária"},
+            { name: "Aspirina", quantity: 1, taken: false, scheduledTime: "18:00", frequency: "Diária"},
         ],
     });
 
@@ -78,9 +78,9 @@ function CalendarioMedicamentos() {
                                 <div>
                                     <strong>{med.name}</strong> - {med.quantity} restantes
                                     <br />
-                                    Agendado para: {med.scheduledTime}
+                                    Agendado para: {med.scheduledTime} <br />
+                                    <strong>Frenquência: </strong> {med.frequency}
                                 </div>
-
                                 <button
                                     className={styles.takeButton}
                                     onClick={() => handleMedicationTaken(med.name)}
