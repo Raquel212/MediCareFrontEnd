@@ -30,6 +30,11 @@
     margin-bottom: 15px;
 }
 
+.medicamentoInfo p{
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
 .medicamentoFoto {
     width: 100px;
     height: 100px;
