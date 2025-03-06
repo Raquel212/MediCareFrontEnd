@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaExclamationCircle, FaCheckCircle, FaBell } from 'react-icons/fa'; // Ícones importados
+import { FaExclamationCircle, FaCheckCircle, FaBell } from 'react-icons/fa'; 
 import Footer from '../../components/Footer';
 import HeaderHomeUsuario from '../../components/HeaderHomeUsuario';
 import styles from './Notificacao.module.css';
@@ -7,8 +7,8 @@ import styles from './Notificacao.module.css';
 function Notificacao() {
     const [notificacoes, setNotificacoes] = useState([
         { id: 1, titulo: 'Falta 10 minutos para tomar seu medicamentos.', mensagem: 'Tomar o medicamento no horário certo é essencial para sua eficácia.', lida: false },
-        { id: 2, titulo: 'Lembre-se de tomar Paracetamol com um copo cheio de água.', mensagem: 'Você está no caminho certo para o bem-estar. Continue assim!', lida: true },
-        { id: 3, titulo: 'Você tem menos de 5 comprimidos de Amoxicilina restantes.', mensagem: 'Reabasteça Amoxicilina antes de 25/12/2024.', lida: false }
+        { id: 2, titulo: 'Lembre-se de tomar Aspirina com um copo cheio de água.', mensagem: 'Você está no caminho certo para o bem-estar. Continue assim!', lida: true },
+        { id: 3, titulo: 'Você tem menos de 5 comprimidos de Amoxicilina restantes.', mensagem: 'Reabasteça Amoxicilina antes de 25/03/2025.', lida: false }
     ]);
 
     const marcarComoLida = (id) => {
