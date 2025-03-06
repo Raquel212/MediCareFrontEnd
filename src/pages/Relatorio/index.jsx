@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom';
 function Relatorio() {
     // Exemplo de dados dos medicamentos
     const medicamentos = [
-        { nome: 'Parecetamol', dosagem: '50mg', horario: '08:00', frequencia: 'Diária' },
-        { nome: 'Medicamento B', dosagem: '100mg', horario: '14:00', frequencia: 'Diária' },
-        { nome: 'Medicamento C', dosagem: '200mg', horario: '20:00', frequencia: 'Diária' },
+        { nome: 'Parecetamol', dosagem: '1 comprimido', horario: '08:00', frequencia: 'Diária' },
+        { nome: 'Ibuprofeno', dosagem: '1 comprimido', horario: '14:00', frequencia: 'Diária' },
+        { nome: 'Clonazepam', dosagem: '2mg', horario: '20:00', frequencia: 'Diária' },
     ];
 
 
