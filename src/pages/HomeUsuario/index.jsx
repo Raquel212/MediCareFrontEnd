@@ -10,8 +10,8 @@ function HomeUsuario() {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [medications, setMedications] = useState({
         "2025-03-12": [
-            { name: "Levotiroxina", quantity: 8, taken: false, scheduledTime: "08:00" },
             { name: "Escitalopram", quantity: 1, taken: false, scheduledTime: "12:00" },
+            { name: "Levotiroxina", quantity: 8, taken: false, scheduledTime: "21:00" },
         ],
         "2025-03-13": [
             { name: "Amoxicilina", quantity: 1, taken: false, scheduledTime: "09:00" },
