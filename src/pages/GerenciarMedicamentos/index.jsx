@@ -46,7 +46,7 @@ function GerenciarMedicamento() {
   };
 
   const saveEdit = () => {
-    console.log(currentMedicamento);
+    console.log(currentMedicamento.dataRegistro, "medicamento data registro");
     api
       .put(`/medicamento/${currentMedicamento.id}`, {
         nome: currentMedicamento.nome,
@@ -54,6 +54,7 @@ function GerenciarMedicamento() {
         dosagem: currentMedicamento.dosagem,
         horario: currentMedicamento.horario,
         tempoDeTratamento: currentMedicamento.tempoDeTratamento,
+        dataRegistro : currentMedicamento.dataRegistro,
       })
       .then((response) => {
         console.log(response.data);
@@ -96,6 +97,10 @@ function GerenciarMedicamento() {
                     <strong>Nome:</strong> {medicamento.nome}
                   </p>
                   <p>
+                    <strong>Data de Registro do Medicamento:</strong>{" "}
+                    {medicamento.dataRegistro}
+                  </p>
+                  <p>
                     <strong>Quantidade Total:</strong> {medicamento.quantidade}
                   </p>
                   <p>
@@ -105,10 +110,8 @@ function GerenciarMedicamento() {
                     <strong>Intervalo:</strong> {medicamento.horario}
                   </p>
                   <p>
-                    <strong>
-                      Previsão de Termino do Tratamento:</strong> {" "}
-                      {medicamento.tempoDeTratamento}
-                    
+                    <strong>Previsão de Termino do Tratamento:</strong>{" "}
+                    {medicamento.tempoDeTratamento}
                   </p>
                 </div>
                 <div className={styles.acoes}>
@@ -150,6 +153,19 @@ function GerenciarMedicamento() {
                 }
               />
             </label>
+            <label>
+              Data de Registro do Medicamento:
+              <input
+              type="date"
+              name="dataDeRegistro"
+              value={currentMedicamento.dataRegistro ? currentMedicamento.dataRegistro.split("/").reverse().join("-") : "" }
+              onChange={(e) => setCurrentMedicamento({
+                ...currentMedicamento,
+                dataRegistro: e.target.value ? e.target.value.split("-").reverse().join("/") : "",
+              })}
+              />
+            </label>
+
             <label>
               Quantidade Total:
               <input
