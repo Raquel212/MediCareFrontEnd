@@ -29,6 +29,8 @@ function CadastrarMedicamento() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    console.log(form.dataDeRegistro);
+
     api
       .post("/medicamento", {
         nome: form.nome,
@@ -36,6 +38,7 @@ function CadastrarMedicamento() {
         dosagem: form.dosagem,
         horario: form.horarios,
         tempoDeTratamento: form.tempoDeTratamento,
+        dataRegistro: form.dataDeRegistro,
       })
       .then((response) => {
         console.log(response.data);
@@ -76,6 +79,28 @@ function CadastrarMedicamento() {
               required
             />
           </label>
+
+          <label>
+            Data de Registro do Medicamento:
+            <input
+              type="date"
+              name="dataDeRegistro"
+              value={
+                form.dataDeRegistro
+                  ? form.dataDeRegistro.split("/").reverse().join("-") 
+                  : ""
+              }
+              onChange={(e) => {
+                const dataFormatada = e.target.value
+                  .split("-")
+                  .reverse()
+                  .join("/");
+                setForm({ ...form, dataDeRegistro: dataFormatada }); 
+              }}
+              required
+            />
+          </label>
+
           <label>
             Quantidade Total:
             <input
