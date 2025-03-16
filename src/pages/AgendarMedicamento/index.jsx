@@ -1,117 +1,151 @@
-import { useState, useEffect } from 'react';
-import Footer from '../../components/Footer';
-import HeaderHomeUsuario from '../../components/HeaderHomeUsuario';
-import styles from './AgendarMedicamento.module.css';
-import api from '../../services/api';
+import { useState, useEffect } from "react";
+import Footer from "../../components/Footer";
+import HeaderHomeUsuario from "../../components/HeaderHomeUsuario";
+import styles from "./AgendarMedicamento.module.css";
+import api from "../../services/api";
 
 function AgendarMedicamento() {
-    const [notificacao, setNotificacao] = useState('');
-    const [medicamentos, setMedicamentos] = useState([]);
+  const [notificacao, setNotificacao] = useState("");
+  const [medicamentos, setMedicamentos] = useState([]);
 
-    const [selectedMedicamentoId, setSelectedMedicamentoId] = useState("");
-    const [horario, setHorario] = useState("");
-    const [frequencia, setFrequencia] = useState("");
+  const [selectedMedicamentoId, setSelectedMedicamentoId] = useState("");
+  const [horario, setHorario] = useState("");
+  const [frequencia, setFrequencia] = useState("");
 
-    useEffect(() => {
-        api
+  useEffect(() => {
+    api
       .get("/medicamento?pagina=1&quantidadePorPagina=1000")
       .then((response) => setMedicamentos(response.data))
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
-        
-    }, []);
+  }, []);
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        api
-        .post(`/agendamento`, {horario: horario, frequencia: frequencia, medicamentoId: selectedMedicamentoId})
-        .then((response) => {
-            console.log(response.data)
-            setNotificacao('Agendamento registrado com sucesso!');
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    api
+      .post(`/agendamento`, {
+        horario: horario,
+        frequencia: frequencia,
+        medicamentoId: selectedMedicamentoId,
+      })
+      .then((response) => {
+        console.log(response.data);
+        setNotificacao("Agendamento registrado com sucesso!");
 
-            // Esconde a notificação após 3 segundos
-            setTimeout(() => {
-                setNotificacao('');
-            }, 3000);})
-        .catch((err) => {
-            console.error("ops! ocorreu um erro" + err);
-        });
-    };
+        // Esconde a notificação após 3 segundos
+        setTimeout(() => {
+          setNotificacao("");
+        }, 3000);
+      })
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  };
 
-    return (
-        <>
-            <HeaderHomeUsuario />
-            <div className={styles.containerAgendarMedicamento}>
-                <h1 className={styles.tituloAgendarMedicamento}>Agendar Medicamento</h1>
-                
-                {/* Exibe a notificação caso haja uma mensagem */}
-                {notificacao && (
-                    <div className={styles.notificacao}>
-                        {notificacao}
-                    </div>
-                )}
-                
-                <div className={styles.formContainerAgendarMedicamento}>
-                    <form className={styles.formAgendarMedicamento} onSubmit={handleSubmit}>
-                        <div>
-                            <label htmlFor="medicamento" className={styles.labelAgendarMedicamento}>
-                                Nome do Medicamento:
-                            </label>
-                            <select
-                                id="medicamento"
-                                name="medicamento"
-                                required
-                                className={styles.inputAgendarMedicamento}
-                                value={selectedMedicamentoId}
-                                onChange={(e) => setSelectedMedicamentoId(e.target.value)}
-                            >
-                                <option value="">Selecione um medicamento</option>
-                                {medicamentos.map((medicamento) => (
-                                <option key={medicamento.id} value={medicamento.id}>
-                                    {medicamento.nome}
-                                </option>
-                                ))}
-                            </select>
-                        </div>
+  return (
+    <>
+      <HeaderHomeUsuario />
+      <div className={styles.containerAgendarMedicamento}>
+        <h1 className={styles.tituloAgendarMedicamento}>Agendar Medicamento</h1>
 
-                        <label htmlFor="horario" className={styles.labelAgendarMedicamento}>
-                            Horário:
-                        </label>
-                        <input
-                            type="time"
-                            id="horario"
-                            name="horario"
-                            required
-                            className={styles.inputAgendarMedicamento}
-                            value={horario}
-                            onChange={(e) => setHorario(e.target.value)}
-                        />
+        {/* Exibe a notificação caso haja uma mensagem */}
+        {notificacao && <div className={styles.notificacao}>{notificacao}</div>}
 
-                        <label htmlFor="frequencia" className={styles.labelAgendarMedicamento}>
-                            Frequência:
-                        </label>
-                        <select
-                            id="frequencia"
-                            name="frequencia"
-                            required
-                            className={styles.selectAgendarMedicamento}
-                            value={frequencia}
-                            onChange={(e) => setFrequencia(e.target.value)}
-                        >
-                            <option value="">Selecione a frequência</option>
-                            <option value="diario">Diário</option>
-                            <option value="semanal">Semanal</option>
-                            <option value="mensal">Mensal</option>
-                        </select>
-
-                        <button onClick={() => handleSubmit()} type="submit" className={styles.submitButtonAgendarMedicamento}>Agendar Medicamento</button>
-                    </form>
-                </div>
+        <div className={styles.formContainerAgendarMedicamento}>
+          <form
+            className={styles.formAgendarMedicamento}
+            onSubmit={handleSubmit}
+          >
+            <div>
+              <label
+                htmlFor="medicamento"
+                className={styles.labelAgendarMedicamento}
+              >
+                Nome do Medicamento:
+              </label>
+              <select
+                id="medicamento"
+                name="medicamento"
+                required
+                className={styles.inputAgendarMedicamento}
+                value={selectedMedicamentoId}
+                onChange={(e) => setSelectedMedicamentoId(e.target.value)}
+              >
+                <option value="">Selecione um medicamento</option>
+                {medicamentos.map((medicamento) => (
+                  <option key={medicamento.id} value={medicamento.id}>
+                    {medicamento.nome}
+                  </option>
+                ))}
+              </select>
             </div>
-            <Footer />
-        </>
-    );
+
+            <label htmlFor="data" className={styles.labelAgendarMedicamento}>
+              Data do Agendamento:
+            </label>
+            <input
+              type="date"
+              id="data"
+              name="data"
+              required
+              className={styles.inputAgendarMedicamento}
+            //   value={data ? data.split("/").reverse().join("-") : ""}
+            //   onChange={(e) =>
+            //     setData(
+            //       e.target.value
+            //         ? e.target.value.split("-").reverse().join("/")
+            //         : ""
+            //     )
+            //   }
+            />
+
+            <label htmlFor="horario" className={styles.labelAgendarMedicamento}>
+              Horário:
+            </label>
+            <input
+              type="time"
+              id="horario"
+              name="horario"
+              required
+              className={styles.inputAgendarMedicamento}
+              value={horario}
+              onChange={(e) => setHorario(e.target.value)}
+            />
+
+            <label
+              htmlFor="frequencia"
+              className={styles.labelAgendarMedicamento}
+            >
+              Frequência:
+            </label>
+            <select
+              id="frequencia"
+              name="frequencia"
+              required
+              className={styles.selectAgendarMedicamento}
+              value={frequencia}
+              onChange={(e) => setFrequencia(e.target.value)}
+            >
+              <option value="">Selecione a frequência</option>
+              <option value="diario">Diário</option>
+              <option value="semanal">Semanal</option>
+              <option value="mensal">Mensal</option>
+            </select>
+
+            <button
+              onClick={() => handleSubmit()}
+              type="submit"
+              className={styles.submitButtonAgendarMedicamento}
+            >
+              Agendar Medicamento
+            </button>
+          </form>
+        </div>
+      </div>
+      <Footer />
+    </>
+  );
 }
 
 export default AgendarMedicamento;
