@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "http://localhost:8080/",
+    baseURL: "https://medicareapi-dxf6hsargzd0ceer.canadacentral-01.azurewebsites.net/",
     headers: {'Authorization': `Bearer ${localStorage.getItem('authToken')}`}
 });
 
