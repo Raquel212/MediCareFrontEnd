@@ -1,4 +1,4 @@
-# MediCare
+# MediCare FrontEnd
 
 ## **Resumo**
 
@@ -19,6 +19,7 @@ O **MediCare** é uma plataforma web desenvolvida para auxiliar no gerenciamento
 
 - **Front-End**: React.js, Vite
 - **Linguagem**: JavaScript
+- **Hospedagem**: Vercel
 - **Controle de Versão:**: GitHub  
 - **Outras Ferramentas:**: Visual Studio Code  
 
