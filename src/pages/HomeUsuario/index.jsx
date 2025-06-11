@@ -9,13 +9,13 @@ import { useState } from 'react';
 function HomeUsuario() {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [medications, setMedications] = useState({
-        "2025-03-12": [
+        "2025-06-12": [
             { name: "Escitalopram", quantity: 1, taken: false, scheduledTime: "12:00" },
             { name: "Levotiroxina", quantity: 8, taken: false, scheduledTime: "21:00" },
         ],
-        "2025-03-13": [
-            { name: "Amoxicilina", quantity: 1, taken: false, scheduledTime: "09:00" },
-            { name: "Aspirina", quantity: 1, taken: false, scheduledTime: "18:00" },
+        "2025-06-13": [
+            { name: "Amoxicilina", quantity: 1, taken: false, scheduledTime: "19:00" },
+            { name: "Aspirina", quantity: 1, taken: false, scheduledTime: "21:00" },
         ],
     });
 

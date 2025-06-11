@@ -8,13 +8,13 @@ import HeaderHomeUsuario from '../../components/HeaderHomeUsuario';
 function CalendarioMedicamentos() {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [medications, setMedications] = useState({
-        "2025-03-12": [
+        "2025-06-12": [
             { name: "Escitalopram", quantity: 1, taken: false, scheduledTime: "12:00", frequency: "Diária"},
             { name: "Levotiroxina", quantity: 8, taken: false, scheduledTime: "21:00", frequency: "Uma vez antes de dormir"},
         ],
-        "2025-03-13": [
-            { name: "Amoxicilina", quantity: 1, taken: false, scheduledTime: "09:00", frequency: "Diária"},
-            { name: "Aspirina", quantity: 1, taken: false, scheduledTime: "18:00", frequency: "Diária"},
+        "2025-06-13": [
+            { name: "Amoxicilina", quantity: 1, taken: false, scheduledTime: "19:00", frequency: "Diária"},
+            { name: "Aspirina", quantity: 1, taken: false, scheduledTime: "21:00", frequency: "Diária"},
         ],
     });
 
