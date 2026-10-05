@@ -1,79 +1,97 @@
-
 .cadastroContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background: url('/public/Cadastro.png') no-repeat center center/cover;
+    min-height: calc(100vh - var(--header-altura));
+    padding: 32px 16px;
+    background: url('/Cadastro.png') no-repeat center center/cover;
+    position: relative;
 }
 
+.cadastroContainer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, rgba(11, 37, 69, 0.55) 0%, rgba(11, 37, 69, 0.15) 55%, rgba(11, 37, 69, 0.4) 100%);
+}
 
 .cadastroCard {
+    position: relative;
+    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 1000px;
-    height: 600px;
-    background-color: rgba(255, 255, 255, 0.281);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
+    width: 1040px;
+    max-width: 100%;
+    min-height: 560px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: var(--raio-grande);
+    box-shadow: var(--sombra-forte);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
 }
-
 
 .formContainer {
     display: flex;
     align-items: center;
     width: 100%;
+    justify-content: center;
 }
-
 
 .formSection {
     width: 100%;
+    max-width: 480px;
     padding: 0 20px;
 }
 
-
 .cadastroTitle {
-    color: #1e0176;
+    color: var(--azul-800);
     font-size: 40px;
-    font-weight: 600;
-    margin-bottom: 30px;
+    font-weight: 700;
+    margin-bottom: 28px;
     text-align: center;
 }
-
 
 .cadastroForm {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 14px;
 }
-
 
 .inputField {
     width: 100%;
-    max-width: 320px;
-    height: 50px;
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
+    height: 52px;
+    padding: 14px 16px;
+    font-size: 15px;
+    border: 2px solid var(--borda);
+    border-radius: var(--raio);
     box-sizing: border-box;
     outline: none;
+    background: #FFFFFF;
+    color: var(--texto-primario);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.inputField::placeholder {
+    color: #9DB0C2;
 }
 
 .inputField:focus {
-    border-color: #007bff;
+    border-color: var(--ciano-500);
+    box-shadow: 0 0 0 4px rgba(0, 174, 239, 0.15);
 }
-
 
 .passwordField {
     position: relative;
     display: flex;
     align-items: center;
     width: 100%;
-    max-width: 320px;
+}
+
+.passwordField .inputField {
+    padding-right: 48px;
 }
 
 .togglePasswordButton {
@@ -81,69 +99,99 @@
     border: none;
     cursor: pointer;
     position: absolute;
-    right: 10px;
-    color: #004D99;
+    right: 14px;
+    color: var(--azul-600);
     font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s;
 }
 
+.togglePasswordButton:hover {
+    color: var(--ciano-500);
+}
 
 .cadastroButton {
     width: 100%;
-    max-width: 320px;
-    height: 50px;
-    background-color: #00AEEF;
-    color: #E0F7FF;
+    height: 52px;
+    background: var(--gradiente-botao);
+    color: #FFFFFF;
     padding: 12px;
     border: none;
-    border-radius: 5px;
+    border-radius: var(--raio);
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    box-shadow: 0 8px 20px rgba(0, 110, 210, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .cadastroButton:hover {
-    background-color: #E0F7FF;
-    color: #00AEEF;
+    background: var(--gradiente-botao-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 110, 210, 0.4);
 }
 
-
 .cadastroLinks {
-    margin-top: 15px;
-    font-size: 20px;
+    margin-top: 16px;
+    font-size: 15px;
     text-align: center;
 }
 
-.link {
-    color: #007bff;
+.cadastroLinks .link {
+    color: var(--azul-600);
     text-decoration: none;
+    font-weight: 600;
 }
 
-.link:hover {
+.cadastroLinks .link:hover {
+    color: var(--ciano-500);
     text-decoration: underline;
 }
 
 /* Estilo da imagem */
 .imageCadastro {
     width: 100%;
-    padding-left: 20px;
+    flex: 1;
+    padding-left: 24px;
+    display: flex;
+    justify-content: center;
 }
 
 .cadastroImage {
-    width: 550px;
-    height: 500px;
-    border-radius: 10px;
+    width: 100%;
+    max-width: 520px;
+    height: 480px;
+    object-fit: cover;
+    border-radius: var(--raio);
+    box-shadow: var(--sombra-media);
 }
 
 .errorMessage {
-    color: red;
-    font-size: 16px;
-    margin-bottom: 10px;
+    color: var(--danger);
+    font-size: 15px;
+    margin-bottom: 6px;
     text-align: center;
+    background: rgba(229, 72, 77, 0.1);
+    border: 1px solid rgba(229, 72, 77, 0.25);
+    padding: 10px 12px;
+    border-radius: var(--raio);
 }
 
+.successMessage {
+    color: var(--success);
+    font-size: 15px;
+    margin-bottom: 6px;
+    text-align: center;
+    background: rgba(47, 158, 99, 0.1);
+    border: 1px solid rgba(47, 158, 99, 0.25);
+    padding: 10px 12px;
+    border-radius: var(--raio);
+}
 
 .notificacao {
-    background-color: #00AEEF;
+    background-color: var(--ciano-500);
     color: white;
     padding: 10px;
     margin-bottom: 20px;
@@ -164,78 +212,53 @@
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
-    .cadastroCard {
-        width: 80%; 
-        height: auto; 
-        flex-direction: column; 
-        align-items: center; 
-        justify-content: center; 
-    }
-
-    .formContainer {
-        flex-direction: column; 
-        align-items: center; 
-        justify-content: center; 
-        width: 100%; 
-    }
-
+@media (max-width: 900px) {
     .imageCadastro {
-        display: none; 
+        display: none;
     }
 
-    .inputField {
-        width: 100%; 
-        max-width: 320px; 
+    .cadastroCard {
+        width: 100%;
+        min-height: auto;
+        padding: 32px 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cadastroContainer {
+        background: var(--gradiente-hero);
+        padding: 24px 16px;
     }
 
-    .togglePasswordButton {
-        margin-right: 10px; 
+    .cadastroContainer::before {
+        display: none;
     }
 
-    .passwordField {
-        width: 100%; 
-        max-width: 320px; 
-    }
-
-    .cadastroButton {
-        width: 100%;  
-        max-width: 320px; 
+    .cadastroCard {
+        padding: 28px 20px;
     }
 
     .cadastroTitle {
-        font-size: 30px; 
+        font-size: 32px;
     }
 
     .cadastroForm {
-        max-width: 100%; 
-        display: flex;
-        flex-direction: column;
-        align-items: center; 
-        gap: 15px;
+        align-items: stretch;
     }
 }
 
 @media (max-width: 480px) {
     .cadastroTitle {
-        font-size: 24px; 
+        font-size: 27px;
     }
 
-    .inputField {
-        font-size: 14px; 
-    }
-
+    .inputField,
     .cadastroButton {
+        height: 48px;
         font-size: 14px;
-        padding: 10px; 
     }
 
     .cadastroLinks {
-        font-size: 18px; 
-    }
-
-    .cadastroImage {
-        width: 100%; 
-        height: auto;
+        font-size: 14px;
     }
 }

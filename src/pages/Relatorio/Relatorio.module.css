@@ -1,76 +1,114 @@
 .containerRelatorio {
-    padding: 20px;
-    min-height: 790px; 
-    background: linear-gradient(135deg, #F8FBFF, #5AB9EA);
-
+    padding: 40px 20px;
+    min-height: calc(100vh - 64px);
+    background: var(--gradiente-suave);
 }
 
 .tituloRelatorio {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     text-align: center;
-    margin-bottom: 30px;
-    color: #004D99;
-    margin-top: 50px;
+    margin-bottom: 32px;
+    color: var(--azul-800);
+    font-weight: 700;
 }
 
 .cardsContainerRelatorio {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 24px;
     justify-content: center;
+    max-width: var(--container-max);
+    margin: 0 auto;
 }
 
 .cardRelatorio {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 250px;
-    padding: 20px;
-    transition: transform 0.3s ease;
+    background: var(--gradiente-cartao);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-grande);
+    box-shadow: var(--sombra-suave);
+    width: 280px;
+    padding: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
+    overflow: hidden;
 }
 
 .cardRelatorio:hover {
-    transform: scale(1.05);
+    transform: translateY(-6px);
+    box-shadow: var(--sombra-media);
 }
 
 .cardHeaderRelatorio {
-    background-color: #E0F7FF;
-    color: #004D99;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 15px;
+    background: linear-gradient(120deg, var(--azul-800), var(--azul-600));
+    color: #FFFFFF;
+    padding: 18px 12px;
+    margin-bottom: 0;
+}
+
+.cardHeaderRelatorio h3 {
+    color: #FFFFFF;
+    font-size: 1.3rem;
+    margin: 0;
 }
 
 .cardBodyRelatorio {
-    font-size: 18px;
-    color: #000;
+    font-size: 15px;
+    color: var(--texto-secundario);
+    padding: 18px 20px;
 }
 
-.cardBodyRelatorio p{
-    margin-bottom: 7px;
-    
+.cardBodyRelatorio p {
+    margin-bottom: 10px;
     text-align: center;
-    
+}
+
+.cardBodyRelatorio p strong {
+    color: var(--azul-700);
 }
 
 .cardFooterRelatorio {
-    margin-top: 20px;
+    margin-top: 0;
+    padding: 0 20px 20px;
 }
 
 .botaoDetalhes {
-    background-color: #00AEEF;
+    background: var(--gradiente-botao);
     color: white;
-    padding: 10px 20px;
+    padding: 11px 26px;
     border: none;
-    border-radius: 5px;
+    border-radius: var(--raio-pill);
     cursor: pointer;
     text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-block;
+    box-shadow: 0 6px 16px rgba(0, 110, 210, 0.28);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .botaoDetalhes:hover {
-    background-color: #d8e1ec;
-    color: #00AEEF;
+    background: var(--gradiente-botao-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0, 110, 210, 0.4);
 }
 
+@media (max-width: 768px) {
+    .containerRelatorio {
+        padding: 28px 16px;
+    }
 
+    .tituloRelatorio {
+        font-size: 1.7rem;
+    }
+
+    .cardRelatorio {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tituloRelatorio {
+        font-size: 1.5rem;
+    }
+}

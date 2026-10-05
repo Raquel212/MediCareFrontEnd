@@ -1,77 +1,201 @@
 .containerMedicamentosConsulta {
-    padding: 20px;
-    min-height: 790px; 
-    background: linear-gradient(135deg, #F8FBFF, #5AB9EA);
-
+    padding: 32px 20px 48px;
+    min-height: calc(100vh - 64px);
+    background: var(--gradiente-suave);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .tituloMedicamentosConsulta {
-    font-size: 2.5rem;
-    font-weight: bold;
+    font-size: 2.2rem;
+    font-weight: 700;
     text-align: center;
-    margin-top: 50px;
-    margin-bottom: 30px;
-    color: #004D99;
+    margin: 8px 0 28px;
+    color: var(--azul-800);
+    width: 100%;
+}
+
+.areaBusca {
+    width: 100%;
+    max-width: 860px;
 }
 
 .buscaContainer {
     display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    max-width: 800px;
-    margin: 0 auto;
+    gap: 10px;
+}
+
+.buscaWrap {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.buscaIcone {
+    position: absolute;
+    left: 18px;
+    color: #9DB0C2;
+    font-size: 16px;
+    pointer-events: none;
 }
 
 .inputBusca {
-    padding: 10px;
+    padding: 14px 18px 14px 46px;
     font-size: 16px;
-    border: 1px solid #004D99;
-    border-radius: 5px;
-    width: 60%;
-    margin-right: 10px;
+    border: 2px solid var(--borda);
+    border-radius: var(--raio-pill);
+    width: 100%;
+    background: #FFFFFF;
+    outline: none;
+    color: var(--texto-primario);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.inputBusca::placeholder {
+    color: #9DB0C2;
+}
+
+.inputBusca:focus {
+    border-color: var(--ciano-500);
+    box-shadow: 0 0 0 4px rgba(0, 174, 239, 0.15);
 }
 
 .botaoBusca {
-    padding: 10px 15px;
-    font-size: 16px;
-    background-color: #00AEEF;
+    padding: 14px 28px;
+    font-size: 15px;
+    font-weight: 700;
+    background: var(--gradiente-botao);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: var(--raio-pill);
     cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0, 110, 210, 0.28);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .botaoBusca:hover {
-    background-color: #E0F7FF;
-    color: #00AEEF;
+    background: var(--gradiente-botao-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0, 110, 210, 0.4);
+}
+
+.dicaBar {
+    margin: 18px 0 0;
+    padding: 12px 18px;
+    background: rgba(0, 174, 239, 0.08);
+    border: 1px dashed var(--ciano-400);
+    color: var(--ciano-700);
+    border-radius: var(--raio);
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.5;
 }
 
 .resultadoContainer {
-    background-color: #E0F7FF;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: 0 auto;
-    margin-top: 30px;
-    border: 2px solid #00AEEF;
+    background: #FFFFFF;
+    border: 1px solid var(--borda);
+    padding: 24px;
+    border-radius: var(--raio-grande);
+    box-shadow: var(--sombra-media);
+    margin-top: 24px;
 }
 
 .mensagemErro {
-    color: #FF0000;
+    color: var(--danger);
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
+    padding: 16px;
+    background: rgba(229, 72, 77, 0.07);
+    border-radius: var(--raio);
+}
+
+.medicamentoInfo {
+    padding: 8px 0;
 }
 
 .medicamentoInfo h2 {
-    font-size: 30px;
-    color: #004D99;
+    font-size: 1.8rem;
+    color: var(--azul-800);
     margin-bottom: 20px;
     text-align: center;
+    padding-bottom: 12px;
+    position: relative;
+}
+
+.medicamentoInfo h2::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 3px;
+    background: var(--gradiente-botao);
+    border-radius: 3px;
 }
 
 .medicamentoInfo p {
     margin: 8px 0;
-    line-height: 1.6;
-    font-size: 20px;
+    line-height: 1.7;
+    font-size: 14.5px;
+    color: var(--texto-secundario);
+    padding: 10px 14px;
+    background: var(--azul-50);
+    border-radius: var(--raio);
+    border-left: 4px solid var(--ciano-400);
+}
+
+.medicamentoInfo p strong {
+    color: var(--azul-700);
+    display: block;
+    margin-bottom: 2px;
+}
+
+@media (max-width: 768px) {
+    .containerMedicamentosConsulta {
+        padding: 24px 16px 40px;
+    }
+
+    .tituloMedicamentosConsulta {
+        font-size: 1.7rem;
+    }
+
+    .buscaContainer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .botaoBusca {
+        justify-content: center;
+    }
+
+    .resultadoContainer {
+        padding: 18px;
+    }
+
+    .dicaBar {
+        font-size: 13px;
+        padding: 10px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tituloMedicamentosConsulta {
+        font-size: 1.5rem;
+    }
+
+    .medicamentoInfo h2 {
+        font-size: 1.4rem;
+    }
+
+    .medicamentoInfo p {
+        font-size: 13.5px;
+        padding: 9px 12px;
+    }
 }

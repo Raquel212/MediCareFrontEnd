@@ -1,143 +1,187 @@
 .containerDetalhes {
-    background: linear-gradient(135deg, #F8FBFF, #5AB9EA);
-    padding: 20px;
+    background: var(--gradiente-suave);
+    padding: 36px 20px;
+    min-height: calc(100vh - 64px);
+}
+
+.containerFundoAlterado {
+    background-color: #FFFFFF;
+    padding: 32px;
+    border-radius: var(--raio-grande);
+    border: 1px solid var(--borda);
+    max-width: 1100px;
+    width: 94%;
+    margin: 0 auto;
+    box-shadow: var(--sombra-media);
+}
+
+.tituloDetalhes {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--azul-800);
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.informacoesBasicas {
+    background-color: var(--azul-50);
+    border: 1px solid var(--borda-clara);
+    border-radius: var(--raio-grande);
+    padding: 24px;
+    margin-bottom: 28px;
+    box-shadow: var(--sombra-suave);
+}
+
+.informacoesBasicas h2 {
+    color: var(--azul-800);
+    font-size: 1.6rem;
+    margin-bottom: 14px;
 }
 
 .tabelaInformacoes {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
-    background-color: white;
+    background-color: transparent;
 }
 
 .tabelaInformacoes td {
-    padding: 10px;
-    border: 1px solid #d8e1ec;
-    
+    padding: 12px 16px;
+    border: none;
+    border-bottom: 1px solid var(--borda);
+    color: var(--texto-secundario);
+    font-size: 15px;
 }
 
-.tabelaInformacoes tr:nth-child(even) {
-    background-color: #b1dff0;
-}
-
-.tituloDetalhes {
-    font-size: 2.5rem;
+.tabelaInformacoes td:first-child {
+    color: var(--azul-700);
     font-weight: 600;
-    color: #004D99;
+    width: 45%;
+}
+
+.tabelaInformacoes tr:nth-child(even) td {
+    background-color: #FFFFFF;
+}
+
+.tabelaInformacoes tr:last-child td {
+    border-bottom: none;
+}
+
+.graficoUso {
+    background-color: var(--azul-50);
+    border: 1px solid var(--borda-clara);
+    border-radius: var(--raio-grande);
+    padding: 24px;
+    margin-bottom: 28px;
+    box-shadow: var(--sombra-suave);
+}
+
+.graficoUso h3 {
+    color: var(--azul-800);
+    font-size: 1.4rem;
+    margin-left: 0;
     margin-bottom: 20px;
+    font-weight: 700;
     text-align: center;
-}
-
-.informacoesBasicas{
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-
-.informacoesBasicas h2{
-    color: #004D99;
-    font-size: 2rem;
-}
-
-.graficoUso h3{
-    color: #004D99;
-    font-size: 2rem;
-    margin-left: 15px;
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-
-.containerFundoAlterado {
-    background-color: #E0F7FF;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 1200px;
-    width: 90%;
-    margin: 0 auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .botaoContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
 .botaoVoltar {
-    padding: 10px 20px;
+    padding: 13px 30px;
     font-size: 1rem;
     color: white;
-    background-color: #00AEEF;
+    background: var(--gradiente-botao);
     border: none;
-    border-radius: 5px;
+    border-radius: var(--raio-pill);
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 6px 16px rgba(0, 110, 210, 0.28);
 }
 
 .botaoVoltar:hover {
-    background-color: white;
-    color: #00AEEF;
+    background: var(--gradiente-botao-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0, 110, 210, 0.4);
 }
 
 .botaoImprimir {
     display: block;
-    width: 200px;
-    padding: 12px;
-    background-color: #00AEEF;
+    width: auto;
+    padding: 13px 30px;
+    background: var(--gradiente-botao);
     color: white;
     border: none;
     font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: var(--raio-pill);
+    box-shadow: 0 6px 16px rgba(0, 110, 210, 0.28);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .botaoImprimir:hover {
-    background-color: white;
-    color: #00AEEF;
+    background: var(--gradiente-botao-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0, 110, 210, 0.4);
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
     .containerDetalhes {
         width: 100%;
-        padding: 10px;
+        padding: 20px 12px;
+    }
+
+    .containerFundoAlterado {
+        padding: 20px 16px;
+        width: 100%;
     }
 
     .tituloDetalhes {
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
 
     .informacoesBasicas,
-    .instrucoesUso,
-    .efeitosColaterais,
-    .historicoUso,
     .graficoUso {
-        padding: 10px;
+        padding: 16px;
     }
 
     .botaoContainer {
-        flex-direction: column; 
+        flex-direction: column;
         gap: 10px;
     }
 
     .botaoVoltar,
     .botaoImprimir {
-        width: 100%; 
+        width: 100%;
         text-align: center;
     }
 
     .graficoUso {
         height: 450px;
     }
+
+    .tabelaInformacoes td {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
 }
 
-@media (max-width: 480px){
+@media (max-width: 480px) {
     .graficoUso {
         height: 250px;
+    }
+
+    .tituloDetalhes {
+        font-size: 1.4rem;
     }
 }
 
@@ -147,7 +191,8 @@
         visibility: hidden;
     }
 
-    .containerDetalhes, .containerDetalhes * {
+    .containerDetalhes,
+    .containerDetalhes * {
         visibility: visible;
     }
 
@@ -156,25 +201,35 @@
         left: 0;
         top: 0;
         width: 100%;
+        background: #FFFFFF;
+        padding: 0;
     }
 
+    .containerFundoAlterado {
+        box-shadow: none;
+        border: none;
+        width: 100%;
+        padding: 0;
+    }
 
-    footer, header {
+    footer,
+    header {
         display: none;
     }
 
-    .botaoContainer, .botaoImprimir {
+    .botaoContainer,
+    .botaoImprimir {
         display: none;
     }
 
     .graficoUso {
         width: 100%;
-        height: 400px;  
+        height: 400px;
+        break-inside: avoid;
     }
 
-    
     .graficoUso canvas {
-        width: 100% !important; 
-        height: auto !important; 
+        width: 100% !important;
+        height: auto !important;
     }
 }

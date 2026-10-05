@@ -3,6 +3,7 @@ import styles from './HeaderHomeUsuario.module.css';
 import { FaBars, FaTimes, FaUserCircle, FaPills, FaCalendarAlt, FaHistory, FaFileAlt, FaCog, FaSearchPlus, FaClock } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from '../../assets/Logo_Sem.png';
+import AssistenteIA from "../AssistenteIA";
 
 function HeaderHomeUsuario() {
     const [menuAberto, setMenuAberto] = useState(false);
@@ -19,7 +20,7 @@ function HeaderHomeUsuario() {
     return (
         <>
             <header className={styles.headerHomeUsuario}>
-                <div onClick={toggleMenu} className={styles.iconHomeUsuario}>
+                <div onClick={toggleMenu} className={styles.iconHomeUsuario} aria-label="Abrir menu">
                     {menuAberto ? <FaTimes /> : <FaBars />}
                 </div>
                 <div className={styles.logoHearderHomeUsuario}>
@@ -27,7 +28,7 @@ function HeaderHomeUsuario() {
                         <img src={logo} alt="Logo" className={styles.logoHearderHomeUsuario} />
                     </Link>
                 </div>
-                <div onClick={togglePerfil} className={styles.iconHomeUsuario}>
+                <div onClick={togglePerfil} className={styles.iconHomeUsuario} aria-label="Menu do perfil">
                     <FaUserCircle />
                 </div>
                 {perfilAberto && (
@@ -40,7 +41,17 @@ function HeaderHomeUsuario() {
                     </div>
                 )}
             </header>
+            {/* Overlay para fechar o menu ao clicar fora */}
+            {menuAberto && (
+                <div className={styles.overlayHomeUsuario} onClick={toggleMenu}></div>
+            )}
             <nav className={`${styles.menuLateralHomeUsuario} ${menuAberto ? styles.aberto : ''}`}>
+                <div className={styles.menuHeaderHomeUsuario}>
+                    <img src={logo} alt="Logo" />
+                    <div onClick={toggleMenu} className={styles.menuFecharHomeUsuario} aria-label="Fechar menu">
+                        <FaTimes />
+                    </div>
+                </div>
                 <ul>
                     <li><FaPills className={styles.menuIconHomeUsuario} /><a href="/cadastrarmedicamento">Cadastrar Medicamentos</a></li>
                     <li><FaClock className={styles.menuIconHomeUsuario} /><a href="/agendarmedicamento">Agendar Medicamentos</a></li>
@@ -51,6 +62,8 @@ function HeaderHomeUsuario() {
                     <li><FaSearchPlus className={styles.menuIconHomeUsuario} /><a href="/dicas">Consulta de Medicamentos</a></li>
                 </ul>
             </nav>
+            {/* Assistente IA flutuante */}
+            <AssistenteIA />
         </>
     );
 }

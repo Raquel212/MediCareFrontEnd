@@ -4,6 +4,8 @@ import Footer from "../../components/Footer";
 import HeaderHomeUsuario from "../../components/HeaderHomeUsuario";
 import styles from "./CadastrarMedicamento.module.css";
 import api from "../../services/api";
+import { adicionarMedicamentoFixo } from "../../services/medicamentoStore";
+import { adicionarAgendamento, converterParaISO } from "../../services/agendamentoStore";
 
 function CadastrarMedicamento() {
   const [form, setForm] = useState({
@@ -15,6 +17,7 @@ function CadastrarMedicamento() {
     foto: null,
   });
   const [showNotification, setShowNotification] = useState(false);
+  const [usandoMock, setUsandoMock] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -29,27 +32,66 @@ function CadastrarMedicamento() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(form.dataDeRegistro);
+    const dadosEnvio = {
+      nome: form.nome,
+      quantidade: form.quantidadeTotal,
+      dosagem: form.dosagem,
+      horario: form.horarios,
+      tempoDeTratamento: form.tempoDeTratamento,
+      dataRegistro: form.dataDeRegistro,
+    };
 
-    api
-      .post("/medicamento", {
+    // Sempre registra no calendário local para acompanhar se tomou e quantos faltam
+    adicionarAgendamento({
+      name: form.nome,
+      data: converterParaISO(form.dataDeRegistro),
+      scheduledTime: "08:00",
+      frequency: form.horarios,
+      quantity: form.quantidadeTotal,
+      dosagem: form.dosagem,
+    });
+
+    const concluirCadastro = () => {
+      setShowNotification(true);
+      setTimeout(() => setShowNotification(false), 3000);
+      setTimeout(() => {
+        navigate("/gerenciarmedicamento");
+      }, 2000);
+    };
+
+    // Fallback quando o backend está indisponível: salva como dado fixo local
+    if (usandoMock) {
+      adicionarMedicamentoFixo({
         nome: form.nome,
+        dataRegistro: form.dataDeRegistro,
         quantidade: form.quantidadeTotal,
         dosagem: form.dosagem,
         horario: form.horarios,
         tempoDeTratamento: form.tempoDeTratamento,
-        dataRegistro: form.dataDeRegistro,
-      })
+      });
+      concluirCadastro();
+      return;
+    }
+
+    api
+      .post("/medicamento", dadosEnvio)
       .then((response) => {
         console.log(response.data);
-        setShowNotification(true);
-        setTimeout(() => setShowNotification(false), 3000);
-        setTimeout(() => {
-          navigate("/gerenciarmedicamento");
-        }, 2000);
+        concluirCadastro();
       })
       .catch((error) => {
         console.error(error);
+        // Se a API falhar, passa a usar os dados fixos localmente
+        adicionarMedicamentoFixo({
+          nome: form.nome,
+          dataRegistro: form.dataDeRegistro,
+          quantidade: form.quantidadeTotal,
+          dosagem: form.dosagem,
+          horario: form.horarios,
+          tempoDeTratamento: form.tempoDeTratamento,
+        });
+        setUsandoMock(true);
+        concluirCadastro();
       });
   };
 
@@ -60,6 +102,10 @@ function CadastrarMedicamento() {
         <h1 className={styles.tituloCadastrarMedicamento}>
           Cadastrar Medicamento
         </h1>
+
+        {usandoMock && (
+          <div className={styles.mockAviso}>Modo demonstração — salvando localmente</div>
+        )}
 
         {showNotification && (
           <div className={styles.notificationCadastroMedicamento}>

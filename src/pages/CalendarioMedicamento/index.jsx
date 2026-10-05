@@ -4,46 +4,28 @@ import 'react-calendar/dist/Calendar.css';
 import styles from './CalendarioMedicamento.module.css';
 import Footer from '../../components/Footer';
 import HeaderHomeUsuario from '../../components/HeaderHomeUsuario';
+import { getAgendamentosPorData, marcarAgendamentoTomado } from '../../services/agendamentoStore';
 
 function CalendarioMedicamentos() {
     const [selectedDate, setSelectedDate] = useState(new Date());
-    const [medications, setMedications] = useState({
-        "2025-06-12": [
-            { name: "Escitalopram", quantity: 1, taken: false, scheduledTime: "12:00", frequency: "Diária"},
-            { name: "Levotiroxina", quantity: 8, taken: false, scheduledTime: "21:00", frequency: "Uma vez antes de dormir"},
-        ],
-        "2025-06-13": [
-            { name: "Amoxicilina", quantity: 1, taken: false, scheduledTime: "19:00", frequency: "Diária"},
-            { name: "Aspirina", quantity: 1, taken: false, scheduledTime: "21:00", frequency: "Diária"},
-        ],
-    });
 
-    const formatDate = (date) => date.toISOString().split('T')[0];
+    const formatDate = (date) => {
+        const d = new Date(date);
+        const ano = d.getFullYear();
+        const mes = String(d.getMonth() + 1).padStart(2, '0');
+        const dia = String(d.getDate()).padStart(2, '0');
+        return `${ano}-${mes}-${dia}`;
+    };
 
     const handleDateChange = (date) => setSelectedDate(date);
 
-    const currentMedications = medications[formatDate(selectedDate)] || [];
+    const currentMedications = getAgendamentosPorData(formatDate(selectedDate));
 
-    const handleMedicationTaken = (medName) => {
-        setMedications((prevMedications) => {
-            const dateKey = formatDate(selectedDate);
-            const updatedMedications = { ...prevMedications };
-
-            if (updatedMedications[dateKey]) {
-                updatedMedications[dateKey] = updatedMedications[dateKey].map((med) => {
-                    if (med.name === medName && med.quantity > 0 && !med.taken) {
-                        return {
-                            ...med,
-                            taken: true,
-                            quantity: med.quantity - 1,
-                        };
-                    }
-                    return med;
-                });
-            }
-
-            return updatedMedications;
-        });
+    const handleMedicationTaken = (med) => {
+        if (med.taken || med.quantity <= 0) return;
+        marcarAgendamentoTomado(med.id);
+        // Força re-render refletindo a alteração
+        setSelectedDate((prev) => new Date(prev));
     };
 
     const isTimeToTakeMedication = (scheduledTime) => {
@@ -83,7 +65,7 @@ function CalendarioMedicamentos() {
                                 </div>
                                 <button
                                     className={styles.takeButton}
-                                    onClick={() => handleMedicationTaken(med.name)}
+                                    onClick={() => handleMedicationTaken(med)}
                                     disabled={med.taken || med.quantity === 0 || !isTimeToTakeMedication(med.scheduledTime)}
                                 >
                                     {med.taken ? "Medicamento Tomado" : med.quantity > 0 ? "Tomar" : "Sem Estoque"}

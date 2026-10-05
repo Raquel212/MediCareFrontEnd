@@ -1,127 +1,168 @@
 .containerHome {
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - var(--header-altura));
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #FFFF; 
-    padding: 0 100px;
+    gap: 48px;
+    background: var(--gradiente-hero);
+    padding: 48px 96px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Bolhas decorativas de fundo */
+.containerHome::before,
+.containerHome::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 174, 239, 0.14) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.containerHome::before {
+    width: 420px;
+    height: 420px;
+    top: -120px;
+    right: -80px;
+}
+
+.containerHome::after {
+    width: 320px;
+    height: 320px;
+    bottom: -100px;
+    left: -80px;
 }
 
 .apresentacao {
-    max-width: 500px;
+    max-width: 520px;
+    z-index: 1;
+    animation: fadeUp 0.7s ease both;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .tituloHome {
-    font-size: 60px;
-    font-weight: bold;
-    color: #004D99; 
+    font-size: 62px;
+    font-weight: 800;
+    color: var(--azul-800);
     margin-bottom: 20px;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    background: linear-gradient(120deg, var(--azul-800), var(--ciano-500));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .textoHome {
-    font-size: 18px;
+    font-size: 19px;
     line-height: 1.8;
-    color: #333;
-    margin-bottom: 20px;
+    color: var(--texto-secundario);
+    margin-bottom: 28px;
 }
 
 .saibaMais {
-    padding: 10px 20px;
-    font-size: 25px;
-    font-weight: bold;
-    border: 0;
-    border-radius: 5px;
-    background-color: #00AEEF; 
-    color: #E0F7FF;
+    padding: 14px 34px;
+    font-size: 17px;
+    font-weight: 700;
+    border: none;
+    border-radius: var(--raio-pill);
+    background: var(--gradiente-botao);
+    color: #FFFFFF;
     cursor: pointer;
+    box-shadow: 0 8px 22px rgba(0, 110, 210, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: inline-block;
 }
 
 .saibaMais:hover {
-    background-color: #E0F7FF;
-    color: #00AEEF;
-
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 110, 210, 0.45);
 }
 
 .imagemHome {
-    width: 500px; 
-    height: 500px; 
-    background-image: url('/public/Home3.png');
+    width: 480px;
+    height: 480px;
+    background-image: url('/Home3.png');
     background-size: cover;
     background-position: center;
-    border-radius: 10px;
+    border-radius: 32px;
+    box-shadow: var(--sombra-media);
+    z-index: 1;
+    animation: fadeUp 0.7s ease 0.15s both;
 }
 
 /* Responsividade */
 @media (max-width: 1024px) {
     .containerHome {
-        padding: 20px; 
+        padding: 40px 32px;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .apresentacao {
+        max-width: 100%;
+        text-align: center;
     }
 
     .tituloHome {
-        font-size: 50px; 
-        text-align: center; 
+        font-size: 48px;
     }
 
     .textoHome {
-        font-size: 16px; 
-        text-align: justify; 
-    }
-
-    .saibaMais {
-        font-size: 20px; 
+        font-size: 17px;
+        text-align: justify;
     }
 
     .imagemHome {
-        width: 100%; 
-        height: 400px; 
-        margin-top: 20px; 
+        width: 100%;
+        max-width: 520px;
+        height: 340px;
+        margin-top: 8px;
     }
 }
 
 @media (max-width: 768px) {
     .tituloHome {
-        font-size: 40px; 
+        font-size: 40px;
     }
 
     .textoHome {
-        font-size: 15px; 
-        line-height: 1.6; 
-    }
-
-    .saibaMais {
-        padding: 8px 18px; 
-        font-size: 18px; 
+        font-size: 16px;
+        line-height: 1.7;
     }
 
     .imagemHome {
-        width: 100%; 
-        height: 250px; 
+        height: 260px;
     }
 }
 
 @media (max-width: 480px) {
     .containerHome {
-        padding: 10px; 
+        padding: 28px 18px;
     }
 
     .tituloHome {
-        font-size: 30px; 
-        text-align: center; 
+        font-size: 34px;
     }
 
     .textoHome {
-        font-size: 14px; 
-        text-align: justify; 
-        margin-bottom: 10px; 
+        font-size: 15px;
+        text-align: justify;
+        margin-bottom: 20px;
     }
 
     .saibaMais {
-        padding: 6px 15px; 
-        font-size: 16px; 
+        padding: 12px 28px;
+        font-size: 15px;
     }
 
     .imagemHome {
-        display: none; 
+        height: 210px;
     }
 }

@@ -3,12 +3,16 @@ import Footer from "../../components/Footer";
 import HeaderHomeUsuario from "../../components/HeaderHomeUsuario";
 import styles from "./AgendarMedicamento.module.css";
 import api from "../../services/api";
+import { getMedicamentosFixos } from "../../services/medicamentoStore";
+import { adicionarAgendamento, converterParaISO } from "../../services/agendamentoStore";
 
 function AgendarMedicamento() {
   const [notificacao, setNotificacao] = useState("");
   const [medicamentos, setMedicamentos] = useState([]);
+  const [usandoMock, setUsandoMock] = useState(false);
 
   const [selectedMedicamentoId, setSelectedMedicamentoId] = useState("");
+  const [data, setData] = useState("");
   const [horario, setHorario] = useState("");
   const [frequencia, setFrequencia] = useState("");
 
@@ -18,11 +22,38 @@ function AgendarMedicamento() {
       .then((response) => setMedicamentos(response.data))
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
+        // Backend indisponível: usa exemplos fixos para demonstração
+        setMedicamentos(getMedicamentosFixos());
+        setUsandoMock(true);
       });
   }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    const medicamentoEscolhido = medicamentos.find(
+      (med) => String(med.id) === String(selectedMedicamentoId)
+    );
+
+    // Salva sempre no calendário local para que apareça na tela de Calendário
+    adicionarAgendamento({
+      name: medicamentoEscolhido?.nome || "Medicamento",
+      data: converterParaISO(data),
+      scheduledTime: horario,
+      frequency: frequencia,
+      quantity: medicamentoEscolhido?.quantidade || 1,
+      dosagem: medicamentoEscolhido?.dosagem || "",
+    });
+
+    // Modo demonstração: registra localmente e mostra o sucesso
+    if (usandoMock) {
+      setNotificacao("Agendamento registrado com sucesso! Ele já aparecerá no seu calendário!");
+      setTimeout(() => {
+        setNotificacao("");
+      }, 3500);
+      return;
+    }
+
     api
       .post(`/agendamento`, {
         horario: horario,
@@ -90,14 +121,8 @@ function AgendarMedicamento() {
               name="data"
               required
               className={styles.inputAgendarMedicamento}
-            //   value={data ? data.split("/").reverse().join("-") : ""}
-            //   onChange={(e) =>
-            //     setData(
-            //       e.target.value
-            //         ? e.target.value.split("-").reverse().join("/")
-            //         : ""
-            //     )
-            //   }
+              value={data}
+              onChange={(e) => setData(e.target.value)}
             />
 
             <label htmlFor="horario" className={styles.labelAgendarMedicamento}>
@@ -134,7 +159,6 @@ function AgendarMedicamento() {
             </select>
 
             <button
-              onClick={() => handleSubmit()}
               type="submit"
               className={styles.submitButtonAgendarMedicamento}
             >

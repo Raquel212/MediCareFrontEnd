@@ -4,9 +4,9 @@ import HeaderHomeUsuario from '../../components/HeaderHomeUsuario';
 import styles from './EditarPerfil.module.css';
 
 function EditarPerfil() {
-    const [nome, setNome] = useState('Raquel');
-    const [sobrenome, setSobrenome] = useState('Martins');
-    const [email, setEmail] = useState('raquel@gmail.com');
+    const [nome, setNome] = useState('Paciente');
+    const [sobrenome, setSobrenome] = useState('Teste');
+    const [email, setEmail] = useState('paciente@gmail.com');
     const [notificacao, setNotificacao] = useState(''); 
     const [mostrarConfirmacao, setMostrarConfirmacao] = useState(false); 
 

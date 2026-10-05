@@ -1,15 +1,65 @@
 :root {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  /* Paleta MediCare (azul) */
+  --azul-950: #071C36;
+  --azul-900: #0B2545;
+  --azul-800: #0D3B66;
+  --azul-700: #12508C;
+  --azul-600: #1E66B5;
+  --azul-500: #0077E6;
+  --ciano-600: #0098D8;
+  --ciano-500: #00AEEF;
+  --ciano-400: #2EC8F7;
+  --ciano-200: #A8E7FA;
+  --ciano-100: #E0F7FF;
+  --azul-50: #F3FAFF;
+
+  /*Fundos e gradientes */
+  --gradiente-hero: linear-gradient(135deg, #F3FAFF 0%, #DCF4FF 48%, #9FDBF6 100%);
+  --gradiente-suave: linear-gradient(160deg, #EAF6FD 0%, #F7FCFE 100%);
+  --gradiente-botao: linear-gradient(135deg, #00AEEF 0%, #0077E6 100%);
+  --gradiente-botao-hover: linear-gradient(135deg, #2EC8F7 0%, #1E66B5 100%);
+  --gradiente-cartao: linear-gradient(180deg, #FFFFFF 0%, #F6FBFF 100%);
+
+  /* Textos */
+  --texto-primario: #0B2545;
+  --texto-secundario: #3D566E;
+  --texto-suave: #64748B;
+  --branco: #FFFFFF;
+
+  /* Contornos */
+  --borda: #CBE8F5;
+  --borda-clara: #E3F2FA;
+  --danger: #E5484D;
+  --success: #2F9E63;
+  --warning: #E8930C;
+
+  /* Tipografia */
+  --fonte-titulo: 'Poppins', 'Inter', sans-serif;
+  --fonte-texto: 'Inter', 'Segoe UI', sans-serif;
+
+  /* Sombra e raio */
+  --sombra-suave: 0 10px 30px rgba(13, 59, 102, 0.08);
+  --sombra-media: 0 18px 45px rgba(13, 59, 102, 0.14);
+  --sombra-forte: 0 24px 60px rgba(7, 28, 54, 0.22);
+  --raio: 14px;
+  --raio-grande: 22px;
+  --raio-pill: 999px;
+
+  /* Layout */
+  --container-max: 1200px;
+  --header-altura: 80px;
+
+  /* Variáveis legadas (mantidas p/ compatibilidade) */
   --primary: #0063F2;
   --secondary: #B8B8B8;
   --terceary: #020202;
   --quaternary: #FFFFFF;
-
 }
 
 * {
@@ -18,4 +68,165 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 
+body {
+  font-family: var(--fonte-texto);
+  color: var(--texto-primario);
+  background-color: var(--branco);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--fonte-titulo);
+  color: var(--azul-700);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+a {
+  color: var(--azul-600);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--ciano-500);
+}
+
+button {
+  font-family: var(--fonte-texto);
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Acessibilidade: anel de foco consistente */
+:focus-visible {
+  outline: 3px solid rgba(0, 174, 239, 0.5);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Barra de rolagem personalizada */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--azul-50);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--ciano-400), var(--azul-500));
+  border-radius: var(--raio-pill);
+  border: 2px solid var(--azul-50);
+}
+
+::selection {
+  background: rgba(0, 174, 239, 0.25);
+  color: var(--azul-900);
+}
+
+/* Usuários que preferem menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   react-calendar responsivo (Home do Usuário e Calendário)
+   ============================================================ */
+.react-calendar {
+  width: 100% !important;
+  max-width: 100%;
+  border: none;
+  background: transparent;
+  font-family: var(--fonte-texto);
+  line-height: 1.125;
+}
+
+.react-calendar__navigation {
+  margin-bottom: 6px;
+}
+
+.react-calendar__navigation button {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--azul-800);
+  border-radius: 10px;
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background: var(--ciano-100);
+}
+
+.react-calendar__navigation__label {
+  pointer-events: none;
+}
+
+.react-calendar__month-view__weekdays {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  padding: 6px 0;
+}
+
+.react-calendar__tile {
+  padding: 0.75em 0.4em;
+  font-size: 0.9rem;
+  border-radius: 10px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background: var(--ciano-100);
+}
+
+.react-calendar__tile--now {
+  background: var(--ciano-100);
+  color: var(--azul-800);
+}
+
+.react-calendar__tile--active,
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: var(--gradiente-botao);
+  color: #FFFFFF;
+  box-shadow: 0 6px 14px rgba(0, 119, 230, 0.35);
+}
+
+/* Ajustes finos em telas pequenas */
+@media (max-width: 480px) {
+  .react-calendar__tile {
+    padding: 0.5em 0.25em;
+    font-size: 0.78rem;
+  }
+
+  .react-calendar__navigation button {
+    font-size: 0.85rem;
+  }
+
+  .react-calendar__month-view__weekdays {
+    font-size: 0.68rem;
+  }
+}

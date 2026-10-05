@@ -3,12 +3,14 @@ import Footer from "../../components/Footer";
 import HeaderHomeUsuario from "../../components/HeaderHomeUsuario";
 import styles from "./GerenciarMedicamentos.module.css";
 import api from "../../services/api";
+import { getMedicamentosFixos, salvarMedicamentosFixos } from "../../services/medicamentoStore";
 
 function GerenciarMedicamento() {
   const [medicamentos, setMedicamentos] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [currentMedicamento, setCurrentMedicamento] = useState(null);
   const [editIndex, setEditIndex] = useState(null);
+  const [usandoMock, setUsandoMock] = useState(false);
 
   useEffect(() => {
     api
@@ -16,10 +18,19 @@ function GerenciarMedicamento() {
       .then((response) => setMedicamentos(response.data))
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
+        // Backend indisponível: carrega exemplos fixos para demonstração
+        setMedicamentos(getMedicamentosFixos());
+        setUsandoMock(true);
       });
   }, []);
 
   const handleDelete = (index, medicamento) => {
+    if (usandoMock) {
+      const medicamentosAtualizados = medicamentos.filter((_, i) => i !== index);
+      setMedicamentos(medicamentosAtualizados);
+      salvarMedicamentosFixos(medicamentosAtualizados);
+      return;
+    }
     console.log(medicamento);
     api
       .delete(`/medicamento/${medicamento.id}`)
@@ -32,6 +43,12 @@ function GerenciarMedicamento() {
   };
 
   const handleEdit = (index, medicamento) => {
+    if (usandoMock) {
+      setCurrentMedicamento({ ...medicamento });
+      setEditIndex(index);
+      setIsEditing(true);
+      return;
+    }
     console.log(medicamento);
     api
       .get(`/medicamento/${medicamento.id}`)
@@ -46,6 +63,16 @@ function GerenciarMedicamento() {
   };
 
   const saveEdit = () => {
+    if (usandoMock) {
+      const medicamentosAtualizados = medicamentos.map((med, i) =>
+        i === editIndex ? currentMedicamento : med
+      );
+      setMedicamentos(medicamentosAtualizados);
+      salvarMedicamentosFixos(medicamentosAtualizados);
+      setIsEditing(false);
+      setCurrentMedicamento(null);
+      return;
+    }
     console.log(currentMedicamento.dataRegistro, "medicamento data registro");
     api
       .put(`/medicamento/${currentMedicamento.id}`, {

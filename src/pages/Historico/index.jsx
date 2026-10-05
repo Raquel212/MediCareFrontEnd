@@ -40,26 +40,40 @@ function Historico() {
           </div>
         </div>
 
-        <table className={styles.tabelaHistorico}>
-          <thead>
-            <tr>
-              <th>Nome do Medicamento</th>
-              <th>Data de Registro</th>
-              <th>Dosagem</th>
-              <th>Status do Medicamento</th>
-            </tr>
-          </thead>
-          <tbody>
-            {dadosFiltrados.map((medicamento, index) => (
-              <tr key={index}>
-                <td>{medicamento.nome}</td>
-                <td>{medicamento.data}</td>
-                <td>{medicamento.quantidade}</td>
-                <td>{medicamento.status}</td>
+        <div className={styles.tableWrapper}>
+          <table className={styles.tabelaHistorico}>
+            <thead>
+              <tr>
+                <th>Nome do Medicamento</th>
+                <th>Data de Registro</th>
+                <th>Dosagem</th>
+                <th>Status do Medicamento</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {dadosFiltrados.map((medicamento, index) => (
+                <tr key={index}>
+                  <td>{medicamento.nome}</td>
+                  <td>{medicamento.data}</td>
+                  <td>{medicamento.quantidade}</td>
+                  <td>
+                    <span
+                      className={`${styles.status} ${
+                        medicamento.status === 'Concluído'
+                          ? styles.concluido
+                          : medicamento.status === 'Pendente'
+                          ? styles.pendente
+                          : styles.progresso
+                      }`}
+                    >
+                      {medicamento.status}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
       <Footer />
     </>

@@ -2,115 +2,172 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 160px);
-    background: url('/public/Cadastro.png') no-repeat center center/cover;
-    padding: 20px;
+    min-height: calc(100vh - var(--header-altura));
+    background: var(--gradiente-hero);
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.containerEsqueceuSenha::before {
+    content: '';
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 174, 239, 0.12) 0%, transparent 70%);
+    top: -80px;
+    right: -60px;
+}
+
+.containerEsqueceuSenha::after {
+    content: '';
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 119, 230, 0.1) 0%, transparent 70%);
+    bottom: -60px;
+    left: -60px;
 }
 
 .formContainerEsqueceuSenha {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 40px;
-    max-width: 500px;
+    background-color: #FFFFFF;
+    border-radius: var(--raio-grande);
+    box-shadow: var(--sombra-media);
+    padding: 48px 40px;
+    max-width: 520px;
     width: 100%;
     text-align: center;
+    position: relative;
+    z-index: 1;
+    border: 1px solid var(--borda-clara);
+    animation: fadeUp 0.5s ease both;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .logoEsqueceuSenha {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .esqueceuSenhaLogo {
-    width: 250px;
+    width: 220px;
     height: auto;
 }
 
 .tituloEsqueceuSenha {
-    font-size: 24px;
-    color: #004D99;
-    margin-bottom: 10px;
+    font-size: 26px;
+    color: var(--azul-800);
+    margin-bottom: 8px;
+    font-weight: 700;
 }
 
 .subtituloEsqueceuSenha {
-    font-size: 18px;
-    color: #3d4144;
-    font-weight: 600;
-    margin-bottom: 30px;
+    font-size: 15px;
+    color: var(--texto-secundario);
+    font-weight: 500;
+    margin-bottom: 28px;
+    line-height: 1.6;
 }
 
 .formEsqueceuSenha {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 16px;
 }
 
 .labelEsqueceuSenha {
-    font-size: 20px;
-    color: #333333;
+    font-size: 15px;
+    color: var(--texto-primario);
     text-align: left;
     font-weight: 600;
-    margin-bottom: 3px;
 }
 
 .inputEsqueceuSenha {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 14px 16px;
+    font-size: 15px;
+    border: 2px solid var(--borda);
+    border-radius: var(--raio);
     outline: none;
-    transition: border-color 0.3s ease;
+    background: #FFFFFF;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.inputEsqueceuSenha::placeholder {
+    color: #9DB0C2;
 }
 
 .inputEsqueceuSenha:focus {
-    border-color: #004D99;
+    border-color: var(--ciano-500);
+    box-shadow: 0 0 0 4px rgba(0, 174, 239, 0.15);
 }
 
 .botaoEsqueceuSenha {
-    padding: 10px;
+    padding: 14px;
     font-size: 16px;
-    background-color: #00AEEF;
-    color: #E0F7FF;
+    font-weight: 700;
+    background: var(--gradiente-botao);
+    color: #FFFFFF;
     border: none;
-    border-radius: 5px;
+    border-radius: var(--raio);
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 110, 210, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .botaoEsqueceuSenha:hover {
-    background-color: #E0F7FF;
-    color: #00AEEF;
+    background: var(--gradiente-botao-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 110, 210, 0.4);
 }
 
 .voltarLoginEsqueceuSenha {
-    display: block;
-    margin-top: 15px;
-    font-size: 17px;
-    color: #004D99;
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 15px;
+    color: var(--azul-700);
     font-weight: 600;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
 }
 
 .voltarLoginEsqueceuSenha:hover {
-    color: #003366;
+    color: var(--ciano-500);
     text-decoration: underline;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
     .formContainerEsqueceuSenha {
-        padding: 20px;
+        padding: 32px 24px;
     }
 
     .tituloEsqueceuSenha {
-        font-size: 20px;
+        font-size: 22px;
     }
 
     .subtituloEsqueceuSenha {
         font-size: 14px;
+    }
+
+    .esqueceuSenhaLogo {
+        width: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .formContainerEsqueceuSenha {
+        padding: 28px 20px;
+    }
+
+    .tituloEsqueceuSenha {
+        font-size: 20px;
     }
 }

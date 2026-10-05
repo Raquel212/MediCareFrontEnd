@@ -7,8 +7,8 @@ import api from '../../services/api';
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
-    const [email, setEmail] = useState('');
-    const [senha, setPassword] = useState('');
+    const [email, setEmail] = useState('paciente@gmail.com');
+    const [senha, setPassword] = useState('123456');
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [error, setError] = useState(null); 
     const navigate = useNavigate();
@@ -31,6 +31,13 @@ function Login() {
             navigate('/home');
         } catch (error) {
             console.error(error);
+            // Permite que o usuário fixo (paciente@gmail.com / 123456) entre na Home
+            // mesmo se o backend falhar (usuário inexistente ou serviço indisponível).
+            if (email === 'paciente@gmail.com' && senha === '123456') {
+                localStorage.setItem('authToken', 'fallback-token-demo');
+                navigate('/home');
+                return;
+            }
             if (error.response && error.response.status === 400) {
                 setError(error.response.data.errors);
             } else if (error.response && error.response.status === 404) {

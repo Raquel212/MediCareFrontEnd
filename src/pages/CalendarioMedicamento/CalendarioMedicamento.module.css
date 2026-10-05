@@ -3,51 +3,54 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 790px; 
-    background: linear-gradient(135deg, #F8FBFF, #5AB9EA);
+    min-height: calc(100vh - 64px);
+    padding: 40px 20px;
+    background: var(--gradiente-suave);
 }
 
 /* Título da página */
 .title {
-    font-size: 2.5rem;
-    color: #004D99;
-    margin-bottom: 20px;
-    margin-top: 50px;
-    font-weight: 600;
+    font-size: 2.2rem;
+    color: var(--azul-800);
+    margin-bottom: 28px;
+    font-weight: 700;
+    text-align: center;
 }
 
 /* Container do calendário */
 .calendarContainer {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 28px;
+    width: 100%;
 }
 
 .calendar {
-    border: 1px solid #000;
-    border-radius: 10px;
-    background-color: #ffffff;
-    font-size: 20px;
-    width: 500px;
-    height: 400px;
-    padding: 20px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--borda) !important;
+    border-radius: var(--raio-grande) !important;
+    background-color: #FFFFFF;
+    font-size: 15px;
+    width: 100% !important;
+    max-width: 520px;
+    padding: 18px !important;
+    box-shadow: var(--sombra-media);
 }
 
 /* Estilos para a lista de medicamentos */
 .medicationsList {
     width: 100%;
-    max-width: 600px;
-    background-color: #E0F7FF;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    max-width: 640px;
+    background: var(--gradiente-cartao);
+    border: 1px solid var(--borda);
+    padding: 24px;
+    border-radius: var(--raio-grande);
+    box-shadow: var(--sombra-suave);
 }
 
 .medicationTitle {
-    font-size: 2rem;
-    color: #004D99;;
-    margin-bottom: 15px;
+    font-size: 1.6rem;
+    color: var(--azul-800);
+    margin-bottom: 18px;
     text-align: center;
 }
 
@@ -55,85 +58,113 @@
 .medicationItems {
     list-style-type: none;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .medicationItem {
-    background-color: #fff;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    font-size: 20px;
+    background-color: #FFFFFF;
+    padding: 16px 18px;
+    border-radius: var(--raio);
+    border: 1px solid var(--borda-clara);
+    box-shadow: var(--sombra-suave);
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.medicationItem:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-media);
 }
 
 .medicationItem div {
-    margin-bottom: 10px;
+    margin-bottom: 0;
+    color: var(--texto-secundario);
+}
+
+.medicationItem strong {
+    color: var(--azul-700);
 }
 
 /* Estilo do botão "Tomar" */
 .takeButton {
-    background-color: #00AEEF;
-    color: #E0F7FF;
+    background: var(--gradiente-botao);
+    color: #FFFFFF;
     border: none;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 11px 22px;
+    border-radius: var(--raio-pill);
     cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s;
+    font-weight: 700;
+    font-size: 14px;
+    white-space: nowrap;
+    box-shadow: 0 6px 16px rgba(0, 110, 210, 0.28);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .takeButton:disabled {
-    background-color: #E0E0E0;
+    background-color: #CCD6E0;
+    color: #6B7B8D;
     cursor: not-allowed;
+    box-shadow: none;
 }
 
 .takeButton:hover:enabled {
-    background-color: #E0F7FF;
-    color: #00AEEF;
+    transform: translateY(-2px);
+    background: var(--gradiente-botao-hover);
+    box-shadow: 0 8px 20px rgba(0, 110, 210, 0.4);
 }
 
 /* Estilo quando não houver medicamentos agendados */
 .noMedications {
-    font-size: 1.5rem;
-    color:red;
+    font-size: 1.1rem;
+    color: var(--danger);
     text-align: center;
+    padding: 20px;
+    background: rgba(229, 72, 77, 0.07);
+    border-radius: var(--raio);
 }
 
-
 @media (max-width: 768px) {
-    .tituloCalendarioMedicamento {
-        font-size: 1.5rem;
+    .container {
+        padding: 28px 16px;
     }
 
-    .calendar {
-        width: 100%;
-        height: auto;
-        font-size: 18px;
+    .title {
+        font-size: 1.7rem;
     }
 
-    .medicamentosContainer {
-        font-size: 18px;
+    .medicationsList {
+        padding: 18px;
+    }
+
+    .medicationTitle {
+        font-size: 1.3rem;
     }
 }
 
 @media (max-width: 480px) {
-    .tituloCalendarioMedicamento {
-        font-size: 1.2rem;
-        margin-bottom: 15px;
-    }
-
     .calendar {
+        font-size: 13px;
+        padding: 10px !important;
+    }
+
+    .medicationItem {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .takeButton {
         width: 100%;
-        height: 350px;
-        font-size: 16px;
     }
 
-    .medicamentosContainer {
-        font-size: 16px;
-        padding: 15px;
-    }
-
-    .medicamentoItem {
-        padding: 8px;
+    .medicationTitle {
+        font-size: 1.15rem;
     }
 }

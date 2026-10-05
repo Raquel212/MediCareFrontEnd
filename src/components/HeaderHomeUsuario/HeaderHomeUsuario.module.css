@@ -2,93 +2,177 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #E0F7FF;
-    color: #004D99;
-    padding: 0px 15px;
-    position: relative;
+    background: linear-gradient(90deg, #EAF6FD 0%, #D5F1FC 100%);
+    color: var(--azul-700, #004D99);
+    padding: 12px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--borda, #CBE8F5);
+    box-shadow: 0 4px 18px rgba(13, 59, 102, 0.08);
 }
 
 .logoHearderHomeUsuario {
-    width: 230px;
+    width: 200px;
+    transition: transform 0.3s ease;
 }
 
 .iconHomeUsuario {
-    font-size: 35px;
+    font-size: 28px;
     cursor: pointer;
-    color: #004D99;
+    color: var(--azul-700, #004D99);
     z-index: 1100;
-    margin-right: 30px;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
 }
 
 .iconHomeUsuario:hover {
-    color: #00AEEF;
+    color: var(--ciano-500, #00AEEF);
+    background-color: rgba(255, 255, 255, 0.8);
+    border-color: var(--borda, #CBE8F5);
+}
+
+/* Overlay escuro quando o menu lateral está aberto */
+.overlayHomeUsuario {
+    position: fixed;
+    inset: 0;
+    background: rgba(7, 28, 54, 0.45);
+    backdrop-filter: blur(2px);
+    z-index: 1050;
+    animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .menuLateralHomeUsuario {
     position: fixed;
     top: 0;
-    left: -250px; 
-    width: 250px;
+    left: -280px;
+    width: 280px;
+    max-width: 85vw;
     height: 100vh;
-    background-color: #E0F7FF;
-    color: #004D99;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
+    background: linear-gradient(180deg, #F2FAFE 0%, #E4F5FC 100%);
+    color: var(--azul-700, #004D99);
+    padding: 24px 20px;
+    box-shadow: 6px 0 30px rgba(7, 28, 54, 0.18);
+    z-index: 1060;
     display: flex;
     flex-direction: column;
-    transition: left 0.3s ease-in-out;
+    transition: left 0.3s cubic-bezier(0.25, 0.8, 0.4, 1);
+    overflow-y: auto;
 }
 
 .menuLateralHomeUsuario.aberto {
-    left: 0; 
+    left: 0;
+}
+
+/* Cabeçalho do menu (logo/brand) */
+.menuHeaderHomeUsuario {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--borda, #CBE8F5);
+}
+
+.menuHeaderHomeUsuario img {
+    width: 150px;
+}
+
+.menuFecharHomeUsuario {
+    font-size: 24px;
+    color: var(--azul-700, #004D99);
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 1px solid var(--borda, #CBE8F5);
+    background: #FFFFFF;
+    transition: all 0.2s ease;
+}
+
+.menuFecharHomeUsuario:hover {
+    color: var(--ciano-500, #00AEEF);
+    background: var(--ciano-100, #E0F7FF);
 }
 
 .menuLateralHomeUsuario ul {
     list-style: none;
     padding: 0;
-    margin: 0;
-    margin-top: 50px;
+    margin: 8px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .menuLateralHomeUsuario li {
-    margin: 15px 0;
     display: flex;
     align-items: center;
+    border-radius: 12px;
+    transition: background-color 0.2s ease;
+}
+
+.menuLateralHomeUsuario li:hover {
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 .menuLateralHomeUsuario a {
     text-decoration: none;
-    color: #004D99;
-    font-size: 20px; 
-    margin-left: 10px;
-    transition: color 0.3s;
+    color: var(--azul-700, #004D99);
+    font-size: 16px;
+    font-weight: 500;
+    padding: 13px 12px;
     display: flex;
     align-items: center;
-    font-weight: 500;
+    flex: 1;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .menuLateralHomeUsuario a:hover {
-    color: #00AEEF;
+    color: var(--ciano-500, #00AEEF);
+    transform: translateX(3px);
 }
 
 .menuIconHomeUsuario {
-    font-size: 28px; 
-    margin-right: 10px;
-    color: #004D99;
+    font-size: 20px;
+    margin-right: 14px;
+    color: var(--azul-600, #1E66B5);
+    flex-shrink: 0;
 }
 
 .perfilDropdownHomeUsuario {
     position: absolute;
-    top: 50px;
-    right: 20px; 
-    background-color: #E0F7FF;
-    color: #004D99;
-    padding: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
-    z-index: 1000;
-    margin-top: 20px;
+    top: calc(100% + 10px);
+    right: 20px;
+    background-color: #FFFFFF;
+    color: var(--azul-700, #004D99);
+    padding: 8px;
+    box-shadow: 0 12px 32px rgba(13, 59, 102, 0.18);
+    border-radius: 14px;
+    border: 1px solid var(--borda, #CBE8F5);
+    z-index: 1100;
+    min-width: 200px;
+    animation: dropIn 0.2s ease;
+}
+
+@keyframes dropIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .perfilDropdownHomeUsuario ul {
@@ -98,77 +182,83 @@
 }
 
 .perfilDropdownHomeUsuario li {
-    margin: 10px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.perfilDropdownHomeUsuario li:hover {
+    background-color: var(--azul-50, #F3FAFF);
 }
 
 .perfilDropdownHomeUsuario a {
     text-decoration: none;
-    color: #004D99;
-    font-size: 18px; 
-    transition: color 0.3s;
+    color: var(--azul-700, #004D99);
+    font-size: 15px;
+    display: block;
+    padding: 10px 12px;
+    font-weight: 500;
+    transition: color 0.2s;
 }
 
 .perfilDropdownHomeUsuario a:hover {
-    color: #00AEEF;
+    color: var(--ciano-500, #00AEEF);
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
     .menuLateralHomeUsuario {
-        width: 200px;
-    }
-
-    .menuLateralHomeUsuario a {
-        font-size: 18px;
+        width: 250px;
     }
 
     .perfilDropdownHomeUsuario a {
-        font-size: 18px;
+        font-size: 15px;
     }
 
     .iconHomeUsuario {
-        font-size: 30px;
+        font-size: 24px;
+        width: 42px;
+        height: 42px;
     }
 
     .logoHearderHomeUsuario {
-        width: 180px;
+        width: 165px;
     }
 }
 
 @media (max-width: 480px) {
     .menuLateralHomeUsuario {
-        width: 180px; 
+        width: 240px;
+        padding: 18px 14px;
     }
 
     .menuLateralHomeUsuario a {
-        font-size: 16px; 
+        font-size: 15px;
     }
 
     .perfilDropdownHomeUsuario a {
-        font-size: 16px; 
+        font-size: 14px;
     }
 
     .iconHomeUsuario {
-        font-size: 25px; 
+        font-size: 22px;
+        width: 40px;
+        height: 40px;
     }
 
     .logoHearderHomeUsuario {
-        width: 150px; 
+        width: 140px;
     }
 
     .headerHomeUsuario {
-        padding: 5px 10px;
-    }
-
-    .menuLateralHomeUsuario ul {
-        margin-top: 30px;
-    }
-
-    .menuLateralHomeUsuario li {
-        margin: 10px 0;
+        padding: 8px 12px;
     }
 
     .perfilDropdownHomeUsuario {
-        right: 10px; 
+        right: 10px;
+        min-width: 180px;
+    }
+
+    .menuHeaderHomeUsuario img {
+        width: 130px;
     }
 }

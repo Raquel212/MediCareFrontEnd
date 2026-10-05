@@ -5,46 +5,28 @@ import { FaLightbulb } from 'react-icons/fa';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { useState } from 'react';
+import { getAgendamentosPorData, marcarAgendamentoTomado, resumoEstoque } from '../../services/agendamentoStore';
 
 function HomeUsuario() {
     const [selectedDate, setSelectedDate] = useState(new Date());
-    const [medications, setMedications] = useState({
-        "2025-06-12": [
-            { name: "Escitalopram", quantity: 1, taken: false, scheduledTime: "12:00" },
-            { name: "Levotiroxina", quantity: 8, taken: false, scheduledTime: "21:00" },
-        ],
-        "2025-06-13": [
-            { name: "Amoxicilina", quantity: 1, taken: false, scheduledTime: "19:00" },
-            { name: "Aspirina", quantity: 1, taken: false, scheduledTime: "21:00" },
-        ],
-    });
+    const [, setAtualizacao] = useState(0);
 
-    const formatDate = (date) => date.toISOString().split('T')[0];
+    const formatDate = (date) => {
+        const d = new Date(date);
+        const ano = d.getFullYear();
+        const mes = String(d.getMonth() + 1).padStart(2, '0');
+        const dia = String(d.getDate()).padStart(2, '0');
+        return `${ano}-${mes}-${dia}`;
+    };
 
     const handleDateChange = (date) => setSelectedDate(date);
 
-    const currentMedications = medications[formatDate(selectedDate)] || [];
+    const currentMedications = getAgendamentosPorData(formatDate(selectedDate));
 
-    const handleMedicationTaken = (medName) => {
-        setMedications((prevMedications) => {
-            const dateKey = formatDate(selectedDate);
-            const updatedMedications = { ...prevMedications };
-
-            if (updatedMedications[dateKey]) {
-                updatedMedications[dateKey] = updatedMedications[dateKey].map((med) => {
-                    if (med.name === medName && med.quantity > 0 && !med.taken) {
-                        return {
-                            ...med,
-                            taken: true,
-                            quantity: med.quantity - 1,
-                        };
-                    }
-                    return med;
-                });
-            }
-
-            return updatedMedications;
-        });
+    const handleMedicationTaken = (med) => {
+        if (med.taken) return;
+        marcarAgendamentoTomado(med.id);
+        setAtualizacao((n) => n + 1);
     };
 
     const isTimeToTakeMedication = (scheduledTime) => {
@@ -54,6 +36,7 @@ function HomeUsuario() {
         return now >= scheduledDate;
     };
 
+    const estoque = resumoEstoque();
     const formattedDate = selectedDate.toLocaleDateString('pt-BR');
 
     return (
@@ -85,7 +68,7 @@ function HomeUsuario() {
                                         <li key={index} style={{ color: 'black' }}>
                                             {med.name} - {med.quantity} comprimido(s) - {med.scheduledTime}
                                             <button
-                                                onClick={() => handleMedicationTaken(med.name)}
+                                                onClick={() => handleMedicationTaken(med)}
                                                 className={styles.takeButton}
                                                 disabled={!isTimeToTakeMedication(med.scheduledTime) || med.taken}
                                             >
@@ -100,15 +83,17 @@ function HomeUsuario() {
 
                     <div className={styles.cardEs}>
                         <h3 className={styles.estoqueTitulo}>Medicamentos em Estoque</h3>
-                        <ul>
-                            {Object.keys(medications).map((date) =>
-                                medications[date].map((med, index) => (
+                        {estoque.length === 0 ? (
+                            <p>Sem medicamentos em estoque.</p>
+                        ) : (
+                            <ul>
+                                {estoque.map((med, index) => (
                                     <li key={index}>
-                                        {med.name} - {med.quantity} comprimido(s) restantes
+                                        {med.name} - {med.quantity} comprimido(s) restantes {med.dosagem && `(${med.dosagem})`}
                                     </li>
-                                ))
-                            )}
-                        </ul>
+                                ))}
+                            </ul>
+                        )}
                     </div>
 
                     <div className={styles.cardDica}>
