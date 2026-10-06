@@ -1,0 +1,164 @@
+.pinOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(7, 28, 54, 0.55);
+    backdrop-filter: blur(3px);
+    z-index: 1400;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.pinModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #FFFFFF;
+    padding: 32px 28px;
+    border-radius: var(--raio-grande);
+    border: 1px solid var(--borda);
+    box-shadow: var(--sombra-forte);
+    z-index: 1410;
+    width: 360px;
+    max-width: 92vw;
+    text-align: center;
+    animation: modalIn 0.25s ease;
+}
+
+@keyframes modalIn {
+    from { opacity: 0; transform: translate(-50%, -44%) scale(0.97); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.pinFechar {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--azul-50);
+    color: var(--azul-700);
+    border: 1px solid var(--borda);
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.pinFechar:hover {
+    background: var(--ciano-100);
+    color: var(--ciano-600);
+}
+
+.pinIcone {
+    font-size: 40px;
+    color: var(--azul-600);
+    background: var(--azul-50);
+    width: 78px;
+    height: 78px;
+    padding: 18px;
+    border-radius: 50%;
+    box-sizing: content-box;
+    margin-bottom: 16px;
+}
+
+.pinTitulo {
+    font-size: 1.35rem;
+    color: var(--azul-800);
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.pinMensagem {
+    font-size: 14px;
+    color: var(--texto-secundario);
+    margin-bottom: 18px;
+    line-height: 1.5;
+}
+
+.pinInput {
+    width: 160px;
+    padding: 14px;
+    border: 2px solid var(--borda);
+    border-radius: var(--raio);
+    font-size: 26px;
+    letter-spacing: 12px;
+    text-align: center;
+    outline: none;
+    background: var(--azul-50);
+    color: var(--texto-primario);
+    margin-bottom: 6px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pinInput::placeholder {
+    color: #B9CBDA;
+}
+
+.pinInput:focus {
+    border-color: var(--ciano-500);
+    box-shadow: 0 0 0 4px rgba(0, 174, 239, 0.15);
+}
+
+.pinErro {
+    color: var(--danger);
+    font-size: 13.5px;
+    font-weight: 600;
+    margin: 8px 0 2px;
+    padding: 8px;
+    background: rgba(229, 72, 77, 0.07);
+    border-radius: var(--raio);
+}
+
+.pinAcoes {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.pinConfirmar {
+    background: var(--gradiente-botao);
+    color: #FFFFFF;
+    border: none;
+    padding: 12px 28px;
+    border-radius: var(--raio-pill);
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0, 110, 210, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.pinConfirmar:hover {
+    background: var(--gradiente-botao-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0, 110, 210, 0.4);
+}
+
+.pinCancelar {
+    background: #E9F2FA;
+    color: var(--azul-700);
+    border: 1px solid var(--borda);
+    padding: 12px 24px;
+    border-radius: var(--raio-pill);
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.pinCancelar:hover {
+    background: var(--ciano-100);
+    transform: translateY(-2px);
+}

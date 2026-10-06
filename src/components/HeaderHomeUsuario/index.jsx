@@ -36,6 +36,7 @@ function HeaderHomeUsuario() {
                         <ul>
                             <li><Link to="/notificacao">Notificações</Link></li>
                             <li><Link to="/editarperfil">Editar Perfil</Link></li>
+                            <li><Link to="/controle-parental">Controle Parental</Link></li>
                             <li><Link to="/login">Sair</Link></li>
                         </ul>
                     </div>

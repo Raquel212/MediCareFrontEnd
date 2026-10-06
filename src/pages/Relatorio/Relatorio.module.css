@@ -21,6 +21,99 @@
     margin: 0 auto;
 }
 
+/* Card de bloqueio por PIN (controle parental) */
+.lockCard {
+    background: #FFFFFF;
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-grande);
+    box-shadow: var(--sombra-media);
+    padding: 40px 28px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.lockIcone {
+    font-size: 38px;
+    color: var(--azul-600);
+    background: var(--azul-50);
+    width: 76px;
+    height: 76px;
+    padding: 18px;
+    border-radius: 50%;
+    box-sizing: content-box;
+    margin-bottom: 14px;
+}
+
+.lockTitulo {
+    font-size: 1.4rem;
+    color: var(--azul-800);
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.lockTexto {
+    font-size: 14.5px;
+    color: var(--texto-secundario);
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.lockInput {
+    width: 160px;
+    padding: 14px;
+    border: 2px solid var(--borda);
+    border-radius: var(--raio);
+    font-size: 26px;
+    letter-spacing: 12px;
+    text-align: center;
+    outline: none;
+    background: var(--azul-50);
+    color: var(--texto-primario);
+    margin-bottom: 8px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lockInput::placeholder {
+    color: #B9CBDA;
+}
+
+.lockInput:focus {
+    border-color: var(--ciano-500);
+    box-shadow: 0 0 0 4px rgba(0, 174, 239, 0.15);
+}
+
+.lockErro {
+    color: var(--danger);
+    font-size: 13.5px;
+    font-weight: 600;
+    margin: 8px 0 6px;
+    padding: 8px;
+    background: rgba(229, 72, 77, 0.07);
+    border-radius: var(--raio);
+}
+
+.lockBotao {
+    background: var(--gradiente-botao);
+    color: #FFFFFF;
+    border: none;
+    padding: 12px 32px;
+    border-radius: var(--raio-pill);
+    font-weight: 700;
+    font-size: 15px;
+    margin-top: 8px;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0, 110, 210, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.lockBotao:hover {
+    background: var(--gradiente-botao-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0, 110, 210, 0.4);
+}
+
 .cardRelatorio {
     background: var(--gradiente-cartao);
     border: 1px solid var(--borda);

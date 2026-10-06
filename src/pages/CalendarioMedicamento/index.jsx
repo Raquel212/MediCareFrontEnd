@@ -60,7 +60,7 @@ function CalendarioMedicamentos() {
                                 <div>
                                     <strong>{med.name}</strong> - {med.quantity} restantes
                                     <br />
-                                    Agendado para: {med.scheduledTime} <br />
+                                    <strong>Agendado para:</strong> {med.scheduledTime} <br />
                                     <strong>Frenquência: </strong> {med.frequency}
                                 </div>
                                 <button

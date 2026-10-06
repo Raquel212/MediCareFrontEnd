@@ -1,0 +1,396 @@
+.containerControle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 20px;
+    background: var(--gradiente-suave);
+    min-height: calc(100vh - 64px);
+}
+
+.tituloControle {
+    font-size: 2.2rem;
+    color: var(--azul-800);
+    margin-bottom: 12px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.subtituloControle {
+    font-size: 15px;
+    color: var(--texto-secundario);
+    text-align: center;
+    max-width: 600px;
+    margin-bottom: 28px;
+    line-height: 1.6;
+}
+
+.avisoSucesso {
+    background: rgba(47, 158, 99, 0.1);
+    color: var(--success);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 12px 20px;
+    border-radius: var(--raio);
+    border: 1px solid rgba(47, 158, 99, 0.3);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 560px;
+    text-align: left;
+}
+
+.cardControle {
+    background: #FFFFFF;
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-grande);
+    box-shadow: var(--sombra-media);
+    padding: 32px 28px;
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+}
+
+.cardIcone {
+    font-size: 38px;
+    color: var(--azul-600);
+    background: var(--azul-50);
+    width: 76px;
+    height: 76px;
+    padding: 18px;
+    border-radius: 50%;
+    box-sizing: content-box;
+    margin-bottom: 14px;
+}
+
+.cardTitulo {
+    font-size: 1.4rem;
+    color: var(--azul-800);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.cardStatus {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: var(--raio-pill);
+    background: var(--ciano-100);
+    color: var(--ciano-700);
+}
+
+.formControle {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: left;
+    margin-bottom: 6px;
+}
+
+.formControle label {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--azul-700);
+}
+
+.formControle input,
+.emailInput {
+    margin-top: 6px;
+    padding: 12px 14px;
+    border: 2px solid var(--borda);
+    border-radius: var(--raio);
+    font-size: 18px;
+    letter-spacing: 3px;
+    text-align: center;
+    outline: none;
+    background: var(--azul-50);
+    color: var(--texto-primario);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.formControle input[type="email"],
+.emailInput {
+    letter-spacing: 0;
+    text-align: left;
+    font-size: 15px;
+}
+
+.formControle input::placeholder,
+.emailInput::placeholder {
+    color: #B9CBDA;
+    letter-spacing: 2px;
+}
+
+.formControle input:focus,
+.emailInput:focus {
+    border-color: var(--ciano-500);
+    box-shadow: 0 0 0 4px rgba(0, 174, 239, 0.15);
+}
+
+.dicaObs {
+    font-size: 13px;
+    color: var(--texto-suave);
+    background: var(--azul-50);
+    border: 1px dashed var(--borda);
+    padding: 10px 12px;
+    border-radius: var(--raio);
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-align: left;
+}
+
+.erroMsg {
+    color: var(--danger);
+    font-size: 13.5px;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px;
+    background: rgba(229, 72, 77, 0.07);
+    border-radius: var(--raio);
+}
+
+.botaoSalvar {
+    background: var(--gradiente-botao);
+    color: #FFFFFF;
+    border: none;
+    padding: 14px;
+    border-radius: var(--raio-pill);
+    font-weight: 700;
+    font-size: 15px;
+    margin-top: 8px;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0, 110, 210, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.botaoSalvar:hover {
+    background: var(--gradiente-botao-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0, 110, 210, 0.4);
+}
+
+.botaoRemover {
+    margin-top: 12px;
+    background: transparent;
+    color: var(--danger);
+    border: 1px solid rgba(229, 72, 77, 0.4);
+    padding: 12px 20px;
+    border-radius: var(--raio-pill);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.botaoRemover:hover {
+    background: rgba(229, 72, 77, 0.08);
+    transform: translateY(-2px);
+}
+
+/* ---------- Fluxo de alteração/remoção por e-mail ---------- */
+.fluxoAcao {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-align: left;
+}
+
+.infosResponsavel {
+    background: var(--azul-50);
+    border: 1px solid var(--borda-clara);
+    padding: 14px 16px;
+    border-radius: var(--raio);
+    font-size: 14px;
+    color: var(--texto-secundario);
+    line-height: 1.6;
+}
+
+.infosResponsavel strong {
+    color: var(--azul-700);
+}
+
+.passoTitulo {
+    font-size: 14.5px;
+    color: var(--texto-secundario);
+    line-height: 1.5;
+    text-align: center;
+}
+
+.passoTitulo strong {
+    color: var(--azul-700);
+}
+
+.demoEmail {
+    background: #FFF7E6;
+    border: 1px dashed var(--warning);
+    color: #7A4E00;
+    font-size: 13.5px;
+    padding: 12px 14px;
+    border-radius: var(--raio);
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.demoEmail strong {
+    color: #7A4E00;
+    letter-spacing: 2px;
+    font-size: 15px;
+}
+
+.emailInput {
+    width: 100%;
+}
+
+.botoesFluxo {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.botoesFluxo .botaoSalvar,
+.botoesFluxo .botaoRemover {
+    margin-top: 0;
+    flex: 1;
+    min-width: 150px;
+}
+
+/* ---------- Modal de confirmação do cadastro ---------- */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(7, 28, 54, 0.55);
+    backdrop-filter: blur(3px);
+    z-index: 1380;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modalConfirmacao {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFFFFF;
+    padding: 28px;
+    border-radius: var(--raio-grande);
+    border: 1px solid var(--borda);
+    box-shadow: var(--sombra-forte);
+    z-index: 1390;
+    width: 420px;
+    max-width: 92vw;
+    text-align: center;
+    animation: modalIn 0.25s ease;
+}
+
+@keyframes modalIn {
+    from { opacity: 0; transform: translate(-50%, -44%) scale(0.97); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.modalIcone {
+    font-size: 30px;
+    color: var(--warning);
+    margin-bottom: 12px;
+}
+
+.modalConfirmacao h3 {
+    font-size: 1.25rem;
+    color: var(--azul-800);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.modalConfirmacao p {
+    font-size: 14px;
+    color: var(--texto-secundario);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.modalAcoes {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.modalConfirmar {
+    background: var(--gradiente-botao);
+    color: #FFFFFF;
+    border: none;
+    padding: 12px 24px;
+    border-radius: var(--raio-pill);
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0, 110, 210, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modalConfirmar:hover {
+    background: var(--gradiente-botao-hover);
+    transform: translateY(-2px);
+}
+
+.modalCancelar {
+    background: #E9F2FA;
+    color: var(--azul-700);
+    border: 1px solid var(--borda);
+    padding: 12px 24px;
+    border-radius: var(--raio-pill);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.modalCancelar:hover {
+    background: var(--ciano-100);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .containerControle {
+        padding: 32px 16px;
+    }
+
+    .tituloControle {
+        font-size: 1.7rem;
+    }
+
+    .cardControle {
+        padding: 24px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tituloControle {
+        font-size: 1.5rem;
+    }
+
+    .subtituloControle {
+        font-size: 14px;
+    }
+
+    .botoesFluxo {
+        flex-direction: column;
+    }
+}

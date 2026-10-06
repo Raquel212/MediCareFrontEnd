@@ -21,12 +21,18 @@ function CadastrarMedicamento() {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
-    if (name === "foto") {
-      setForm({ ...form, [name]: files[0] });
-    } else {
-      setForm({ ...form, [name]: value });
-    }
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  };
+
+  const handleFotoChange = (e) => {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      setForm((prev) => ({ ...prev, foto: ev.target.result }));
+    };
+    reader.readAsDataURL(file);
   };
 
   const handleSubmit = (e) => {
@@ -51,6 +57,16 @@ function CadastrarMedicamento() {
       dosagem: form.dosagem,
     });
 
+    const dadosLocais = {
+      nome: form.nome,
+      dataRegistro: form.dataDeRegistro,
+      quantidade: form.quantidadeTotal,
+      dosagem: form.dosagem,
+      horario: form.horarios,
+      tempoDeTratamento: form.tempoDeTratamento,
+      foto: form.foto || "",
+    };
+
     const concluirCadastro = () => {
       setShowNotification(true);
       setTimeout(() => setShowNotification(false), 3000);
@@ -61,14 +77,7 @@ function CadastrarMedicamento() {
 
     // Fallback quando o backend está indisponível: salva como dado fixo local
     if (usandoMock) {
-      adicionarMedicamentoFixo({
-        nome: form.nome,
-        dataRegistro: form.dataDeRegistro,
-        quantidade: form.quantidadeTotal,
-        dosagem: form.dosagem,
-        horario: form.horarios,
-        tempoDeTratamento: form.tempoDeTratamento,
-      });
+      adicionarMedicamentoFixo(dadosLocais);
       concluirCadastro();
       return;
     }
@@ -82,14 +91,7 @@ function CadastrarMedicamento() {
       .catch((error) => {
         console.error(error);
         // Se a API falhar, passa a usar os dados fixos localmente
-        adicionarMedicamentoFixo({
-          nome: form.nome,
-          dataRegistro: form.dataDeRegistro,
-          quantidade: form.quantidadeTotal,
-          dosagem: form.dosagem,
-          horario: form.horarios,
-          tempoDeTratamento: form.tempoDeTratamento,
-        });
+        adicionarMedicamentoFixo(dadosLocais);
         setUsandoMock(true);
         concluirCadastro();
       });
@@ -192,6 +194,27 @@ function CadastrarMedicamento() {
               required
             />
           </label>
+
+          <label>
+            Foto do Medicamento:
+            <input
+              type="file"
+              name="foto"
+              accept="image/*"
+              onChange={handleFotoChange}
+              className={styles.inputFoto}
+            />
+            {form.foto && (
+              <div className={styles.fotoPreviewContainer}>
+                <img
+                  src={form.foto}
+                  alt="Prévia do medicamento"
+                  className={styles.fotoPreview}
+                />
+              </div>
+            )}
+          </label>
+
           <button type="submit" className={styles.botaoCadastrar}>
             Registrar
           </button>

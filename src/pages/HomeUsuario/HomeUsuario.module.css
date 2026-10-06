@@ -204,14 +204,19 @@
 /* Dica do Dia */
 .cardDica {
     background: linear-gradient(135deg, var(--azul-800), var(--azul-600));
-    padding: 28px;
+    padding: 24px 32px;
     border-radius: var(--raio-grande);
     box-shadow: var(--sombra-media);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-    grid-column: 2;
-    grid-row: 2;
+    grid-column: 1 / -1;
+    grid-row: auto;
     color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    text-align: left;
 }
 
 .cardDica:hover {
@@ -223,11 +228,18 @@
     font-size: 17px;
     color: #EAF3FC;
     line-height: 1.7;
-    text-align: center;
+    text-align: left;
+    flex: 1;
+    max-width: 720px;
 }
 
 .cardDica .textoDica strong {
     color: #FFFFFF;
+}
+
+.cardDica .cardIcon {
+    margin-bottom: 0;
+    flex-shrink: 0;
 }
 
 .cardIcon {
@@ -251,7 +263,7 @@
     .card,
     .cardEs,
     .cardDica {
-        grid-column: 1;
+        grid-column: 1 / -1;
         grid-row: auto;
     }
 
@@ -297,6 +309,17 @@
     .calendar {
         max-width: 100%;
         font-size: 14px;
+    }
+
+    .cardDica {
+        flex-direction: column;
+        text-align: center;
+        padding: 24px 20px;
+        gap: 8px;
+    }
+
+    .cardDica .textoDica {
+        text-align: center;
     }
 
     .dateInfo ul li {

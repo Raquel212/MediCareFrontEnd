@@ -28,6 +28,7 @@ function Login() {
         try {
             const response = await api.post('/Authentication/login', { email, senha });
             localStorage.setItem('authToken', response.data.token);
+            localStorage.setItem('medicareUsuario', email);
             navigate('/home');
         } catch (error) {
             console.error(error);
@@ -35,6 +36,7 @@ function Login() {
             // mesmo se o backend falhar (usuário inexistente ou serviço indisponível).
             if (email === 'paciente@gmail.com' && senha === '123456') {
                 localStorage.setItem('authToken', 'fallback-token-demo');
+                localStorage.setItem('medicareUsuario', email);
                 navigate('/home');
                 return;
             }

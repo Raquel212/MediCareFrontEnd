@@ -69,12 +69,19 @@
     color: var(--azul-700);
 }
 
+.fotoExibicao {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 14px;
+}
+
 .medicamentoFoto {
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
     object-fit: cover;
-    margin-top: 10px;
     border-radius: var(--raio);
+    border: 2px solid var(--borda);
+    box-shadow: var(--sombra-suave);
 }
 
 .mensagem {
@@ -214,7 +221,7 @@
 }
 
 .botaoCancelar {
-    background: linear-gradient(135deg, #F26B6B, #E5484D);
+    background: var(--gradiente-botao);
 }
 
 .botaoSalvar:hover {
@@ -224,8 +231,54 @@
 
 .botaoCancelar:hover {
     transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 110, 210, 0.3);
+    opacity: 0.95;
+}
+
+/* Modal de confirmação de exclusão */
+.modalConfirmacao {
+    width: 420px;
+    text-align: center;
+}
+
+.modalConfirmacao .confirmacaoTexto {
+    font-size: 16px;
+    color: var(--texto-secundario);
+    margin-bottom: 24px;
+    line-height: 1.6;
+    padding: 16px;
+    background: var(--azul-50);
+    border-radius: var(--raio);
+    border: 1px solid var(--borda-clara);
+}
+
+.modalConfirmacao .confirmacaoTexto strong {
+    color: var(--azul-800);
+}
+
+.confirmacaoAcoes {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.botaoExcluirSim {
+    background: linear-gradient(135deg, #F26B6B, #E5484D);
+    color: #FFFFFF;
+    padding: 12px 28px;
+    border: none;
+    border-radius: var(--raio);
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s;
+}
+
+.botaoExcluirSim:hover {
+    transform: translateY(-2px);
     opacity: 0.92;
-    box-shadow: 0 8px 18px rgba(229, 72, 77, 0.3);
+    box-shadow: 0 8px 18px rgba(229, 72, 77, 0.35);
 }
 
 /* Responsividade */

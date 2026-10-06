@@ -4,13 +4,18 @@ import HeaderHomeUsuario from "../../components/HeaderHomeUsuario";
 import styles from "./GerenciarMedicamentos.module.css";
 import api from "../../services/api";
 import { getMedicamentosFixos, salvarMedicamentosFixos } from "../../services/medicamentoStore";
+import PinGate from "../../components/PinGate";
+import { hasPin } from "../../services/pinStore";
 
 function GerenciarMedicamento() {
   const [medicamentos, setMedicamentos] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [currentMedicamento, setCurrentMedicamento] = useState(null);
   const [editIndex, setEditIndex] = useState(null);
+  const [confirmaExclusao, setConfirmaExclusao] = useState(null);
   const [usandoMock, setUsandoMock] = useState(false);
+  const [pinAberto, setPinAberto] = useState(false);
+  const [acaoPendente, setAcaoPendente] = useState(null);
 
   useEffect(() => {
     api
@@ -106,6 +111,42 @@ function GerenciarMedicamento() {
     setCurrentMedicamento(null);
   };
 
+  // ---- Controle parental: ações sensíveis exigem o PIN ----
+  const pedirEdicao = (index, medicamento) => {
+    if (hasPin()) {
+      setAcaoPendente({ tipo: "editar", index, medicamento });
+      setPinAberto(true);
+    } else {
+      handleEdit(index, medicamento);
+    }
+  };
+
+  const pedirExclusao = (index, medicamento) => {
+    if (hasPin()) {
+      setAcaoPendente({ tipo: "excluir", index, medicamento });
+      setPinAberto(true);
+    } else {
+      setConfirmaExclusao({ index, medicamento });
+    }
+  };
+
+  const confirmarPinAcao = () => {
+    const pendente = acaoPendente;
+    if (!pendente) return;
+    if (pendente.tipo === "editar") {
+      handleEdit(pendente.index, pendente.medicamento);
+    } else if (pendente.tipo === "excluir") {
+      setConfirmaExclusao({ index: pendente.index, medicamento: pendente.medicamento });
+    }
+    setPinAberto(false);
+    setAcaoPendente(null);
+  };
+
+  const fecharPin = () => {
+    setPinAberto(false);
+    setAcaoPendente(null);
+  };
+
   return (
     <>
       <HeaderHomeUsuario />
@@ -119,6 +160,15 @@ function GerenciarMedicamento() {
           <ul className={styles.listaMedicamentos}>
             {medicamentos.map((medicamento, index) => (
               <li key={index} className={styles.medicamentoItem}>
+                {medicamento.foto && (
+                  <div className={styles.fotoExibicao}>
+                    <img
+                      src={medicamento.foto}
+                      alt={`Foto de ${medicamento.nome}`}
+                      className={styles.medicamentoFoto}
+                    />
+                  </div>
+                )}
                 <div className={styles.medicamentoInfo}>
                   <p>
                     <strong>Nome:</strong> {medicamento.nome}
@@ -143,13 +193,13 @@ function GerenciarMedicamento() {
                 </div>
                 <div className={styles.acoes}>
                   <button
-                    onClick={() => handleEdit(index, medicamento)}
+                    onClick={() => pedirEdicao(index, medicamento)}
                     className={styles.botaoEditar}
                   >
                     Editar
                   </button>
                   <button
-                    onClick={() => handleDelete(index, medicamento)}
+                    onClick={() => pedirExclusao(index, medicamento)}
                     className={styles.botaoExcluir}
                   >
                     Excluir
@@ -160,6 +210,41 @@ function GerenciarMedicamento() {
           </ul>
         )}
       </div>
+
+      {/* Modal de Confirmação de Exclusão */}
+      {confirmaExclusao && (
+        <>
+          <div
+            className={styles.modalOverlay}
+            onClick={() => setConfirmaExclusao(null)}
+          ></div>
+          <div className={`${styles.modal} ${styles.modalConfirmacao}`}>
+            <h2>Excluir Medicamento</h2>
+            <p className={styles.confirmacaoTexto}>
+              Tem certeza que deseja excluir o medicamento{" "}
+              <strong>{confirmaExclusao.medicamento.nome}</strong>? Essa ação
+              não poderá ser desfeita.
+            </p>
+            <div className={styles.confirmacaoAcoes}>
+              <button
+                className={styles.botaoExcluirSim}
+                onClick={() => {
+                  handleDelete(confirmaExclusao.index, confirmaExclusao.medicamento);
+                  setConfirmaExclusao(null);
+                }}
+              >
+                Sim, excluir
+              </button>
+              <button
+                className={styles.botaoCancelar}
+                onClick={() => setConfirmaExclusao(null)}
+              >
+                Cancelar
+              </button>
+            </div>
+          </div>
+        </>
+      )}
 
       {/* Modal de Edição */}
       {isEditing && (
@@ -255,6 +340,15 @@ function GerenciarMedicamento() {
           </div>
         </>
       )}
+
+      {/* Modal de PIN (controle parental) */}
+      <PinGate
+        aberto={pinAberto}
+        titulo="Proteção por PIN"
+        mensagem="Digite o PIN do responsável para continuar."
+        aoFechar={fecharPin}
+        aoConfirmar={confirmarPinAcao}
+      />
 
       <Footer />
     </>

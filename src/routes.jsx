@@ -15,6 +15,7 @@ import DetalhesMedicamento from "./pages/DetalhesMedicamentos";
 import Notificacao from "./pages/Notificacao";
 import EditarPerfil from "./pages/EditarPerfil";
 import MedicamentosConsulta from "./pages/MedicamentosConsulta";
+import ControleParental from "./pages/ControleParental";
 
 function AppRoutes() {
   return (
@@ -36,6 +37,7 @@ function AppRoutes() {
             <Route path="/notificacao" element={<Notificacao />} />
             <Route path="/editarperfil" element={<EditarPerfil/>} />
             <Route path="/dicas" element={<MedicamentosConsulta/>} />
+            <Route path="/controle-parental" element={<ControleParental/>} />
         </Routes> 
     </BrowserRouter>
   );
